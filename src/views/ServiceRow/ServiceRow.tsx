@@ -13,7 +13,8 @@ interface ServiceRowProps {
 export default function ServiceRow({ service, index }: ServiceRowProps) {
   const ref = useRef<HTMLLIElement>(null);
   const [inView, setInView] = useState(false);
-  const fromLeft = index % 2 === 0;
+  const fromLeft = index % 2 === 1;
+  const slideFromRight = index % 2 === 0;
 
   useEffect(() => {
     const el = ref.current;
@@ -22,16 +23,14 @@ export default function ServiceRow({ service, index }: ServiceRowProps) {
       ([entry]) => {
         if (entry.isIntersecting) setInView(true);
       },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.45, rootMargin: '-8% 0px -22% 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   const contentBlock = (
-    <div
-      className={`${styles.content} ${inView ? styles.inView : ''} ${fromLeft ? styles.fromLeft : styles.fromRight}`}
-    >
+    <div className={styles.content}>
       <h3 className={styles.title}>{service.title}</h3>
       <p className={styles.description}>{service.description}</p>
     </div>
@@ -56,17 +55,23 @@ export default function ServiceRow({ service, index }: ServiceRowProps) {
 
   return (
     <li ref={ref} className={styles.row}>
-      {fromLeft ? (
-        <>
-          {contentBlock}
-          {imageBlock}
-        </>
-      ) : (
-        <>
-          {imageBlock}
-          {contentBlock}
-        </>
-      )}
+      <div className="container">
+        <div
+          className={`${styles.block} ${inView ? styles.inView : ''} ${slideFromRight ? styles.slideFromRight : styles.slideFromLeft}`}
+        >
+          {fromLeft ? (
+            <>
+              {contentBlock}
+              {imageBlock}
+            </>
+          ) : (
+            <>
+              {imageBlock}
+              {contentBlock}
+            </>
+          )}
+        </div>
+      </div>
     </li>
   );
 }

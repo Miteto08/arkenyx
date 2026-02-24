@@ -4,18 +4,12 @@ import styles from './ServicesSection.module.scss';
 
 export default function ServicesSection() {
   return (
-    <section className={styles.section} id="services">
-      <div className="container">
-        <h2 className={styles.heading}>Nos services</h2>
-        <p className={styles.intro}>
-          Des prestations adaptées à vos besoins, expliquées simplement.
-        </p>
-        <ul className={styles.list}>
-          {services.map((service, index) => (
-            <ServiceRow key={service.id} service={service} index={index} />
-          ))}
-        </ul>
-      </div>
+    <section className={styles.section}>
+      <ul className={styles.list}>
+        {services.map((service, index) => (
+          <ServiceRow key={service.id} service={service} index={index} />
+        ))}
+      </ul>
     </section>
   );
 }

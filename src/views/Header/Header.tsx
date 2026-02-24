@@ -17,6 +17,7 @@ export default function Header() {
           />
         </a>
         <nav className={styles.nav} aria-label="Navigation principale">
+          <a href="#notre-activite">Notre activité</a>
           <a href="#services">Services</a>
           <a href="#contact">Contact</a>
         </nav>
