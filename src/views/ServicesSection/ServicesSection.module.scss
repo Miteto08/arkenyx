@@ -17,19 +17,8 @@
   margin-right: auto;
 }
 
-.grid {
+.list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1fr;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }

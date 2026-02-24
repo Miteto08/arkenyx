@@ -1,5 +1,5 @@
 import { services } from '@/models/services';
-import ServiceCard from '@/views/ServiceCard/ServiceCard';
+import ServiceRow from '@/views/ServiceRow/ServiceRow';
 import styles from './ServicesSection.module.scss';
 
 export default function ServicesSection() {
@@ -10,11 +10,9 @@ export default function ServicesSection() {
         <p className={styles.intro}>
           Des prestations adaptées à vos besoins, expliquées simplement.
         </p>
-        <ul className={styles.grid}>
+        <ul className={styles.list}>
           {services.map((service, index) => (
-            <li key={service.id}>
-              <ServiceCard service={service} index={index} />
-            </li>
+            <ServiceRow key={service.id} service={service} index={index} />
           ))}
         </ul>
       </div>
