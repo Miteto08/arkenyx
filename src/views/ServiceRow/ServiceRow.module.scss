@@ -5,12 +5,24 @@
   width: 100%;
 
   &:nth-of-type(odd) {
-    background: #f8f6f4;
+    background: linear-gradient(
+      90deg,
+      #f8f6f4 0%,
+      #8a98a8 40%,
+      #5a7088 70%,
+      #1f2f3b 100%
+    );
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   &:nth-of-type(even) {
-    background: #1f2f3b;
+    background: linear-gradient(
+      90deg,
+      #1f2f3b 0%,
+      #2d4152 35%,
+      #456078 70%,
+      #5a7088 100%
+    );
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
