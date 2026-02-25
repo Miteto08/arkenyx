@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { DM_Sans } from 'next/font/google';
+import { DM_Sans, Space_Grotesk } from 'next/font/google';
 import '@/app/globals.scss';
 
 const dmSans = DM_Sans({
@@ -7,6 +7,13 @@ const dmSans = DM_Sans({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-dm-sans',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
 });
 
 export const metadata: Metadata = {
@@ -20,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={dmSans.variable}>
+    <html lang="fr" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
       <body>{children}</body>
     </html>
   );

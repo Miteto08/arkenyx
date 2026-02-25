@@ -1,19 +1,24 @@
 .section {
   padding: 2.5rem 0;
+  text-align: left;
+}
+
+.content {
+  max-width: 52ch;
 }
 
 .title {
-  font-size: clamp(1.375rem, 4vw, 1.75rem);
-  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3.5vw, 1.625rem);
   margin-bottom: 1rem;
   color: #ffffff;
+  letter-spacing: -0.02em;
 }
 
 .text {
-  max-width: 50ch;
-  margin: 0 auto;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
   line-height: 1.7;
   font-size: 1rem;
 }

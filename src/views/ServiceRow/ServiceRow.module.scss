@@ -68,8 +68,25 @@
 .description {
   font-size: 1rem;
   line-height: 1.65;
-  margin: 0;
+  margin: 0 0 1rem 0;
   color: var(--color-text-muted);
+}
+
+.list {
+  margin: 0 0 0 1rem;
+  padding: 0;
+  list-style: disc;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.listItem {
+  margin-bottom: 0.35rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .imageWrap {

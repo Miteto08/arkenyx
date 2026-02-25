@@ -7,7 +7,12 @@ export default function ServicesSection() {
     <section className={styles.section}>
       <ul className={styles.list}>
         {services.map((service, index) => (
-          <ServiceRow key={service.id} service={service} index={index} />
+          <ServiceRow
+            key={service.id}
+            service={service}
+            index={index}
+            id={index === 0 ? 'services' : undefined}
+          />
         ))}
       </ul>
     </section>

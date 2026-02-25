@@ -7,13 +7,16 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ service, index }: ServiceCardProps) {
+  const text =
+    service.description ||
+    (service.items?.length ? service.items.slice(0, 2).join(' • ') : '');
   return (
     <article
       className={styles.card}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <h3 className={styles.title}>{service.title}</h3>
-      <p className={styles.description}>{service.description}</p>
+      {text && <p className={styles.description}>{text}</p>}
     </article>
   );
 }
