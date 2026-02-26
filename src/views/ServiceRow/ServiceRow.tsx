@@ -22,9 +22,14 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setInView(true);
+        const ratio = entry.intersectionRatio;
+        setInView((prev) => {
+          if (ratio >= 0.45) return true;
+          if (ratio <= 0.15) return false;
+          return prev;
+        });
       },
-      { threshold: 0.45, rootMargin: '-8% 0px -22% 0px' }
+      { threshold: [0.15, 0.45], rootMargin: '-8% 0px -22% 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -48,6 +53,16 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
           ))}
         </ul>
       ) : null}
+      {service.notePoints?.length ? (
+        <div className={styles.noteBlock} role="note">
+          {service.notePoints.map((point, i) => (
+            <p key={i} className={styles.notePoint}>
+              <span className={styles.noteCheck} aria-hidden>✔</span>
+              {point}
+            </p>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 
@@ -57,9 +72,9 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
         <Image
           src={service.image}
           alt=""
-          width={480}
-          height={320}
+          fill
           className={styles.image}
+          sizes="(max-width: 767px) 100vw, 50vw"
           unoptimized
         />
       ) : (

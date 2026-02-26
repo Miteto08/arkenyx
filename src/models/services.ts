@@ -84,13 +84,22 @@ export const services: Service[] = [
   },
   {
     id: 'logiciels-specifiques',
-    title: 'Logiciels spécifiques',
-    image: '/images/services/logiciels-specifiques.png',
+    title: 'Création de sites vitrine',
+    image: '/images/services/WebsiteCreation.png',
     description:
-      "On installe et on configure les logiciels dont vous avez besoin — suite bureautique, outils de création ou autres — et on vous explique la prise en main de base. Pour les logiciels payants ou plus complexes, l'installation est possible sans paramétrage avancé sur mesure.",
+      "Nous réalisons des sites web vitrines professionnels pour présenter votre activité sur Internet de manière claire, élégante et efficace.\n\nChaque site est conçu sur mesure selon votre identité visuelle et vos besoins, avec une attention particulière à la lisibilité, à la navigation et à l'expérience utilisateur. Une fois livré, vous êtes propriétaire du code et pouvez l'utiliser ou le modifier librement, sans dépendance à une plateforme tierce comme WordPress ou Wix.",
     items: [
-      'Installation et configuration de logiciels bureautiques (Word, Excel…) et créatifs simples (Blender…)',
-      'Installation de logiciels complexes payants possible, mais sans paramétrage avancé spécifique',
+      'Analyse de vos besoins et recueil des contenus à afficher (textes, images, sections souhaitées)',
+      'Création de la structure et du design du site (single-page ou multi-pages)',
+      'Intégration des contenus fournis et mise en forme adaptée',
+      'Conception responsive (affichage optimisé sur desktop, tablette, smartphone)',
+      "Mise en place d'un formulaire de contact fonctionnel",
+      'Vérification de la compatibilité et tests avant publication',
+    ],
+    notePoints: [
+      'Ce service ne comprend pas de gestion de base de données ni d\'espace membre.',
+      "L'hébergement et le nom de domaine sont fournis par le client ou contractés à son nom.",
+      'Un devis personnalisé est fourni avant toute réalisation.',
     ],
   },
 ];

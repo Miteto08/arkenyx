@@ -3,6 +3,7 @@ export interface Service {
   title: string;
   description?: string;
   items?: string[];
+  notePoints?: string[];
   icon?: string;
   image?: string;
 }
