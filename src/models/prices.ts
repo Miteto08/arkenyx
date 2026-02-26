@@ -344,4 +344,53 @@ export const priceGroups: PriceGroup[] = [
       "Chaque appareil supplémentaire inclus dans le forfait est configuré et connecté uniquement. L'achat, la réparation ou le remplacement de l'appareil n'est pas compris.",
     ],
   },
+  {
+    id: 'site-vitrine',
+    title: 'Création de site vitrine',
+    items: [
+      {
+        label: 'Site vitrine One-page (simple)',
+        price: 'À partir de 800€',
+        details: [
+          'Site entièrement conçu en 1 page',
+          'Design adapté à votre identité visuelle',
+          'Mise en forme du contenu (sections services, contact, présentation)',
+          'Version responsive (mobile/tablette/desktop)',
+          'Formulaire de contact fonctionnel',
+          'Mise en conformité RGPD de base',
+        ],
+        itemNote:
+          'Idéal pour les artisans, indépendants et petites entreprises qui veulent une présence professionnelle simple sur Internet.',
+      },
+      {
+        label: 'Site vitrine Multi-pages (standard)',
+        price: 'À partir de 1 500€',
+        recommended: true,
+        details: [
+          'Structure sur plusieurs pages (Home, Services, À propos, Contact…)',
+          'Design personnalisé responsive',
+          'Mise en place de formulaire(s) et de contenu textuel',
+          'Référencement de base (SEO on-page)',
+          'Intégration graphique cohérente avec votre charte',
+        ],
+        itemNote:
+          'Recommandé pour les TPE/PME souhaitant un site structuré plus complet.',
+      },
+      {
+        label: 'Options complémentaires (ajoutables)',
+        price: 'Sur devis',
+        details: [
+          'Rédaction de contenu (texte, titres, arguments)',
+          'Intégration d\'images ou visuels fournis',
+          'Hébergement & nom de domaine (configuration)',
+          'Maintenance annuelle (mises à jour, sauvegardes)',
+          'Intégration Google Analytics ou Search Console',
+        ],
+        itemNote:
+          'Ces options sont sur devis car elles dépendent des besoins spécifiques du projet.',
+      },
+    ],
+    note:
+      "Les tarifs ci-dessus sont des tarifs indicatifs de départ, basés sur des pratiques du marché freelance en 2025/2026. Le coût final varie selon la complexité, le design, la rédaction et les fonctionnalités demandées. L'hébergement, le nom de domaine et toute maintenance post-mise en ligne ne sont pas inclus dans ces tarifs de base.",
+  },
 ];
