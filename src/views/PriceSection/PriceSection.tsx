@@ -1,8 +1,25 @@
-import { Fragment } from 'react';
+'use client';
+
+import { Fragment, useState } from 'react';
 import { priceGroups, priceIntro } from '@/models/prices';
 import styles from './PriceSection.module.scss';
 
+function getDetailsKey(groupId: string, itemIndex: number) {
+  return `${groupId}-${itemIndex}`;
+}
+
 export default function PriceSection() {
+  const [expandedDetails, setExpandedDetails] = useState<Set<string>>(new Set());
+
+  const toggleDetails = (key: string) => {
+    setExpandedDetails((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  };
+
   return (
     <section className={styles.section} id="tarifs">
       <div className="container">
@@ -46,13 +63,43 @@ export default function PriceSection() {
                       <span className={styles.itemPrice}>{item.price}</span>
                     </div>
                     {item.details && item.details.length > 0 && (
-                      <ul className={styles.details}>
-                        {item.details.map((d, j) => (
-                          <li key={j}>{d}</li>
-                        ))}
-                      </ul>
+                      <div className={styles.detailsToggle}>
+                        <button
+                          type="button"
+                          className={styles.detailsTrigger}
+                          onClick={() => toggleDetails(getDetailsKey(group.id, i))}
+                          aria-expanded={expandedDetails.has(getDetailsKey(group.id, i))}
+                          aria-controls={`details-${group.id}-${i}`}
+                          id={`trigger-${group.id}-${i}`}
+                        >
+                          <span
+                            className={`${styles.detailsChevron} ${expandedDetails.has(getDetailsKey(group.id, i)) ? styles.detailsChevronOpen : ''}`}
+                            aria-hidden
+                          >
+                            ▼
+                          </span>
+                          <span className={styles.detailsTriggerText}>Plus de détails</span>
+                        </button>
+                        <div
+                          id={`details-${group.id}-${i}`}
+                          role="region"
+                          aria-labelledby={`trigger-${group.id}-${i}`}
+                          className={`${styles.detailsPanel} ${expandedDetails.has(getDetailsKey(group.id, i)) ? styles.detailsPanelOpen : ''}`}
+                        >
+                          <ul className={styles.details}>
+                            {item.details.map((d, j) => (
+                              <li key={j}>{d}</li>
+                            ))}
+                          </ul>
+                          {item.itemNote && (
+                            <p className={styles.itemNote} role="note">
+                              {item.itemNote}
+                            </p>
+                          )}
+                        </div>
+                      </div>
                     )}
-                    {item.itemNote && (
+                    {item.itemNote && !(item.details && item.details.length > 0) && (
                       <p className={styles.itemNote} role="note">
                         {item.itemNote}
                       </p>
