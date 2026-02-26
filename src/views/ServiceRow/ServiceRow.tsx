@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import type { Service } from '@/models/types';
+import ServiceRowContent from './ServiceRowContent';
+import ServiceRowImage from './ServiceRowImage';
 import styles from './ServiceRow.module.scss';
 
 interface ServiceRowProps {
@@ -35,54 +36,6 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
     return () => observer.disconnect();
   }, []);
 
-  const contentBlock = (
-    <div className={styles.content}>
-      <h3 className={styles.title}>{service.title}</h3>
-      {service.description &&
-        service.description.split('\n\n').filter(Boolean).map((paragraph, i) => (
-          <p key={i} className={styles.description}>
-            {paragraph}
-          </p>
-        ))}
-      {service.items?.length ? (
-        <ul className={styles.list}>
-          {service.items.map((item, i) => (
-            <li key={i} className={styles.listItem}>
-              {item}
-            </li>
-          ))}
-        </ul>
-      ) : null}
-      {service.notePoints?.length ? (
-        <div className={styles.noteBlock} role="note">
-          {service.notePoints.map((point, i) => (
-            <p key={i} className={styles.notePoint}>
-              <span className={styles.noteCheck} aria-hidden>✔</span>
-              {point}
-            </p>
-          ))}
-        </div>
-      ) : null}
-    </div>
-  );
-
-  const imageBlock = (
-    <div className={styles.imageWrap}>
-      {service.image ? (
-        <Image
-          src={service.image}
-          alt=""
-          fill
-          className={styles.image}
-          sizes="(max-width: 767px) 100vw, 50vw"
-          unoptimized
-        />
-      ) : (
-        <div className={styles.placeholder} aria-hidden />
-      )}
-    </div>
-  );
-
   return (
     <li ref={ref} id={id} className={styles.row}>
       <div className="container">
@@ -91,13 +44,13 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
         >
           {fromLeft ? (
             <>
-              {contentBlock}
-              {imageBlock}
+              <ServiceRowContent service={service} />
+              <ServiceRowImage imageSrc={service.image} />
             </>
           ) : (
             <>
-              {imageBlock}
-              {contentBlock}
+              <ServiceRowImage imageSrc={service.image} />
+              <ServiceRowContent service={service} />
             </>
           )}
         </div>
