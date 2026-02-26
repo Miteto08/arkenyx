@@ -27,6 +27,18 @@
   &:last-of-type {
     border-bottom: none;
   }
+
+  [data-theme='dark'] & {
+    &:nth-of-type(odd),
+    &:nth-of-type(even) {
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
 }
 
 .block {
@@ -66,6 +78,12 @@
 
   &:hover {
     background: #f1f5f9;
+  }
+
+  [data-theme='dark'] & {
+    &:hover {
+      background: #334155;
+    }
   }
 }
 
@@ -146,4 +164,8 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+
+  [data-theme='dark'] & {
+    background: linear-gradient(135deg, #334155 0%, #475569 100%);
+  }
 }

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ThemeToggle from '@/views/ThemeToggle/ThemeToggle';
 import styles from './Header.module.scss';
 
 export default function Header() {
@@ -22,6 +23,9 @@ export default function Header() {
           <a href="#tarifs">Tarifs</a>
           <a href="#contact">Contact</a>
         </nav>
+        <div className={styles.themeToggleWrap}>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
