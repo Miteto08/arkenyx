@@ -51,6 +51,54 @@ export const priceGroups: PriceGroup[] = [
       'Les supports physiquement endommagés (chocs, disques HS mécaniquement) nécessitent un laboratoire spécialisé disposant de moyens spécifiques. Cette prestation ne fait pas partie de notre offre standard.',
   },
   {
+    id: 'conseil',
+    title: 'Conseil & Accompagnement',
+    intro:
+      "Nous vous aidons à y voir clair avant tout achat, upgrade ou optimisation : choix de composants adaptés, compatibilité matérielle et logicielle, et recommandations pour tirer le meilleur parti de votre PC.",
+    items: [
+      {
+        label: 'Diagnostic avant achat',
+        price: '39€',
+        details: [
+          'Analyse de vos besoins et vérification de l\'existant',
+          'Identification des points forts et faibles',
+          'Conseils de base pour choisir ou compléter votre matériel',
+        ],
+      },
+      {
+        label: 'Conseils composants & upgrade',
+        price: '59€',
+        details: [
+          'Recommandations sur composants adaptés pour upgrade ou nouvel achat',
+          'Vérification de compatibilité avec votre matériel et logiciels existants',
+          'Optimisation du rapport performance / budget',
+        ],
+      },
+      {
+        label: 'Audit & optimisation stratégique',
+        price: '69€',
+        details: [
+          'Diagnostic complet de votre PC et de l\'interaction entre ses composants',
+          'Conseils concrets pour améliorer performance et fiabilité globale',
+          'Plan d\'optimisation simple et priorisé : quelles actions réaliser en premier pour le meilleur gain',
+        ],
+      },
+      {
+        label: 'Pack Accompagnement complet avant achat / assemblage',
+        price: '89€',
+        separatorBefore: true,
+        recommended: true,
+        details: [
+          'Pack complet combinant diagnostic avancé, conseils composants et compatibilité',
+          'Simulation de configuration et recommandations avant achat ou assemblage',
+          'Feedback détaillé et accompagnement jusqu\'à la mise en œuvre finale',
+        ],
+      },
+    ],
+    note:
+      "Les tarifs concernent uniquement la consultation et le conseil. Ils ne comprennent aucune intervention matérielle ou logicielle. Un devis personnalisé peut être fourni pour des prestations mixtes. Le diagnostic de 39 € est inclus si vous validez une intervention complète.",
+  },
+  {
     id: 'depannage',
     title: 'Dépannage & Réparation Informatique',
     intro:
@@ -186,54 +234,6 @@ export const priceGroups: PriceGroup[] = [
     ],
     note:
       "Tous les composants (RAM, GPU, SSD, etc.) doivent être fournis par le client. Le prix du matériel et des licences (Windows, logiciels, etc.) n'est pas inclus dans les tarifs affichés. Un devis complet est proposé avant toute intervention.",
-  },
-  {
-    id: 'conseil',
-    title: 'Conseil & Accompagnement',
-    intro:
-      "Nous vous aidons à y voir clair avant tout achat, upgrade ou optimisation : choix de composants adaptés, compatibilité matérielle et logicielle, et recommandations pour tirer le meilleur parti de votre PC.",
-    items: [
-      {
-        label: 'Diagnostic avant achat',
-        price: '39€',
-        details: [
-          'Analyse de vos besoins et vérification de l\'existant',
-          'Identification des points forts et faibles',
-          'Conseils de base pour choisir ou compléter votre matériel',
-        ],
-      },
-      {
-        label: 'Conseils composants & upgrade',
-        price: '59€',
-        details: [
-          'Recommandations sur composants adaptés pour upgrade ou nouvel achat',
-          'Vérification de compatibilité avec votre matériel et logiciels existants',
-          'Optimisation du rapport performance / budget',
-        ],
-      },
-      {
-        label: 'Audit & optimisation stratégique',
-        price: '69€',
-        details: [
-          'Diagnostic complet de votre PC et de l\'interaction entre ses composants',
-          'Conseils concrets pour améliorer performance et fiabilité globale',
-          'Plan d\'optimisation simple et priorisé : quelles actions réaliser en premier pour le meilleur gain',
-        ],
-      },
-      {
-        label: 'Pack Accompagnement complet avant achat / assemblage',
-        price: '89€',
-        separatorBefore: true,
-        recommended: true,
-        details: [
-          'Pack complet combinant diagnostic avancé, conseils composants et compatibilité',
-          'Simulation de configuration et recommandations avant achat ou assemblage',
-          'Feedback détaillé et accompagnement jusqu\'à la mise en œuvre finale',
-        ],
-      },
-    ],
-    note:
-      "Les tarifs concernent uniquement la consultation et le conseil. Ils ne comprennent aucune intervention matérielle ou logicielle. Un devis personnalisé peut être fourni pour des prestations mixtes. Le diagnostic de 39 € est inclus si vous validez une intervention complète.",
   },
   {
     id: 'forfaits',

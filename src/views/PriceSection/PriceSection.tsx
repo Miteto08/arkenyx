@@ -8,8 +8,20 @@ function getDetailsKey(groupId: string, itemIndex: number) {
   return `${groupId}-${itemIndex}`;
 }
 
+const COLUMN_ORDER: string[] = [
+  'recuperation',
+  'conseil',
+  'depannage',
+  'forfaits',
+  'montage',
+  'reseau',
+  'site-vitrine',
+];
+
 export default function PriceSection() {
   const [expandedDetails, setExpandedDetails] = useState<Set<string>>(new Set());
+  const groupsById = Object.fromEntries(priceGroups.map((g) => [g.id, g]));
+  const orderedGroups = COLUMN_ORDER.map((id) => groupsById[id]).filter(Boolean);
 
   const toggleDetails = (key: string) => {
     setExpandedDetails((prev) => {
@@ -33,7 +45,7 @@ export default function PriceSection() {
           ))}
         </ul>
         <div className={styles.grid}>
-          {priceGroups.map((group) => (
+          {orderedGroups.map((group) => (
             <article key={group.id} className={styles.card}>
               <h3 className={styles.cardTitle}>{group.title}</h3>
               {group.intro &&
