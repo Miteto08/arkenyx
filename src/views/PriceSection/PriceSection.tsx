@@ -9,11 +9,11 @@ function getDetailsKey(groupId: string, itemIndex: number) {
 }
 
 const COLUMN_ORDER: string[] = [
-  'recuperation',
-  'conseil',
   'depannage',
+  'conseil',
   'forfaits',
   'montage',
+  'recuperation',
   'reseau',
   'site-vitrine',
 ];

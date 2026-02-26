@@ -4,7 +4,6 @@ export interface PriceItem {
   details?: string[];
   itemNote?: string;
   recommended?: boolean;
-  /** Draw a separator line above this item (e.g. before packs). */
   separatorBefore?: boolean;
 }
 
@@ -13,7 +12,6 @@ export interface PriceGroup {
   title: string;
   intro?: string;
   items: PriceItem[];
-  /** Single paragraph or list of points (displayed with dash + line break). */
   note?: string | string[];
 }
 
