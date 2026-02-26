@@ -1,21 +1,21 @@
-import { tariffGroups, tariffIntro } from '@/models/tariffs';
-import styles from './TariffSection.module.scss';
+import { priceGroups, priceIntro } from '@/models/prices';
+import styles from './PriceSection.module.scss';
 
-export default function TariffSection() {
+export default function PriceSection() {
   return (
     <section className={styles.section} id="tarifs">
       <div className="container">
         <h2 className={styles.heading}>Tarifs</h2>
         <p className={styles.subheading}>Tarifs clairs, sans surprise</p>
         <ul className={styles.introList} aria-label="Engagements">
-          {tariffIntro.map((text, i) => (
+          {priceIntro.map((text, i) => (
             <li key={i} className={styles.introItem}>
               {text}
             </li>
           ))}
         </ul>
         <div className={styles.grid}>
-          {tariffGroups.map((group) => (
+          {priceGroups.map((group) => (
             <article key={group.id} className={styles.card}>
               <h3 className={styles.cardTitle}>{group.title}</h3>
               {group.intro &&

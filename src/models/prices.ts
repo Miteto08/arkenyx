@@ -1,4 +1,4 @@
-export interface TariffItem {
+export interface PriceItem {
   label: string;
   price: string;
   details?: string[];
@@ -6,22 +6,22 @@ export interface TariffItem {
   recommended?: boolean;
 }
 
-export interface TariffGroup {
+export interface PriceGroup {
   id: string;
   title: string;
   intro?: string;
-  items: TariffItem[];
+  items: PriceItem[];
   note?: string;
 }
 
-export const tariffIntro = [
+export const priceIntro = [
   'Devis gratuit avant intervention',
   'Aucune réparation sans accord',
   'Explications détaillées',
   'Transparence totale',
 ];
 
-export const tariffGroups: TariffGroup[] = [
+export const priceGroups: PriceGroup[] = [
   {
     id: 'recuperation',
     title: 'Récupération de données',

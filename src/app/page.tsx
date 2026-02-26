@@ -3,7 +3,7 @@ import Banner from '@/views/Banner/Banner';
 import Hero from '@/views/Hero/Hero';
 import IntroSection from '@/views/IntroSection/IntroSection';
 import ServicesSection from '@/views/ServicesSection/ServicesSection';
-import TariffSection from '@/views/TariffSection/TariffSection';
+import PriceSection from '@/views/PriceSection/PriceSection';
 import ContactSection from '@/views/ContactSection/ContactSection';
 
 export default function HomePage() {
@@ -14,7 +14,7 @@ export default function HomePage() {
         <IntroSection />
       </Banner>
       <ServicesSection />
-      <TariffSection />
+      <PriceSection />
       <ContactSection />
     </Layout>
   );
