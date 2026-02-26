@@ -4,6 +4,8 @@ export interface PriceItem {
   details?: string[];
   itemNote?: string;
   recommended?: boolean;
+  /** Draw a separator line above this item (e.g. before packs). */
+  separatorBefore?: boolean;
 }
 
 export interface PriceGroup {
@@ -11,7 +13,8 @@ export interface PriceGroup {
   title: string;
   intro?: string;
   items: PriceItem[];
-  note?: string;
+  /** Single paragraph or list of points (displayed with dash + line break). */
+  note?: string | string[];
 }
 
 export const priceIntro = [
@@ -107,6 +110,7 @@ export const priceGroups: PriceGroup[] = [
       {
         label: 'Pack "Entretien Performance"',
         price: '89€',
+        separatorBefore: true,
         details: [
           'Idéal pour un PC qui chauffe ou devient bruyant.',
           'Nettoyage interne complet',
@@ -132,12 +136,187 @@ export const priceGroups: PriceGroup[] = [
   },
   {
     id: 'montage',
-    title: 'Montage',
+    title: 'Montage & Installation PC',
+    intro:
+      "Nous assemblons votre machine sur mesure, quelle que soit votre gamme de composants. Que ce soit un PC neuf ou une mise à niveau complète, nous livrons une machine prête à l'emploi.",
     items: [
-      { label: 'Montage seul', price: '99€' },
-      { label: 'Installation Windows seule', price: '69€' },
-      { label: 'Pack PC prêt à l\'emploi', price: '149€', details: ['Montage complet', 'Windows', 'Drivers', 'Configuration', 'Tests stabilité'] },
+      {
+        label: 'Montage PC seul',
+        price: '99€',
+        details: [
+          'Assemblage et vérification des composants',
+          'Vérification des branchements internes',
+          'Test de bon fonctionnement matériel',
+        ],
+        itemNote: "Le prix du matériel n'est pas inclus dans cette prestation.",
+      },
+      {
+        label: 'Installation Windows seule',
+        price: '69€',
+        details: [
+          'Installation du système d\'exploitation Windows',
+          'Mise à jour du système',
+          'Préparation initiale du PC',
+        ],
+        itemNote: "Le prix de la licence Windows n'est pas inclus.",
+      },
+      {
+        label: 'Installation des drivers & logiciels de base',
+        price: '39€',
+        details: [
+          'Installation des pilotes indispensables',
+          'Installation des logiciels de base (ex : navigateur, utilitaires)',
+          'Vérification que tout est opérationnel',
+        ],
+      },
+      {
+        label: 'Pack "PC prêt à l\'emploi"',
+        price: '149€',
+        separatorBefore: true,
+        recommended: true,
+        details: [
+          'Montage complet',
+          'Installation Windows',
+          'Installation des drivers & logiciels de base',
+          'Configuration initiale complète',
+          'Tests de performance et de stabilité',
+        ],
+        itemNote: "Le prix du matériel et des licences logicielles n'est pas inclus.",
+      },
     ],
+    note:
+      "Tous les composants (RAM, GPU, SSD, etc.) doivent être fournis par le client. Le prix du matériel et des licences (Windows, logiciels, etc.) n'est pas inclus dans les tarifs affichés. Un devis complet est proposé avant toute intervention.",
+  },
+  {
+    id: 'conseil',
+    title: 'Conseil & Accompagnement',
+    intro:
+      "Nous vous aidons à y voir clair avant tout achat, upgrade ou optimisation : choix de composants adaptés, compatibilité matérielle et logicielle, et recommandations pour tirer le meilleur parti de votre PC.",
+    items: [
+      {
+        label: 'Diagnostic avant achat',
+        price: '39€',
+        details: [
+          'Analyse de vos besoins et vérification de l\'existant',
+          'Identification des points forts et faibles',
+          'Conseils de base pour choisir ou compléter votre matériel',
+        ],
+      },
+      {
+        label: 'Conseils composants & upgrade',
+        price: '59€',
+        details: [
+          'Recommandations sur composants adaptés pour upgrade ou nouvel achat',
+          'Vérification de compatibilité avec votre matériel et logiciels existants',
+          'Optimisation du rapport performance / budget',
+        ],
+      },
+      {
+        label: 'Audit & optimisation stratégique',
+        price: '69€',
+        details: [
+          'Diagnostic complet de votre PC et de l\'interaction entre ses composants',
+          'Conseils concrets pour améliorer performance et fiabilité globale',
+          'Plan d\'optimisation simple et priorisé : quelles actions réaliser en premier pour le meilleur gain',
+        ],
+      },
+      {
+        label: 'Pack Accompagnement complet avant achat / assemblage',
+        price: '89€',
+        separatorBefore: true,
+        recommended: true,
+        details: [
+          'Pack complet combinant diagnostic avancé, conseils composants et compatibilité',
+          'Simulation de configuration et recommandations avant achat ou assemblage',
+          'Feedback détaillé et accompagnement jusqu\'à la mise en œuvre finale',
+        ],
+      },
+    ],
+    note:
+      "Les tarifs concernent uniquement la consultation et le conseil. Ils ne comprennent aucune intervention matérielle ou logicielle. Un devis personnalisé peut être fourni pour des prestations mixtes. Le diagnostic de 39 € est inclus si vous validez une intervention complète.",
+  },
+  {
+    id: 'forfaits',
+    title: 'Forfaits et services optionnels',
+    intro:
+      'Des prestations complémentaires pour un suivi adapté à vos besoins, avec possibilité de contrat sans engagement.',
+    items: [
+      {
+        label: 'Maintenance régulière',
+        price: '59€ / visite',
+        details: [
+          'Entretien logiciel & matériel, mises à jour système et drivers',
+          'Vérification périodique de l\'état général de votre PC',
+          'Nettoyage logiciel et matériel',
+          'Mises à jour Windows et drivers',
+        ],
+        itemNote:
+          'Recommandation : 1 à 2 interventions par an. Peut être intégré dans un contrat sans engagement. Cette prestation est idéale pour garder votre machine performante sur le long terme.',
+      },
+      {
+        label: 'Nettoyage logiciel & matériel',
+        price: '79€ / visite',
+        details: [
+          'Nettoyage complet avec optimisation et contrôle matériel',
+          'Nettoyage des fichiers temporaires',
+          'Optimisation du système',
+          'Dépoussiérage complet, vérification des ventilateurs et températures',
+          'Contrôle du système de refroidissement',
+        ],
+        itemNote:
+          'Recommandation : 1 à 2 interventions par an. Peut être intégré dans un contrat sans engagement. Ce service inclut l\'intérieur du PC et complète la maintenance régulière pour un suivi optimal.',
+      },
+      {
+        label: 'Préparation PC gaming ou travail spécifique',
+        price: '89€',
+        details: [
+          'Configuration standard optimisée',
+          'Réglages système pour performance stable',
+          'Vérification compatibilité matérielle et logicielle',
+          'Configuration standard adaptée au gaming ou aux applications lourdes',
+        ],
+        itemNote:
+          "Note : Overclocking non pris en charge. Ce service est conçu pour que votre PC dédié aux jeux ou au travail intensif soit configuré pour performance maximale sans dépasser les limites de sécurité du matériel. À noter : prestation ponctuelle, réalisée une seule fois. À renouveler uniquement si le matériel change.",
+      },
+      {
+        label: 'Formation & assistance utilisateur',
+        price: '39€ / heure',
+        details: [
+          'Initiation Windows et logiciels bureautiques',
+          'Prise en main du système Windows',
+          'Utilisation des fonctions de base',
+          'Formation sur logiciels comme Word et Excel (fonctions de base uniquement)',
+        ],
+        itemNote:
+          'Cette prestation est destinée à un public débutant ou intermédiaire. Ne comprend pas les fonctions avancées ou spécifiques.',
+      },
+      {
+        label: 'Conseil pratique pour entretien & sauvegarde',
+        price: '49€',
+        details: [
+          'Recommandations personnalisées',
+          'Stratégie personnalisée pour maintenir le PC en bon état',
+          'Conseils pour éviter les pertes de données et améliorer la sécurité',
+          'Mise en place de solutions de sauvegarde fiables',
+        ],
+        itemNote:
+          "Important : La sauvegarde complète des données nécessite un support de stockage fourni par le client (disque dur externe ou solution cloud). Le coût du support n'est pas inclus.",
+      },
+      {
+        label: 'Pack Protection & Sauvegarde',
+        price: '99€',
+        separatorBefore: true,
+        details: [
+          'Sauvegarde complète des données (support fourni par le client)',
+          'Vérification de l\'état du disque',
+          'Mise en place d\'une solution de sauvegarde automatique',
+          'Conseils personnalisés',
+        ],
+        itemNote: 'Ce pack est conçu pour les utilisateurs qui veulent être sereins sur leurs données.',
+      },
+    ],
+    note:
+      'Les tarifs sont donnés hors coût du matériel ou support de stockage lorsque celui-ci est nécessaire. Un devis personnalisé peut être fourni pour des interventions mixtes ou complexes.',
   },
   {
     id: 'reseau',
@@ -160,15 +339,9 @@ export const priceGroups: PriceGroup[] = [
         price: '49€',
       },
     ],
-    note:
+    note: [
       "La configuration de votre box, du Wi-Fi et de votre PC principal est incluse dans notre forfait réseau. Chaque appareil supplémentaire connecté peut être ajouté pour un petit tarif, afin de rester adapté à vos besoins et à votre budget.",
-  },
-  {
-    id: 'forfaits',
-    title: 'Forfaits',
-    items: [
-      { label: 'Pack Protection & Sauvegarde', price: '99€', details: ['Sauvegarde complète', 'Vérification disque', 'Solution sauvegarde automatique', 'Conseils personnalisés'] },
-      { label: 'Pack Gaming prêt à jouer', price: '159€', details: ['Montage', 'Windows', 'Drivers', 'Optimisation performances', 'Tests stabilité'] },
+      "Chaque appareil supplémentaire inclus dans le forfait est configuré et connecté uniquement. L'achat, la réparation ou le remplacement de l'appareil n'est pas compris.",
     ],
   },
 ];

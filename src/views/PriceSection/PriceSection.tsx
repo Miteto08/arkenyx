@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { priceGroups, priceIntro } from '@/models/prices';
 import styles from './PriceSection.module.scss';
 
@@ -26,10 +27,15 @@ export default function PriceSection() {
                 ))}
               <ul className={styles.itemList}>
                 {group.items.map((item, i) => (
-                  <li
-                    key={i}
-                    className={`${styles.item} ${item.recommended ? styles.itemRecommended : ''}`}
-                  >
+                  <Fragment key={i}>
+                    {item.separatorBefore && (
+                      <li className={styles.itemSeparator} aria-hidden>
+                        <span className={styles.separatorLine} />
+                      </li>
+                    )}
+                    <li
+                      className={`${styles.item} ${item.recommended ? styles.itemRecommended : ''}`}
+                    >
                     {item.recommended && (
                       <span className={styles.recommendedBadge} aria-hidden>
                         Recommandé
@@ -52,13 +58,23 @@ export default function PriceSection() {
                       </p>
                     )}
                   </li>
+                  </Fragment>
                 ))}
               </ul>
-              {group.note && (
-                <p className={styles.note} role="note">
-                  {group.note}
-                </p>
-              )}
+              {group.note &&
+                (Array.isArray(group.note) ? (
+                  <ul className={styles.noteList} role="note">
+                    {group.note.map((point, k) => (
+                      <li key={k} className={styles.notePoint}>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className={styles.note} role="note">
+                    {group.note}
+                  </p>
+                ))}
             </article>
           ))}
         </div>
