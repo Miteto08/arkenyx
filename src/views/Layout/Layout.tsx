@@ -1,7 +1,12 @@
+import dynamic from 'next/dynamic';
 import Header from '@/views/Header/Header';
 import Footer from '@/views/Footer/Footer';
-import BackToTop from '@/views/BackToTop/BackToTop';
 import styles from './Layout.module.scss';
+
+const BackToTop = dynamic(
+  () => import('@/views/BackToTop/BackToTop').then((m) => m.default),
+  { ssr: false }
+);
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
