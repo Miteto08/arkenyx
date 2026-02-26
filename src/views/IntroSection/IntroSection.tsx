@@ -2,10 +2,10 @@ import styles from './IntroSection.module.scss';
 
 export default function IntroSection() {
   return (
-    <section className={styles.section} id="notre-activite">
+    <section className={styles.section} id="notre-activite" aria-labelledby="intro-title">
       <div className="container">
         <div className={styles.content}>
-          <h2 className={styles.title}>
+          <h2 id="intro-title" className={styles.title}>
             Une approche humaine du dépannage informatique
           </h2>
           <p className={styles.text}>

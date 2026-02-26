@@ -4,8 +4,8 @@ import styles from './ServicesSection.module.scss';
 
 export default function ServicesSection() {
   return (
-    <section className={styles.section}>
-      <ul className={styles.list}>
+    <section className={styles.section} aria-label="Nos services">
+      <ul className={styles.list} role="list">
         {services.map((service, index) => (
           <ServiceRow
             key={service.id}

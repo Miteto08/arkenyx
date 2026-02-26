@@ -31,7 +31,7 @@ export default function PriceSection() {
   };
 
   return (
-    <section className={styles.section} id="tarifs">
+    <section className={styles.section} id="tarifs" aria-labelledby="tarifs-title">
       <div className="container">
         <PriceSectionIntro />
         <div className={styles.grid}>

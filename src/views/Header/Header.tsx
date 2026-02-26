@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className="container">
-        <a href="/" className={styles.logo}>
+        <a href="/" className={styles.logo} aria-label="Arkenyx, accueil">
           <Image
             src="/Logo-removebg-preview.png"
             alt="Arkenyx"

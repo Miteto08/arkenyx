@@ -45,11 +45,11 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
           {fromLeft ? (
             <>
               <ServiceRowContent service={service} />
-              <ServiceRowImage imageSrc={service.image} />
+              <ServiceRowImage imageSrc={service.image} alt={service.title} />
             </>
           ) : (
             <>
-              <ServiceRowImage imageSrc={service.image} />
+              <ServiceRowImage imageSrc={service.image} alt={service.title} />
               <ServiceRowContent service={service} />
             </>
           )}

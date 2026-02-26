@@ -16,9 +16,83 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.arkenyx.fr';
+
 export const metadata: Metadata = {
-  title: 'Arkenyx – Stockage PC & Montage',
-  description: 'Votre micro-entreprise spécialisée stockage informatique et montage PC.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'Arkenyx – Dépannage PC, montage et récupération de données',
+    template: '%s | Arkenyx',
+  },
+  description:
+    'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, sauvegarde, conseil, installation réseau et création de sites vitrine. Réparer, expliquer, faire durer.',
+  keywords: [
+    'dépannage PC',
+    'réparation informatique',
+    'montage PC',
+    'récupération données',
+    'sauvegarde',
+    'micro-entreprise informatique',
+    'conseil informatique',
+    'installation réseau',
+    'site vitrine',
+    'Arkenyx',
+  ],
+  authors: [{ name: 'Arkenyx', url: siteUrl }],
+  creator: 'Arkenyx',
+  publisher: 'Arkenyx',
+  formatDetection: { email: false, address: false, telephone: false },
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    url: siteUrl,
+    siteName: 'Arkenyx',
+    title: 'Arkenyx – Dépannage PC, montage et récupération de données',
+    description:
+      'Micro-entreprise informatique de proximité : dépannage PC, montage, récupération de données, conseil, réseau et sites vitrine.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Arkenyx – Dépannage PC, montage et récupération de données',
+    description: 'Micro-entreprise informatique : dépannage, montage, récupération données, conseil, sites vitrine.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  verification: {
+    // Optionnel : décommenter et remplir quand vous avez les codes
+    // google: 'votre-code-google-search-console',
+    // yandex: 'votre-code-yandex',
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Arkenyx',
+  description:
+    'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, conseil, installation réseau et création de sites vitrine.',
+  url: siteUrl,
+  email: 'contact@arkenyx.fr',
+  areaServed: 'FR',
+  slogan: 'Réparer, expliquer, faire durer.',
+  priceRange: '€€',
+  serviceType: [
+    'Dépannage et réparation informatique',
+    'Montage PC',
+    'Récupération et sauvegarde de données',
+    'Conseil et accompagnement',
+    'Installation réseau',
+    'Création de sites vitrine',
+  ],
 };
 
 export default function RootLayout({
@@ -35,7 +109,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
