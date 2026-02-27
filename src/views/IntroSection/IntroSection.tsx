@@ -16,6 +16,9 @@ export default function IntroSection() {
             streaming ou au quotidien — mérite de la confiance, pas seulement une
             intervention ponctuelle.
           </p>
+          <a href="mailto:contact@arkenyx.fr" className={styles.cta} aria-label="Nous contacter par e-mail">
+            Nous contacter
+          </a>
         </div>
       </div>
     </section>

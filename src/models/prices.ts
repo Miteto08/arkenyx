@@ -15,13 +15,6 @@ export interface PriceGroup {
   note?: string | string[];
 }
 
-export const priceIntro = [
-  'Devis gratuit avant intervention',
-  'Aucune réparation sans accord',
-  'Explications détaillées',
-  'Transparence totale',
-];
-
 export const priceGroups: PriceGroup[] = [
   {
     id: 'recuperation',

@@ -1,0 +1,50 @@
+.section {
+  padding: 3rem 0;
+  background: var(--color-bg-main);
+  border-top: 1px solid var(--color-border);
+}
+
+.heading {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.intro {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-logo-bg);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.75rem;
+}

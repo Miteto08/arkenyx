@@ -10,43 +10,18 @@
 .heading {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   text-align: center;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
   color: var(--color-text);
 }
 
 .subheading {
   text-align: center;
-  color: var(--color-text-muted);
-  font-size: 0.9375rem;
-  margin-bottom: 1rem;
-}
-
-.introList {
-  list-style: none;
-  margin: 0 auto 2rem;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem 1.5rem;
-  max-width: 42rem;
-}
-
-.introItem {
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
-  position: relative;
-  padding-left: 1.25rem;
-
-  &::before {
-    content: '✔';
-    position: absolute;
-    left: 0;
-    color: var(--color-primary);
-    font-weight: 700;
-  }
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 2rem;
 }
 
 .grid {

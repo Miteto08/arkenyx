@@ -24,6 +24,9 @@ export default function Header() {
             <a href="#tarifs">Tarifs</a>
             <a href="#contact">Contact</a>
           </nav>
+          <a href="mailto:contact@arkenyx.fr?subject=Demande%20de%20devis" className={styles.cta} aria-label="Demander un devis gratuit">
+            Demander un devis gratuit
+          </a>
           <div className={styles.themeToggleWrap}>
             <ThemeToggle />
           </div>
