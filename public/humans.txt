@@ -1,0 +1,8 @@
+/* TEAM */
+Developer: Lechevalier Julien
+Site: https://www.arkenyx.fr
+Tech: Next.js, Sass
+Hosting: OVHcloud
+
+/* THANKS */
+Built with care and performance in mind.
