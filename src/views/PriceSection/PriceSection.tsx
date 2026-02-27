@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { priceGroups } from '@/models/prices';
 import PriceSectionIntro from './PriceSectionIntro';
 import PriceCard from './PriceCard';
+import QuoteRequestButton from '@/views/QuoteRequestButton/QuoteRequestButton';
 import styles from './PriceSection.module.scss';
 
 const COLUMN_ORDER: string[] = [
@@ -43,6 +44,9 @@ export default function PriceSection() {
               onToggleDetails={toggleDetails}
             />
           ))}
+        </div>
+        <div className={styles.ctaWrap}>
+          <QuoteRequestButton />
         </div>
       </div>
     </section>
