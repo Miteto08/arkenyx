@@ -51,11 +51,20 @@ export const metadata: Metadata = {
     title: 'Arkenyx – Dépannage PC, montage et récupération de données',
     description:
       'Micro-entreprise informatique de proximité : dépannage PC, montage, récupération de données, conseil, réseau et sites vitrine.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Arkenyx – Dépannage PC, montage et récupération de données',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Arkenyx – Dépannage PC, montage et récupération de données',
     description: 'Micro-entreprise informatique : dépannage, montage, récupération données, conseil, sites vitrine.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
