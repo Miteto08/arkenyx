@@ -24,10 +24,12 @@ export default function PolitiqueConfidentialitePage() {
 
         <h2>Données collectées</h2>
         <p>
-          Lorsque vous nous contactez par e-mail (lien « Envoyer un message »),
-          nous recevons votre adresse e-mail et le contenu de votre message.
-          Aucun formulaire sur le site ne stocke de données dans une base de
-          données : les messages nous arrivent directement par e-mail.
+          Lorsque vous nous contactez via le site (lien « Envoyer un message »
+          ou bouton « Demander un devis »), l&#39;ouverture de votre messagerie
+          nous permet de recevoir votre adresse e-mail et le contenu de votre
+          message (et, pour les demandes de devis, les prestations
+          sélectionnées). Aucune donnée n&#39;est enregistrée sur un serveur du
+          site : les échanges nous parviennent par e-mail.
         </p>
 
         <h2>Finalité et base légale</h2>
@@ -35,6 +37,16 @@ export default function PolitiqueConfidentialitePage() {
           Ces données sont utilisées uniquement pour répondre à vos demandes
           (devis, questions, projets). La base légale est votre consentement
           implicite (envoi du message) ou l&#39;exécution de mesures précontractuelles.
+        </p>
+
+        <h2>Données lors des interventions</h2>
+        <p>
+          Dans le cadre d&#39;une prestation, l&#39;accès aux données présentes
+          sur votre équipement est strictement limité à ce qui est nécessaire
+          à la réalisation de la prestation. Aucune copie ni conservation de
+          vos données n&#39;est effectuée sans votre accord préalable. Les
+          données sont traitées dans le respect du secret professionnel et du
+          RGPD.
         </p>
 
         <h2>Durée de conservation</h2>
@@ -59,12 +71,12 @@ export default function PolitiqueConfidentialitePage() {
           également introduire une réclamation auprès de la CNIL (cnil.fr).
         </p>
 
-        <h2>Cookies</h2>
+        <h2>Cookies et stockage local</h2>
         <p>
-          Ce site n&#39;utilise pas de cookies analytics ou publicitaires. Les
-          seuls cookies éventuels sont techniques (session, préférences
-          indispensables). Aucune donnée n&#39;est cédée à des tiers à des fins
-          marketing.
+          Ce site n&#39;utilise pas de cookies analytics ou publicitaires. Un
+          stockage local (navigateur) peut être utilisé pour mémoriser votre
+          préférence d&#39;affichage (thème clair ou sombre). Aucune donnée
+          n&#39;est cédée à des tiers à des fins marketing.
         </p>
       </LegalLayout>
     </Layout>

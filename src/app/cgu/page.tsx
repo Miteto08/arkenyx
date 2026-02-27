@@ -19,9 +19,11 @@ export default function CGUPage() {
 
         <h2>Objet</h2>
         <p>
-          Le site présente l&#39;activité d&#39;Arkenyx (montage PC, installation drivers, nettoyage hardware et software, récupération
-          de données, conseil et dépannage) et permet
-          de prendre contact par e-mail ou téléphone.
+          Le site présente l&#39;activité d&#39;Arkenyx (dépannage et
+          réparation, montage PC, récupération de données, conseil, forfaits,
+          réseau, création de site web, etc.) et permet de prendre contact par
+          e-mail, téléphone, formulaire de contact ou demande de devis en
+          ligne.
         </p>
 
         <h2>Utilisation du site</h2>

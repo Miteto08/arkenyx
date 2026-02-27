@@ -13,9 +13,10 @@ export default function CGVPage() {
       <LegalLayout title="Conditions générales de vente (CGV)">
         <p>
           Les présentes CGV s&#39;appliquent aux prestations de services
-          réalisées par Arkenyx, micro-entreprise (montage PC, installation drivers, nettoyage hardware et software,
-          récupération de données, conseil). Elles complètent le devis ou le
-          bon de commande accepté par le client.
+          réalisées par Arkenyx, micro-entreprise (dépannage, réparation,
+          montage PC, récupération de données, conseil, forfaits, réseau,
+          création de site web, etc.). Elles complètent le devis ou le bon de
+          commande accepté par le client.
         </p>
 
         <h2>Préambule</h2>
@@ -27,10 +28,11 @@ export default function CGVPage() {
 
         <h2>Services</h2>
         <p>
-          Les services proposés sont décrits sur le site (montage PC, installation drivers, nettoyage hardware et software, récupération
-          de données, conseil et dépannage).
-          Le détail et le périmètre de chaque prestation sont fixés dans le
-          devis ou la proposition remis au client.
+          Les services proposés sont décrits sur le site (dépannage et
+          réparation, montage PC, récupération de données, conseil, forfaits,
+          réseau, création de site web, etc.). Le détail et le périmètre de
+          chaque prestation sont fixés dans le devis ou la proposition remis au
+          client.
         </p>
 
         <h2>Devis et commande</h2>
@@ -38,7 +40,18 @@ export default function CGVPage() {
           Un devis ou une proposition est établi sur demande (e-mail ou
           téléphone). La commande est réputée acceptée à réception du devis
           signé ou d&#39;un accord explicite du client (e-mail, oral confirmé).
-          Les tarifs sont indiqués en euros TTC sauf mention contraire.
+          La durée de validité du devis est indiquée sur le document (30 jours
+          par défaut sauf mention contraire) ; à son expiration, l&#39;offre
+          est caduque. Les tarifs sont indiqués en euros hors taxes (TVA non
+          applicable, art. 293 B du CGI) tant que le prestataire relève de la
+          franchise en base de TVA.
+        </p>
+
+        <h2>Déplacement</h2>
+        <p>
+          Le déplacement est gratuit dans un rayon de 10 km autour
+          d&#39;Ahouillé. Au-delà, il est facturé 0,50 € par kilomètre. Le détail
+          est rappelé sur le devis.
         </p>
 
         <h2>Paiement</h2>
@@ -48,6 +61,14 @@ export default function CGVPage() {
           espèces. Les chèques ne sont pas acceptés. En cas de retard de
           paiement, des pénalités de retard pourront être appliquées
           conformément à la loi.
+        </p>
+
+        <h2>Facturation</h2>
+        <p>
+          Une facture est établie après chaque prestation. Elle comporte le
+          détail des prestations, les éventuelles majorations (déplacement,
+          etc.) et les mentions légales obligatoires (dont la mention de
+          franchise de TVA lorsque le prestataire n&#39;est pas assujetti).
         </p>
 
         <h2>TVA</h2>

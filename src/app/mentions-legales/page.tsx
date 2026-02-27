@@ -13,8 +13,9 @@ export default function MentionsLegalesPage() {
       <LegalLayout title="Mentions légales">
         <p>
           Le site arkenyx.fr est édité par un micro-entrepreneur, dans le cadre
-          d&#39;une activité de services (montage PC, installation drivers, nettoyage hardware et software, récupération
-          de données, conseil et dépannage).
+          d&#39;une activité de prestations de services informatiques (dépannage
+          et réparation, montage PC, récupération de données, conseil, forfaits,
+          mise en place de réseau, création de site web, etc.).
         </p>
 
         <h2>Éditeur du site</h2>
