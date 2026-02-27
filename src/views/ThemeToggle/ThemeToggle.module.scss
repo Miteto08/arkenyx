@@ -40,7 +40,7 @@
   z-index: 0;
 }
 
-/* En mode sombre : on voit le soleil à gauche */
+/* Dark mode: sun icon visible on the left */
 .track[data-theme='dark'] .iconSlotLeft {
   opacity: 1;
 }
@@ -48,7 +48,7 @@
   opacity: 0;
 }
 
-/* En mode clair : on voit la lune à droite */
+/* Light mode: moon icon visible on the right */
 .track[data-theme='light'] .iconSlotLeft {
   opacity: 0;
 }

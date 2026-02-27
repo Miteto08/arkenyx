@@ -1,5 +1,5 @@
-# En-têtes de sécurité pour Netlify (et hébergeurs compatibles)
-# Copié à la racine du site lors du build (public/ -> out/)
+# Security headers for Netlify (and compatible hosts)
+# Copied to site root on build (public/ -> out/)
 # https://docs.netlify.com/routing/headers/
 
 /*

@@ -67,11 +67,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
-  verification: {
-    // Optionnel : décommenter et remplir quand vous avez les codes
-    // google: 'votre-code-google-search-console',
-    // yandex: 'votre-code-yandex',
-  },
 };
 
 const jsonLd = {

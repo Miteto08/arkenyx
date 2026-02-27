@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
-// En-têtes de sécurité : avec output: 'export', Next ne les applique pas.
-// Ils sont définis dans public/_headers (Netlify) et vercel.json (Vercel).
+// Security headers are not applied by Next with output: 'export'. They are set in public/_headers (Netlify) and vercel.json (Vercel).
 
 const nextConfig = {
   output: 'export',
