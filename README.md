@@ -27,7 +27,21 @@ npm install
 npm run dev
 ```
 
+Ou, pour des recompilations plus rapides (Turbopack) :
+
+```bash
+npm run dev:turbo
+```
+
 Ouvrir [http://localhost:3000](http://localhost:3000).
+
+### Variables d'environnement (optionnel)
+
+| Variable | Rôle |
+|----------|------|
+| `NEXT_PUBLIC_SITE_URL` | URL publique du site (ex. `https://www.arkenyx.fr`). Utilisée pour le sitemap, les métadonnées et le canonical. Par défaut : `https://www.arkenyx.fr`. |
+
+Créer un fichier `.env.local` à la racine si besoin (ne pas le committer si il contient des secrets).
 
 ### 3. Build SPA (export statique)
 
@@ -36,6 +50,8 @@ npm run build
 ```
 
 Les fichiers statiques sont générés dans le dossier **`out/`**. Ce dossier peut être déployé sur GitHub Pages, Netlify, Vercel, ou tout hébergeur de fichiers statiques.
+
+**Déploiement** : Sur Vercel ou Netlify, connecter le dépôt Git et configurer la commande de build `npm run build` et le dossier de sortie `out`. Configurer le domaine et, si besoin, `NEXT_PUBLIC_SITE_URL` dans les variables d'environnement de l'hébergeur.
 
 ### 4. Structure du projet (MVC)
 

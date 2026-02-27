@@ -8,7 +8,7 @@ export default function Header() {
       <div className="container">
         <a href="/" className={styles.logo} aria-label="Arkenyx, accueil">
           <Image
-            src="/Logo-removebg-preview.png"
+            src="/arkenyx-logo.avif"
             alt="Arkenyx"
             width={420}
             height={120}

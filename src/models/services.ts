@@ -4,7 +4,7 @@ export const services: Service[] = [
   {
     id: 'recuperation-sauvegarde',
     title: 'Récupération et sauvegarde de données',
-    image: '/images/services/recuperation-sauvegarde.png',
+    image: '/images/services/data-recovery.avif',
     description:
       'On récupère vos données quand c’est possible et on vous aide à mettre en place des sauvegardes pour éviter les mauvaises surprises.\n\nLes supports physiquement endommagés (choc, chute, etc.) relèvent d’un laboratoire spécialisé disposant d’équipements et de locaux dédiés ; ces moyens ne sont pas disponibles dans le cadre de cette prestation.',
     items: [
@@ -16,7 +16,7 @@ export const services: Service[] = [
   {
     id: 'depannage-reparation',
     title: 'Dépannage et réparation informatique',
-    image: '/images/services/depannage-reparation.png',
+    image: '/images/services/pc-repair.avif',
     description:
       'On diagnostique, on répare ou on remplace ce qui peut l’être — PC fixe ou portable, selon ce que le matériel permet d’accéder. Nettoyage interne, optimisation Windows et suivi des programmes au démarrage pour garder la machine fluide.',
     items: [
@@ -30,7 +30,7 @@ export const services: Service[] = [
   {
     id: 'montage-installation',
     title: 'Montage et installation',
-    image: '/images/services/montage-installation.png',
+    image: '/images/services/pc-assembly.avif',
     description:
       'Montage sur mesure, toute gamme de budget : on assemble et on livre une machine prête à l’emploi, en prenant en charge tout le nécessaire pour qu’elle tourne chez vous. On peut aussi vous conseiller sur le choix des composants avant de monter.',
     items: [
@@ -44,7 +44,7 @@ export const services: Service[] = [
   {
     id: 'conseil-accompagnement',
     title: 'Conseil et accompagnement',
-    image: '/images/services/conseil-accompagnement.png',
+    image: '/images/services/consulting.avif',
     description:
       "On vous aide à y voir clair avant d'acheter, d'upgrader ou d'optimiser : choix des composants en tenant compte de la compatibilité, conseils sur ce qu'il vaut mieux installer ou désinstaller, et suivi pour que le matériel et le logiciel soient bien réglés.",
     items: [
@@ -58,7 +58,7 @@ export const services: Service[] = [
   {
     id: 'forfaits-optionnels',
     title: 'Forfaits et services optionnels',
-    image: '/images/services/forfaits-optionnels.png',
+    image: '/images/services/optional-packages.avif',
     description:
       "Au-delà des interventions ponctuelles, des forfaits et prestations optionnelles sont proposés pour un suivi adapté à votre usage. Le périmètre et les modalités sont définis selon votre situation.",
     items: [
@@ -72,7 +72,7 @@ export const services: Service[] = [
   {
     id: 'installation-reseau',
     title: 'Installation réseau',
-    image: '/images/services/installation-reseau.png',
+    image: '/images/services/network-setup.avif',
     description:
       "On s'occupe de la mise en service de votre réseau local : tout est configuré pour que les équipements et, le cas échéant, les objets connectés fonctionnent correctement. La prestation se limite à la configuration (box, extensions éventuelles, applications) — pas de travaux d'électricité.",
     items: [
@@ -85,7 +85,7 @@ export const services: Service[] = [
   {
     id: 'logiciels-specifiques',
     title: 'Création de sites vitrine',
-    image: '/images/services/WebsiteCreation.png',
+    image: '/images/services/website-creation.avif',
     description:
       "Nous réalisons des sites web vitrines professionnels pour présenter votre activité sur Internet de manière claire, élégante et efficace.\n\nChaque site est conçu sur mesure selon votre identité visuelle et vos besoins, avec une attention particulière à la lisibilité, à la navigation et à l'expérience utilisateur. Une fois livré, vous êtes propriétaire du code et pouvez l'utiliser ou le modifier librement, sans dépendance à une plateforme tierce comme WordPress ou Wix.",
     items: [

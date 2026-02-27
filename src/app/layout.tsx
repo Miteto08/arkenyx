@@ -71,7 +71,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'ProfessionalService',
   name: 'Arkenyx',
   description:
     'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, conseil, installation réseau et création de sites vitrine.',
