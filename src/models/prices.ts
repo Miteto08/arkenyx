@@ -385,3 +385,20 @@ export const priceGroups: PriceGroup[] = [
       "Les tarifs ci-dessus sont des tarifs indicatifs de départ, basés sur des pratiques du marché freelance en 2025/2026. Le coût final varie selon la complexité, le design, la rédaction et les fonctionnalités demandées. L'hébergement, le nom de domaine et toute maintenance post-mise en ligne ne sont pas inclus dans ces tarifs de base.",
   },
 ];
+
+export type QuotePrestationGroup = {
+  groupId: string;
+  groupTitle: string;
+  items: { id: string; label: string }[];
+};
+
+export function getQuotePrestationGroups(): QuotePrestationGroup[] {
+  return priceGroups.map((g) => ({
+    groupId: g.id,
+    groupTitle: g.title,
+    items: g.items.map((item, i) => ({
+      id: `${g.id}-${i}`,
+      label: item.label,
+    })),
+  }));
+}

@@ -17,17 +17,27 @@
 }
 
 .list {
-  max-width: 40rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
 }
 
 .item {
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  margin-bottom: 0.5rem;
   overflow: hidden;
   background: var(--color-bg-alt);
+  margin-bottom: 0;
 
   &[open] .question {
     border-bottom-color: var(--color-border);

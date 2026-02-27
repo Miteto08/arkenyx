@@ -11,7 +11,31 @@ const FAQ_ITEMS = [
   },
   {
     question: 'Que faire avant de nous confier mon PC ?',
-    answer: 'Sauvegardez vos données importantes sur un support externe si possible. Pensez à noter vos identifiants (Windows, logiciels) si une réinstallation est envisagée. Nous pouvons aussi vous accompagner pour une sauvegarde avant intervention.',
+    answer: 'Sauvegardez vos données importantes si possible et notez vos identifiants Windows et logiciels. Nous pouvons vous accompagner pour une sauvegarde avant intervention si nécessaire.',
+  },
+  {
+    question: 'Quels types de matériel prenez-vous en charge ?',
+    answer: 'Nous intervenons sur PC fixes, portables, périphériques, NAS et certains appareils connectés.',
+  },
+  {
+    question: 'Faut-il prévoir un rendez-vous sur place ou travail à distance ?',
+    answer: 'Selon la prestation, nous pouvons intervenir sur place ou guider à distance certaines opérations.',
+  },
+  {
+    question: 'Proposez-vous un suivi après l’intervention ?',
+    answer: 'Oui, nous accompagnons vos équipements sur la durée et pouvons vous conseiller pour éviter les pannes ou pertes de données.',
+  },
+  {
+    question: 'Que faire si mon PC ne démarre pas du tout ?',
+    answer: 'Nous réalisons un diagnostic pour identifier le problème et vous proposons la meilleure solution avant toute réparation.',
+  },
+  {
+    question: 'Acceptez-vous les interventions urgentes ?',
+    answer: 'Selon les disponibilités et le type de panne, certaines interventions peuvent être réalisées rapidement. Un diagnostic permet de confirmer les délais.',
+  },
+  {
+    question: 'Comment sont calculés les tarifs ?',
+    answer: 'Nos tarifs sont affichés clairement pour chaque prestation, avec devis gratuit avant intervention. Aucun coût caché.',
   },
 ];
 

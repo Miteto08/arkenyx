@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import ThemeToggle from '@/views/ThemeToggle/ThemeToggle';
+import QuoteRequestButton from '@/views/QuoteRequestButton/QuoteRequestButton';
 import styles from './Header.module.scss';
 
 export default function Header() {
@@ -24,9 +25,7 @@ export default function Header() {
             <a href="#tarifs">Tarifs</a>
             <a href="#contact">Contact</a>
           </nav>
-          <a href="mailto:contact@arkenyx.fr?subject=Demande%20de%20devis" className={styles.cta} aria-label="Demander un devis gratuit">
-            Demander un devis gratuit
-          </a>
+          <QuoteRequestButton className={styles.cta} />
           <div className={styles.themeToggleWrap}>
             <ThemeToggle />
           </div>
