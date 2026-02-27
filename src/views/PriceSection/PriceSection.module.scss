@@ -21,7 +21,33 @@
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
   color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.deplacementNote {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--color-text);
   margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid var(--color-primary-light);
+  border-radius: 10px;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  strong {
+    color: var(--color-primary-hover);
+  }
+}
+
+.deplacementNoteItem {
+  margin: 0 0 0.5rem 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .ctaWrap {
