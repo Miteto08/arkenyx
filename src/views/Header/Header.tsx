@@ -8,7 +8,7 @@ export default function Header() {
       <div className="container">
         <a href="/" className={styles.logo} aria-label="Arkenyx, accueil">
           <Image
-            src="/arkenyx-logo.avif"
+            src="/arkenyx-logo.png"
             alt="Arkenyx"
             width={420}
             height={120}
@@ -17,14 +17,16 @@ export default function Header() {
             className={styles.logoImg}
           />
         </a>
-        <nav className={styles.nav} aria-label="Navigation principale">
-          <a href="#notre-activite">Notre activité</a>
-          <a href="#services">Services</a>
-          <a href="#tarifs">Tarifs</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div className={styles.themeToggleWrap}>
-          <ThemeToggle />
+        <div className={styles.rightRow}>
+          <nav className={styles.nav} aria-label="Navigation principale">
+            <a href="#notre-activite">Notre activité</a>
+            <a href="#services">Services</a>
+            <a href="#tarifs">Tarifs</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div className={styles.themeToggleWrap}>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>

@@ -1,7 +1,5 @@
 .header {
-  position: relative;
   padding: 1rem 0;
-  padding-bottom: 3.5rem;
   background: var(--color-logo-bg);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -14,30 +12,38 @@
   gap: 0.5rem;
 }
 
-.themeToggleWrap {
-  position: absolute;
-  right: 1rem;
-  bottom: 0.75rem;
+.rightRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   padding-right: env(safe-area-inset-right, 0);
+}
+
+.themeToggleWrap {
+  flex-shrink: 0;
 }
 
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding-bottom: 1rem;
+  margin-right: 2rem;
+  padding: 0.25rem 0.5rem 0.25rem 0;
+  background: var(--color-logo-bg);
+  border-radius: 0.25rem;
 }
 
 .logoImg {
   height: 6rem;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
 .nav {
   display: flex;
+  align-items: center;
   gap: 1.5rem;
-  padding-top: 1rem;
 
   a {
     font-weight: 500;
