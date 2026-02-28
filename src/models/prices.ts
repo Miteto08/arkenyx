@@ -181,7 +181,7 @@ export const priceGroups: PriceGroup[] = [
     items: [
       {
         label: 'Montage PC seul',
-        price: '99€',
+        price: '89€',
         details: [
           'Assemblage et vérification des composants',
           'Vérification des branchements internes',
@@ -210,7 +210,7 @@ export const priceGroups: PriceGroup[] = [
       },
       {
         label: 'Pack "PC prêt à l\'emploi"',
-        price: '149€',
+        price: '139€',
         separatorBefore: true,
         recommended: true,
         details: [
@@ -338,20 +338,22 @@ export const priceGroups: PriceGroup[] = [
   {
     id: 'site-vitrine',
     title: 'Création de site vitrine',
+    intro:
+      "Livrable complet : respect de votre charte graphique et de vos demandes, animations professionnelles et légères, conformité RGPD, site responsive avec tests sur plusieurs appareils, intégration soignée et tests pratiques (vérification des parcours et formulaires).",
     items: [
       {
         label: 'Site vitrine One-page (simple)',
-        price: 'À partir de 800€',
+        price: 'À partir de 749€',
         details: [
           'Site entièrement conçu en 1 page',
-          'Design adapté à votre identité visuelle',
-          'Mise en forme du contenu (sections services, contact, présentation)',
-          'Version responsive (mobile/tablette/desktop)',
-          'Formulaire de contact fonctionnel',
-          'Mise en conformité RGPD de base',
+          'Respect de votre charte graphique et de vos demandes',
+          'Animations professionnelles, légères et maîtrisées',
+          'Sections services, contact, présentation ; formulaire de contact fonctionnel',
+          'Responsive (mobile / tablette / desktop) avec tests',
+          'Conformité RGPD et intégration soignée ; tests pratiques des parcours',
         ],
         itemNote:
-          'Idéal pour les artisans, indépendants et petites entreprises qui veulent une présence professionnelle simple sur Internet.',
+          'Idéal pour les artisans, indépendants et petites entreprises qui veulent une présence professionnelle complète et soignée sur Internet.',
       },
       {
         label: 'Site vitrine Multi-pages (standard)',
@@ -359,13 +361,12 @@ export const priceGroups: PriceGroup[] = [
         recommended: true,
         details: [
           'Structure sur plusieurs pages (Home, Services, À propos, Contact…)',
-          'Design personnalisé responsive',
-          'Mise en place de formulaire(s) et de contenu textuel',
-          'Référencement de base (SEO on-page)',
-          'Intégration graphique cohérente avec votre charte',
+          'Design personnalisé, charte graphique respectée, responsive avec tests',
+          'Formulaire(s) et contenu ; SEO on-page de base',
+          'Conformité RGPD ; intégration et tests pratiques des parcours',
         ],
         itemNote:
-          'Recommandé pour les TPE/PME souhaitant un site structuré plus complet.',
+          'Recommandé pour les TPE/PME souhaitant un site structuré et complet, livré clé en main.',
       },
       {
         label: 'Options complémentaires (ajoutables)',
@@ -382,7 +383,7 @@ export const priceGroups: PriceGroup[] = [
       },
     ],
     note:
-      "Les tarifs ci-dessus sont des tarifs indicatifs de départ, basés sur des pratiques du marché freelance en 2025/2026. Le coût final varie selon la complexité, le design, la rédaction et les fonctionnalités demandées. L'hébergement, le nom de domaine et toute maintenance post-mise en ligne ne sont pas inclus dans ces tarifs de base.",
+      "Les tarifs ci-dessus sont des tarifs indicatifs de départ, basés sur des pratiques du marché freelance en 2025/2026. Le coût final varie selon la complexité, le design, la rédaction et les fonctionnalités demandées. L'hébergement, le nom de domaine et toute maintenance post-mise en ligne ne sont pas inclus dans ces tarifs de base. Chaque projet est livré complet (charte, responsive, RGPD, tests) selon vos besoins.",
   },
 ];
 
