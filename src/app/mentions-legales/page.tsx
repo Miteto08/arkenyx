@@ -7,6 +7,10 @@ import { get } from '@/lib/i18n';
 export const metadata: Metadata = {
   title: get<string>('legal.mentions.metaTitle'),
   description: get<string>('legal.mentions.metaDescription'),
+  openGraph: {
+    title: get<string>('legal.mentions.metaTitle'),
+    description: get<string>('legal.mentions.metaDescription'),
+  },
 };
 
 export default function MentionsLegalesPage() {

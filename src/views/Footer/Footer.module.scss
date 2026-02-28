@@ -16,7 +16,13 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.madeWith {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.5rem;
 }
 
 .link {

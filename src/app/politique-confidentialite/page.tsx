@@ -7,6 +7,10 @@ import { get } from '@/lib/i18n';
 export const metadata: Metadata = {
   title: get<string>('legal.confidentialite.metaTitle'),
   description: get<string>('legal.confidentialite.metaDescription'),
+  openGraph: {
+    title: get<string>('legal.confidentialite.metaTitle'),
+    description: get<string>('legal.confidentialite.metaDescription'),
+  },
 };
 
 export default function PolitiqueConfidentialitePage() {

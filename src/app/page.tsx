@@ -10,6 +10,7 @@ import CommitmentsSection from '@/views/CommitmentsSection/CommitmentsSection';
 import HowItWorksSection from '@/views/HowItWorksSection/HowItWorksSection';
 import TestimonialsSection from '@/views/TestimonialsSection/TestimonialsSection';
 import InterventionAreaSection from '@/views/InterventionAreaSection/InterventionAreaSection';
+import FAQSchema from '@/views/FAQSection/FAQSchema';
 
 const PriceSection = dynamic(
   () => import('@/views/PriceSection/PriceSection').then((m) => m.default),
@@ -29,6 +30,7 @@ const ContactSection = dynamic(
 export default function HomePage() {
   return (
     <Layout>
+      <FAQSchema />
       <Banner>
         <Hero />
         <IntroSection />

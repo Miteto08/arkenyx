@@ -7,6 +7,10 @@ import { get } from '@/lib/i18n';
 export const metadata: Metadata = {
   title: get<string>('legal.cgv.metaTitle'),
   description: get<string>('legal.cgv.metaDescription'),
+  openGraph: {
+    title: get<string>('legal.cgv.metaTitle'),
+    description: get<string>('legal.cgv.metaDescription'),
+  },
 };
 
 export default function CGVPage() {

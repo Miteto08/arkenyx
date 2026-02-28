@@ -1,15 +1,15 @@
 const common = {
   navLinks: [
-    { href: '#notre-activite', label: 'Notre activité' },
-    { href: '#services', label: 'Services' },
-    { href: '#pourquoi-nous', label: 'Pourquoi nous choisir' },
-    { href: '#engagements', label: 'Nos engagements' },
-    { href: '#comment-ca-marche', label: 'Comment ça marche' },
-    { href: '#tarifs', label: 'Tarifs' },
-    { href: '#zone-intervention', label: 'Zone' },
-    { href: '#avis', label: 'Avis' },
-    { href: '#faq', label: 'Questions' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/#notre-activite', label: 'Notre activité' },
+    { href: '/#services', label: 'Services' },
+    { href: '/#pourquoi-nous', label: 'Pourquoi nous choisir' },
+    { href: '/#engagements', label: 'Nos engagements' },
+    { href: '/#comment-ca-marche', label: 'Comment ça marche' },
+    { href: '/#tarifs', label: 'Tarifs' },
+    { href: '/#zone-intervention', label: 'Zone' },
+    { href: '/#avis', label: 'Avis' },
+    { href: '/#faq', label: 'Questions' },
+    { href: '/#contact', label: 'Contact' },
   ],
   footer: {
     mentionsLegales: 'Mentions légales',
@@ -17,6 +17,7 @@ const common = {
     cgu: 'CGU',
     cgv: 'CGV',
     copyright: "© {year} Arkenyx. Tous droits réservés.",
+    madeWith: 'Site réalisé avec Next.js — Développé par Arkenyx',
   },
   header: {
     ariaLogo: 'Arkenyx, accueil',

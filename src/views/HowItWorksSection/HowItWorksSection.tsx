@@ -1,3 +1,6 @@
+'use client';
+
+import { useRef, useEffect, useState } from 'react';
 import { get } from '@/lib/i18n';
 import styles from './HowItWorksSection.module.scss';
 
@@ -8,8 +11,34 @@ interface Step {
 
 export default function HowItWorksSection() {
   const steps = get<Step[]>('home.howItWorks.steps');
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const ratio = entry.intersectionRatio;
+        setIsVisible((prev) => {
+          if (ratio >= 0.45) return true;
+          if (ratio <= 0.2) return false;
+          return prev;
+        });
+      },
+      { threshold: [0.2, 0.45], rootMargin: '-8% 0px -15% 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section} id="comment-ca-marche" aria-labelledby="how-title">
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${isVisible ? styles.stepsVisible : ''}`}
+      id="comment-ca-marche"
+      aria-labelledby="how-title"
+    >
       <div className="container">
         <h2 id="how-title" className={styles.heading}>
           {get<string>('home.howItWorks.title')}

@@ -48,26 +48,38 @@
   align-items: stretch;
   contain: layout style paint;
   isolation: isolate;
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-
-  &.slideFromRight {
-    transform: translateX(80px);
-  }
-
-  &.slideFromLeft {
-    transform: translateX(-80px);
-  }
-
-  &.inView {
-    opacity: 1;
-    transform: translateX(0);
-  }
 
   @media (min-width: 1100px) {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
   }
+}
+
+.content,
+.imageWrap {
+  opacity: 0;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+
+  .block.slideFromRight & {
+    transform: translateX(80px);
+  }
+
+  .block.slideFromLeft & {
+    transform: translateX(-80px);
+  }
+
+  .block.inView & {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.block.inView .content {
+  transition-delay: 0s;
+}
+
+.block.inView .imageWrap {
+  transition-delay: 0.35s;
 }
 
 .content {
@@ -76,7 +88,7 @@
   background: var(--color-bg-alt);
   border-radius: 12px;
   padding: 1.5rem;
-  transition: background 0.25s ease;
+  transition: background 0.25s ease, opacity 0.55s ease, transform 0.55s ease;
 
   @media (min-width: 1100px) {
     order: unset;
@@ -156,6 +168,7 @@
   border-radius: 12px;
   overflow: hidden;
   aspect-ratio: 3 / 2;
+  transition: opacity 0.55s ease, transform 0.55s ease;
 
   @media (min-width: 1100px) {
     order: unset;

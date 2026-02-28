@@ -21,6 +21,7 @@ export default function Footer() {
             {get<string>('common.footer.cgv')}
           </Link>
         </nav>
+        <p className={styles.madeWith}>{get<string>('common.footer.madeWith')}</p>
         <p className={styles.copyright}>{copyright}</p>
       </div>
     </footer>
