@@ -87,6 +87,16 @@
   transition-delay: 0.35s;
 }
 
+@media (max-width: 1099px) {
+  .block.inView.appearImageFirst .content {
+    transition-delay: 0.35s;
+  }
+
+  .block.inView.appearImageFirst .imageWrap {
+    transition-delay: 0s;
+  }
+}
+
 .content {
   order: 1;
   min-width: 0;

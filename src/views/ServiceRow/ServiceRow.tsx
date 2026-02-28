@@ -12,11 +12,30 @@ interface ServiceRowProps {
   id?: string;
 }
 
+const MOBILE_MAX_WIDTH = 1100;
+
 export default function ServiceRow({ service, index, id }: ServiceRowProps) {
   const ref = useRef<HTMLLIElement>(null);
+  const prevScrollY = useRef(0);
+  const scrollUpRef = useRef(false);
   const [inView, setInView] = useState(false);
+  const [appearImageFirst, setAppearImageFirst] = useState(false);
   const fromLeft = index % 2 === 1;
   const slideFromRight = index % 2 === 0;
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    prevScrollY.current = window.scrollY;
+    const onScroll = () => {
+      const current = window.scrollY;
+      scrollUpRef.current = current < prevScrollY.current;
+      requestAnimationFrame(() => {
+        prevScrollY.current = window.scrollY;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -24,11 +43,16 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         const ratio = entry.intersectionRatio;
-        setInView((prev) => {
-          if (ratio >= 0.45) return true;
-          if (ratio <= 0.15) return false;
-          return prev;
-        });
+        if (ratio >= 0.45) {
+          const isMobile = typeof window !== 'undefined' && window.innerWidth < MOBILE_MAX_WIDTH;
+          const currentY = typeof window !== 'undefined' ? window.scrollY : 0;
+          const justScrolledUp = currentY < prevScrollY.current;
+          if (typeof window !== 'undefined') prevScrollY.current = currentY;
+          setAppearImageFirst(Boolean(isMobile && (scrollUpRef.current || justScrolledUp)));
+          setInView(true);
+        } else if (ratio <= 0.15) {
+          setInView(false);
+        }
       },
       { threshold: [0.15, 0.45], rootMargin: '-8% 0px -22% 0px' }
     );
@@ -40,7 +64,7 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
     <li ref={ref} id={id} className={styles.row}>
       <div className="container">
         <div
-          className={`${styles.block} ${inView ? styles.inView : ''} ${slideFromRight ? styles.slideFromRight : styles.slideFromLeft}`}
+          className={`${styles.block} ${inView ? styles.inView : ''} ${slideFromRight ? styles.slideFromRight : styles.slideFromLeft} ${appearImageFirst ? styles.appearImageFirst : ''}`}
         >
           {fromLeft ? (
             <>
