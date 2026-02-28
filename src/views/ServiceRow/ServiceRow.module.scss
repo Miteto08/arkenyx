@@ -5,22 +5,18 @@
   width: 100%;
 
   &:nth-of-type(odd) {
-    background: linear-gradient(
-      90deg,
-      #f8f6f4 0%,
-      #e8ecf2 50%,
-      #d4dce4 100%
-    );
+    background: linear-gradient(90deg,
+        #f8f6f4 0%,
+        #e8ecf2 50%,
+        #d4dce4 100%);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   &:nth-of-type(even) {
-    background: linear-gradient(
-      90deg,
-      #1f2f3b 0%,
-      #263848 50%,
-      #324558 100%
-    );
+    background: linear-gradient(90deg,
+        #1f2f3b 0%,
+        #263848 50%,
+        #324558 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
@@ -29,6 +25,7 @@
   }
 
   [data-theme='dark'] & {
+
     &:nth-of-type(odd),
     &:nth-of-type(even) {
       background: var(--color-bg);
@@ -72,6 +69,14 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.block .content {
+  transition-delay: 0.35s;
+}
+
+.block .imageWrap {
+  transition-delay: 0s;
 }
 
 .block.inView .content {
