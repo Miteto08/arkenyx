@@ -38,13 +38,16 @@ export default function CGVPage() {
         <h2>Devis et commande</h2>
         <p>
           Un devis ou une proposition est établi sur demande (e-mail ou
-          téléphone). La commande est réputée acceptée à réception du devis
-          signé ou d&#39;un accord explicite du client (e-mail, oral confirmé).
-          La durée de validité du devis est indiquée sur le document (30 jours
-          par défaut sauf mention contraire) ; à son expiration, l&#39;offre
-          est caduque. Les tarifs sont indiqués en euros hors taxes (TVA non
-          applicable, art. 293 B du CGI) tant que le prestataire relève de la
-          franchise en base de TVA.
+          téléphone). Le contrat entre les deux parties est formé et réputé
+          ratifié lorsque le client accepte l&#39;offre, conformément aux lois
+          en vigueur et au cadre juridique applicable : par réception du devis
+          signé et retourné, ou par accord explicite du client (e-mail ou oral
+          confirmé). Jusqu&#39;à cette validation, aucune prestation n&#39;est
+          due. La durée de validité du devis est indiquée sur le document (30
+          jours par défaut sauf mention contraire) ; à son expiration,
+          l&#39;offre est caduque. Les tarifs sont indiqués en euros hors taxes
+          (TVA non applicable, art. 293 B du CGI) tant que le prestataire relève
+          de la franchise en base de TVA.
         </p>
 
         <h2>Déplacement</h2>

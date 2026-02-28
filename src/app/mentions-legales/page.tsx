@@ -29,6 +29,11 @@ export default function MentionsLegalesPage() {
 
         <h2>Contact</h2>
         <p>
+          La politique de confidentialité, les conditions générales de vente
+          (CGV) et les conditions générales d&#39;utilisation (CGU) sont
+          accessibles via les liens en pied de page du site.
+        </p>
+        <p>
           Pour toute demande, vous pouvez nous contacter uniquement par :
         </p>
         <ul>
