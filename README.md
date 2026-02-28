@@ -1,75 +1,101 @@
-# Arkenyx – Site vitrine
+# Arkenyx – Website
 
-Site vitrine pour la micro-entreprise Arkenyx (stockage informatique, montage PC, etc.).
+Static marketing site for **Arkenyx**, a French micro-enterprise offering IT services (PC repair, custom builds, data recovery, networking, web design, etc.).
 
-- **Stack** : Next.js 14 (App Router), React, TypeScript, SASS
-- **Type** : Single Page Application (export statique)
-- **Structure** : inspirée MVC (models, views, controllers)
-- **UI** : responsive (mobile-first)
+- **Stack:** Next.js 14 (App Router), React, TypeScript, SASS
+- **Output:** Static export (SPA) → deployable to any static host
+- **Structure:** MVC-inspired (`models`, `views`, `app` pages)
+- **UI:** Responsive, mobile-first
 
 ---
 
-## Premières étapes
+## Prerequisites
 
-### 1. Installer les dépendances
+- **Node.js** 18+ (LTS recommended)
+- **npm** (or yarn / pnpm)
 
-À la racine du projet :
+---
+
+## Getting Started
+
+### Install dependencies
+
+From the project root:
 
 ```bash
 npm install
 ```
 
-(Si `npx`/`npm` ne sont pas reconnus, ouvrir un terminal dans le dossier du projet après avoir lancé Node.js depuis son installation, ou utiliser **Node.js** depuis le PATH de votre session.)
-
-### 2. Lancer en développement
+### Run in development
 
 ```bash
 npm run dev
 ```
 
-Ou, pour des recompilations plus rapides (Turbopack) :
+Or with Turbopack for faster rebuilds:
 
 ```bash
 npm run dev:turbo
 ```
 
-Ouvrir [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000).
 
-### Variables d'environnement (optionnel)
-
-| Variable | Rôle |
-|----------|------|
-| `NEXT_PUBLIC_SITE_URL` | URL publique du site (ex. `https://www.arkenyx.fr`). Utilisée pour le sitemap, les métadonnées et le canonical. Par défaut : `https://www.arkenyx.fr`. |
-
-Créer un fichier `.env.local` à la racine si besoin (ne pas le committer si il contient des secrets).
-
-### 3. Build SPA (export statique)
+### Build for production (static export)
 
 ```bash
 npm run build
 ```
 
-Les fichiers statiques sont générés dans le dossier **`out/`**. Ce dossier peut être déployé sur GitHub Pages, Netlify, Vercel, ou tout hébergeur de fichiers statiques.
-
-**Déploiement** : Sur Vercel ou Netlify, connecter le dépôt Git et configurer la commande de build `npm run build` et le dossier de sortie `out`. Configurer le domaine et, si besoin, `NEXT_PUBLIC_SITE_URL` dans les variables d'environnement de l'hébergeur.
-
-### 4. Structure du projet (MVC)
-
-| Dossier / rôle | Rôle |
-|----------------|------|
-| **`src/models/`** | Données et types (services, produits, textes) |
-| **`src/views/`** | Composants React + fichiers `.module.scss` (présentation) |
-| **`src/controllers/`** | Hooks et logique (liaison models ↔ views) |
-| **`src/app/`** | Pages Next.js (App Router), `layout.tsx`, `globals.scss` |
-
-- **Une seule page** : tout le contenu vitrine peut vivre sur `src/app/page.tsx` (sections : hero, services, contact, etc.).
-- **SASS** : variables et mixins dans `src/app/globals.scss` ; styles par composant dans `src/views/**/*.module.scss`.
-- **Responsive** : breakpoints déjà définis dans `globals.scss` (`$breakpoint-mobile`, `$breakpoint-tablet`, etc.).
+Static files are generated in **`out/`**. This folder can be deployed to GitHub Pages, Netlify, Vercel, or any static hosting provider.
 
 ---
 
-## Suite possible
+## Environment variables
 
-- Ajouter les sections de la vitrine (hero, services, contact) dans `src/views/`.
-- Renseigner les textes et données dans `src/models/`.
-- Utiliser les controllers pour la logique (formulaires, état) et garder les views uniquement présentation.
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_SITE_URL` | Public URL of the site (e.g. `https://www.arkenyx.fr`). Used for sitemap, metadata, and canonical URLs. Default: `https://www.arkenyx.fr`. |
+
+Create a `.env.local` file at the root if needed. Do not commit it if it contains secrets.
+
+---
+
+## Project structure
+
+| Path | Role |
+|------|------|
+| **`src/app/`** | Next.js App Router: pages, `layout.tsx`, `globals.scss` |
+| **`src/views/`** | React components and `.module.scss` (presentation) |
+| **`src/models/`** | Data and types (services, copy, constants) |
+
+- **Home:** Main landing content lives in `src/app/page.tsx` (hero, services, pricing, FAQ, contact, etc.).
+- **Legal pages:** CGV, CGU, Mentions légales, Politique de confidentialité under `src/app/` (e.g. `cgv/`, `cgu/`, `mentions-legales/`, `politique-confidentialite/`).
+- **SASS:** Global variables and mixins in `src/app/globals.scss`; per-component styles in `src/views/**/*.module.scss`.
+- **Responsive:** Breakpoints are defined in `globals.scss` (`$breakpoint-mobile`, `$breakpoint-tablet`, etc.).
+
+---
+
+## Deployment
+
+1. Connect your Git repository to your host (Vercel, Netlify, etc.).
+2. Set **build command:** `npm run build`
+3. Set **output directory:** `out`
+4. Optionally set `NEXT_PUBLIC_SITE_URL` in the host’s environment variables to match your production domain.
+
+---
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server (default port 3000) |
+| `npm run dev:turbo` | Start dev server with Turbopack |
+| `npm run build` | Static export → `out/` |
+| `npm run start` | Serve production build (after `build`) |
+| `npm run lint` | Run ESLint |
+
+---
+
+## License
+
+Private project. All rights reserved.
