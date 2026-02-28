@@ -1,6 +1,3 @@
-/**
- * Textes du layout racine : métadonnées, Open Graph, Twitter, JSON-LD.
- */
 const site = {
   name: 'Arkenyx',
   titleDefault: 'Arkenyx – Dépannage PC, montage et récupération de données',

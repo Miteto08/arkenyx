@@ -40,7 +40,6 @@
   z-index: 0;
 }
 
-/* Dark mode: sun icon visible on the left */
 .track[data-theme='dark'] .iconSlotLeft {
   opacity: 1;
 }
@@ -48,7 +47,6 @@
   opacity: 0;
 }
 
-/* Light mode: moon icon visible on the right */
 .track[data-theme='light'] .iconSlotLeft {
   opacity: 0;
 }

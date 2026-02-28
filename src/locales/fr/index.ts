@@ -1,8 +1,3 @@
-/**
- * Locale française : agrégat de tous les textes du site.
- * Clés utilisées dans l'app via get('section.key') ou get('section.sub.key').
- * Pour une autre langue, créer locales/en/ et basculer currentLocale dans lib/i18n.ts.
- */
 import common from './common';
 import site from './site';
 import home from './home';

@@ -41,7 +41,7 @@ const home = {
     title: 'Tarifs',
     subheading: 'Tarifs clairs, sans surprise',
     deplacementLabel: 'Déplacement :',
-    deplacementText: "gratuit dans un rayon de 10 km autour d'Ahouillé ; au-delà, 0,50 €/km. À préciser sur le devis.",
+    deplacementText: "gratuit dans un rayon de 10 km autour d'Ahuillé ; au-delà, 0,50 €/km. À préciser sur le devis.",
     paiementLabel: 'Paiement :',
     paiementText: 'carte bancaire, virement et espèces. Chèques non acceptés.',
   },
@@ -52,6 +52,29 @@ const home = {
   faq: {
     title: 'Questions fréquentes',
     intro: "Quelques réponses pour vous aider. Une autre question ? N'hésitez pas à nous contacter.",
+  },
+  testimonials: {
+    title: 'Avis clients',
+    intro: 'Les retours de nos clients seront bientôt visibles ici.',
+    placeholder: 'Vos avis arrivent très bientôt. En attendant, n\'hésitez pas à nous contacter pour toute question.',
+  },
+  interventionArea: {
+    title: 'Zone d\'intervention',
+    intro: 'J\'interviens en Mayenne et dans l\'est de l\'Ile-et-Vilaine. Voici quelques secteurs couverts.',
+    mapLink: 'Voir la zone sur Google Maps',
+    mapLinkAria: 'Ouvrir la zone d\'intervention sur Google Maps',
+    communesIntro: 'Exemples de communes et secteurs :',
+    communes: ['Ahuillé', 'Laval', 'Cossé-le-Vivien', 'Andouillé', 'Vitré', 'Château-Gontier', 'Ernée', 'Fougères'],
+  },
+  howItWorks: {
+    title: 'Comment ça marche ?',
+    intro: 'Une intervention simple et transparente, en quelques étapes.',
+    steps: [
+      { title: 'Nous contacter', description: 'Par e-mail ou téléphone : décrivez votre besoin ou demandez un devis gratuit.' },
+      { title: 'Devis gratuit', description: 'Nous établissons un devis détaillé sans engagement. Vous validez avant toute intervention.' },
+      { title: 'Intervention', description: 'Rendez-vous à domicile ou sur site. Explication claire de ce qui est fait.' },
+      { title: 'Règlement', description: 'Paiement à l\'issue de la prestation (carte, virement, espèces). Facture fournie.' },
+    ],
   },
 };
 

@@ -1,0 +1,93 @@
+.section {
+  padding: 3rem 0;
+  background: var(--color-bg-main);
+  border-top: 1px solid var(--color-border);
+}
+
+.heading {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.intro {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mapWrap {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.mapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-primary);
+  color: var(--color-logo-bg);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: background 0.2s, transform 0.15s;
+
+  &:hover {
+    background: var(--color-primary-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.mapLinkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.communesBlock {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.communesIntro {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.communesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  justify-content: center;
+}
+
+.commune {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+  cursor: default;
+}

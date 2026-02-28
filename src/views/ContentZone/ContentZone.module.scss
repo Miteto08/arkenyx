@@ -1,0 +1,7 @@
+.contentZone {
+  background: var(--color-bg-main);
+
+  > :global(section) {
+    background: transparent !important;
+  }
+}
