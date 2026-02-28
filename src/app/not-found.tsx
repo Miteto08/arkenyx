@@ -1,15 +1,16 @@
 import Link from 'next/link';
+import { get } from '@/lib/i18n';
 
 export const metadata = {
-  title: 'Page introuvable',
+  title: get<string>('notFound.title'),
 };
 
 export default function NotFound() {
   return (
     <div className="container" style={{ paddingTop: '4rem', paddingBottom: '4rem', minHeight: '60vh' }}>
-      <h1 style={{ marginBottom: '0.5rem' }}>Page introuvable</h1>
+      <h1 style={{ marginBottom: '0.5rem' }}>{get<string>('notFound.title')}</h1>
       <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-        La page que vous recherchez n’existe pas ou a été déplacée.
+        {get<string>('notFound.description')}
       </p>
       <Link
         href="/"
@@ -23,7 +24,7 @@ export default function NotFound() {
           textDecoration: 'none',
         }}
       >
-        Retour à l’accueil
+        {get<string>('notFound.backLink')}
       </Link>
     </div>
   );

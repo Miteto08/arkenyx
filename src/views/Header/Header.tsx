@@ -4,25 +4,19 @@ import { useState } from 'react';
 import Image from 'next/image';
 import ThemeToggle from '@/views/ThemeToggle/ThemeToggle';
 import QuoteRequestButton from '@/views/QuoteRequestButton/QuoteRequestButton';
+import { get } from '@/lib/i18n';
 import styles from './Header.module.scss';
 
-const NAV_LINKS = [
-  { href: '#notre-activite', label: 'Notre activité' },
-  { href: '#services', label: 'Services' },
-  { href: '#pourquoi-nous', label: 'Pourquoi nous choisir' },
-  { href: '#engagements', label: 'Nos engagements' },
-  { href: '#tarifs', label: 'Tarifs' },
-  { href: '#faq', label: 'Questions' },
-  { href: '#contact', label: 'Contact' },
-];
+const NAV_LINKS = get<Array<{ href: string; label: string }>>('common.navLinks');
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const ariaMenu = get<string>(menuOpen ? 'common.header.ariaMenuOpen' : 'common.header.ariaMenuClose');
 
   return (
     <header className={styles.header}>
       <div className="container">
-        <a href="/" className={styles.logo} aria-label="Arkenyx, accueil">
+        <a href="/" className={styles.logo} aria-label={get<string>('common.header.ariaLogo')}>
           <Image
             src="/arkenyx-logo.png"
             alt="Arkenyx"
@@ -40,7 +34,7 @@ export default function Header() {
             onClick={() => setMenuOpen((o) => !o)}
             aria-expanded={menuOpen}
             aria-controls="main-nav"
-            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-label={ariaMenu}
           >
             <span className={styles.burgerBar} />
             <span className={styles.burgerBar} />
@@ -49,7 +43,7 @@ export default function Header() {
           <nav
             id="main-nav"
             className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}
-            aria-label="Navigation principale"
+            aria-label={get<string>('common.header.ariaNav')}
           >
             {NAV_LINKS.map((link) => (
               <a

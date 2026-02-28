@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { get } from '@/lib/i18n';
 import styles from './LegalLayout.module.scss';
 
 interface LegalLayoutProps {
@@ -11,7 +12,7 @@ export default function LegalLayout({ title, children }: LegalLayoutProps) {
     <article className={styles.article}>
       <div className="container">
         <Link href="/" className={styles.back}>
-          ← Retour à l&#39;accueil
+          {get<string>('legalLayout.backLink')}
         </Link>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.content}>{children}</div>

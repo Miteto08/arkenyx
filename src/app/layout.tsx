@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { DM_Sans, Space_Grotesk } from 'next/font/google';
+import { get } from '@/lib/i18n';
 import '@/app/globals.scss';
 
 const dmSans = DM_Sans({
@@ -22,48 +23,35 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.arkenyx.fr';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Arkenyx – Dépannage PC, montage et récupération de données',
-    template: '%s | Arkenyx',
+    default: get<string>('site.titleDefault'),
+    template: get<string>('site.titleTemplate'),
   },
-  description:
-    'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, sauvegarde, conseil, installation réseau et création de sites vitrine. Réparer, expliquer, faire durer.',
-  keywords: [
-    'dépannage PC',
-    'réparation informatique',
-    'montage PC',
-    'récupération données',
-    'sauvegarde',
-    'micro-entreprise informatique',
-    'conseil informatique',
-    'installation réseau',
-    'site vitrine',
-    'Arkenyx',
-  ],
-  authors: [{ name: 'Arkenyx', url: siteUrl }],
-  creator: 'Arkenyx',
-  publisher: 'Arkenyx',
+  description: get<string>('site.description'),
+  keywords: get<string[]>('site.keywords'),
+  authors: [{ name: get<string>('site.name'), url: siteUrl }],
+  creator: get<string>('site.name'),
+  publisher: get<string>('site.name'),
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
     url: siteUrl,
-    siteName: 'Arkenyx',
-    title: 'Arkenyx – Dépannage PC, montage et récupération de données',
-    description:
-      'Micro-entreprise informatique de proximité : dépannage PC, montage, récupération de données, conseil, réseau et sites vitrine.',
+    siteName: get<string>('site.name'),
+    title: get<string>('site.openGraph.title'),
+    description: get<string>('site.openGraph.description'),
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Arkenyx – Dépannage PC, montage et récupération de données',
+        alt: get<string>('site.openGraph.imageAlt'),
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Arkenyx – Dépannage PC, montage et récupération de données',
-    description: 'Micro-entreprise informatique : dépannage, montage, récupération données, conseil, sites vitrine.',
+    title: get<string>('site.twitter.title'),
+    description: get<string>('site.twitter.description'),
     images: ['/og-image.png'],
   },
   robots: {
@@ -79,26 +67,20 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Arkenyx',
-  description:
-    'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, conseil, installation réseau et création de sites vitrine.',
-  url: siteUrl,
-  email: 'contact@arkenyx.fr',
-  areaServed: 'FR',
-  slogan: 'Réparer, expliquer, faire durer.',
-  priceRange: '€€',
-  serviceType: [
-    'Dépannage et réparation informatique',
-    'Montage PC',
-    'Récupération et sauvegarde de données',
-    'Conseil et accompagnement',
-    'Installation réseau',
-    'Création de sites vitrine',
-  ],
-};
+function getJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: get<string>('site.name'),
+    description: get<string>('site.jsonLd.description'),
+    url: siteUrl,
+    email: 'contact@arkenyx.fr',
+    areaServed: 'FR',
+    slogan: get<string>('site.jsonLd.slogan'),
+    priceRange: '€€',
+    serviceType: get<string[]>('site.jsonLd.serviceType'),
+  };
+}
 
 export default function RootLayout({
   children,
@@ -114,7 +96,7 @@ export default function RootLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getJsonLd()) }}
         />
         {children}
       </body>

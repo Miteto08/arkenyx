@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import QuoteModal from '@/views/QuoteModal/QuoteModal';
+import { get } from '@/lib/i18n';
 import styles from './QuoteRequestButton.module.scss';
 
 interface QuoteRequestButtonProps {
@@ -17,9 +18,9 @@ export default function QuoteRequestButton({ className }: QuoteRequestButtonProp
         type="button"
         className={className ?? styles.cta}
         onClick={() => setIsOpen(true)}
-        aria-label="Demander un devis gratuit"
+        aria-label={get<string>('common.ctaQuote')}
       >
-        Demander un devis gratuit
+        {get<string>('common.ctaQuote')}
       </button>
       <QuoteModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>

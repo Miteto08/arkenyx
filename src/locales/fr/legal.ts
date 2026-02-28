@@ -1,0 +1,69 @@
+/**
+ * Textes des pages légales (CGV, CGU, Mentions légales, Politique de confidentialité).
+ * Structure : titre de page + sections (titre h2 + paragraphes).
+ */
+const legal = {
+  cgv: {
+    metaTitle: 'Conditions générales de vente – Arkenyx',
+    metaDescription: 'Conditions générales de vente des prestations Arkenyx.',
+    title: 'Conditions générales de vente (CGV)',
+    intro: "Les présentes CGV s'appliquent aux prestations de services réalisées par Arkenyx, micro-entreprise (dépannage, réparation, montage PC, récupération de données, conseil, forfaits, réseau, création de site web, etc.). Elles complètent le devis ou le bon de commande accepté par le client.",
+    sections: [
+      { heading: 'Préambule', paragraphs: ["Le client est la personne physique ou morale qui commande une prestation. Le prestataire est Lechevalier Julien, exerçant sous le nom Arkenyx. Contact : contact@arkenyx.fr, 06.45.65.84.48."] },
+      { heading: 'Services', paragraphs: ["Les services proposés sont décrits sur le site (dépannage et réparation, montage PC, récupération de données, conseil, forfaits, réseau, création de site web, etc.). Le détail et le périmètre de chaque prestation sont fixés dans le devis ou la proposition remis au client."] },
+      { heading: 'Devis et commande', paragraphs: ["Un devis ou une proposition est établi sur demande (e-mail ou téléphone). Le contrat entre les deux parties est formé et réputé ratifié lorsque le client accepte l'offre, conformément aux lois en vigueur et au cadre juridique applicable : par réception du devis signé et retourné, ou par accord explicite du client (e-mail ou oral confirmé). Jusqu'à cette validation, aucune prestation n'est due. La durée de validité du devis est indiquée sur le document (30 jours par défaut sauf mention contraire) ; à son expiration, l'offre est caduque. Les tarifs sont indiqués en euros hors taxes (TVA non applicable, art. 293 B du CGI) tant que le prestataire relève de la franchise en base de TVA."] },
+      { heading: 'Déplacement', paragraphs: ["Le déplacement est gratuit dans un rayon de 10 km autour d'Ahouillé. Au-delà, il est facturé 0,50 € par kilomètre. Le détail est rappelé sur le devis."] },
+      { heading: 'Paiement', paragraphs: ["Les modalités de paiement (acompte, solde, délais) sont précisées dans le devis. Le règlement s'effectue par virement, carte bancaire ou espèces. Les chèques ne sont pas acceptés. En cas de retard de paiement, des pénalités de retard pourront être appliquées conformément aux articles L.441-6 et L.441-10 du Code de commerce."] },
+      { heading: 'Facturation', paragraphs: ["Une facture est établie après chaque prestation. Elle comporte le détail des prestations, les éventuelles majorations (déplacement, etc.) et les mentions légales obligatoires (dont la mention de franchise de TVA lorsque le prestataire n'est pas assujetti)."] },
+      { heading: 'TVA', paragraphs: ["La micro-entreprise n'est pas assujettie à la TVA tant que son chiffre d'affaires ne dépasse pas les seuils de la franchise en base de TVA (pour les prestations de services : 37 500 € sur l'année civile, avec seuil de tolérance à 41 250 € en cas de dépassement en cours d'année). Les tarifs sont donc indiqués hors taxes (TVA non applicable, art. 293 B du Code général des impôts – CGI)."] },
+      { heading: 'Délais et exécution', paragraphs: ["Les délais indiqués dans le devis sont donnés à titre indicatif. Le prestataire s'engage à informer le client en cas de retard prévisible. La prestation est réalisée avec soin et conformément aux usages de la profession."] },
+      { heading: 'Droit de rétractation', paragraphs: ["Pour les prestations de services à la personne (B2C), le client dispose d'un droit de rétractation de 14 jours à compter de l'acceptation du devis, sauf si l'exécution a commencé avec son accord avant la fin de ce délai (articles L.221-18 et suivants du Code de la consommation). Pour les professionnels (B2B), le droit de rétractation ne s'applique pas selon les dispositions en vigueur."] },
+      { heading: 'Litiges', paragraphs: ["En cas de litige, les parties s'efforcent de trouver une solution à l'amiable. À défaut, les tribunaux français sont compétents. Le droit français est applicable."] },
+      { heading: 'Médiation de la consommation', paragraphs: ["L'entreprise est actuellement en cours d'immatriculation. À ce titre, aucun contrat de prestation n'est conclu à ce jour avec des consommateurs.", "Conformément aux articles L.612-1 et suivants du Code de la consommation, un dispositif de médiation de la consommation sera mis en place dès le début effectif de l'activité commerciale auprès des particuliers.", "Les coordonnées du médiateur compétent seront alors communiquées dans les présentes Conditions Générales de Vente."] },
+    ],
+  },
+  cgu: {
+    metaTitle: "Conditions générales d'utilisation – Arkenyx",
+    metaDescription: "Conditions d'utilisation du site Arkenyx.",
+    title: "Conditions générales d'utilisation (CGU)",
+    intro: "L'utilisation du site arkenyx.fr implique l'acceptation des présentes conditions. Ce site est un site vitrine d'un micro-entrepreneur.",
+    sections: [
+      { heading: 'Objet', paragraphs: ["Le site présente l'activité d'Arkenyx (dépannage et réparation, montage PC, récupération de données, conseil, forfaits, réseau, création de site web, etc.) et permet de prendre contact par e-mail, téléphone, formulaire de contact ou demande de devis en ligne."] },
+      { heading: 'Utilisation du site', paragraphs: ["Vous vous engagez à utiliser le site de manière conforme à la loi et aux présentes CGU. Toute utilisation frauduleuse, abusive ou préjudiciable est interdite."] },
+      { heading: 'Propriété intellectuelle', paragraphs: ["Les textes, visuels, logo et la structure du site sont protégés. Toute reproduction, représentation ou exploitation non autorisée est interdite sans accord écrit."] },
+      { heading: 'Limitation de responsabilité', paragraphs: ["L'éditeur s'efforce d'assurer la disponibilité et l'exactitude des informations. Il ne peut toutefois être tenu responsable des erreurs, omissions ou des dommages résultant de l'utilisation du site ou des liens externes."] },
+      { heading: 'Liens', paragraphs: ["Des liens vers d'autres sites peuvent être proposés. L'éditeur n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu."] },
+      { heading: 'Droit applicable', paragraphs: ["Les présentes CGU sont régies par le droit français. En cas de litige, les tribunaux français seront compétents. Le site est édité dans le cadre des dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN)."] },
+    ],
+  },
+  mentions: {
+    metaTitle: 'Mentions légales – Arkenyx',
+    metaDescription: 'Mentions légales du site Arkenyx.',
+    title: 'Mentions légales',
+    intro: "Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), les informations suivantes sont portées à la connaissance des utilisateurs du site arkenyx.fr. Le site est édité par un micro-entrepreneur, dans le cadre d'une activité de prestations de services informatiques (dépannage et réparation, montage PC, récupération de données, conseil, forfaits, mise en place de réseau, création de site web, etc.).",
+    sections: [
+      { heading: 'Éditeur du site', paragraphs: ["Lechevalier Julien\nMicro-entreprise – SIRET : [SIRET]"] },
+      { heading: 'Contact', paragraphs: ["La politique de confidentialité, les conditions générales de vente (CGV) et les conditions générales d'utilisation (CGU) sont accessibles via les liens en pied de page du site.", "Pour toute demande, vous pouvez nous contacter uniquement par :", "E-mail : contact@arkenyx.fr\nTéléphone : 06.45.65.84.48", "L'adresse du siège n'est pas publiée sur le site pour des raisons de confidentialité. Les échanges se font par e-mail et téléphone."] },
+      { heading: 'Hébergeur', paragraphs: ["Conformément à l'article 6 de la LCEN, l'hébergeur du site est :", "[Nom de l'hébergeur]\n[Adresse de l'hébergeur]", "Les données transmises par e-mail via le site ne sont pas hébergées sur un serveur tiers dédié au site ; seules les pages web sont hébergées par l'hébergeur indiqué ci-dessus."] },
+      { heading: 'Directeur de la publication', paragraphs: ['Lechevalier Julien'] },
+      { heading: 'Propriété intellectuelle', paragraphs: ["L'ensemble du contenu de ce site (textes, visuels, logo) est protégé par le droit d'auteur. Toute reproduction non autorisée est interdite."] },
+    ],
+  },
+  confidentialite: {
+    metaTitle: 'Politique de confidentialité – Arkenyx',
+    metaDescription: 'Politique de confidentialité et protection des données.',
+    title: 'Politique de confidentialité',
+    intro: "Cette page décrit comment sont traitées les données personnelles collectées via le site arkenyx.fr, dans le respect du Règlement (UE) 2016/679 (RGPD) et de la loi « informatique et libertés ».",
+    sections: [
+      { heading: 'Responsable du traitement', paragraphs: ['Lechevalier Julien – contact : contact@arkenyx.fr ou 06.45.65.84.48.'] },
+      { heading: 'Données collectées', paragraphs: ["Lorsque vous nous contactez via le site (lien « Envoyer un message » ou bouton « Demander un devis »), l'ouverture de votre messagerie nous permet de recevoir votre adresse e-mail et le contenu de votre message (et, pour les demandes de devis, les prestations sélectionnées). Aucune donnée n'est enregistrée sur un serveur du site : les échanges nous parviennent par e-mail."] },
+      { heading: 'Finalité et base légale', paragraphs: ["Ces données sont utilisées uniquement pour répondre à vos demandes (devis, questions, projets). La base légale est votre consentement implicite (envoi du message) ou l'exécution de mesures précontractuelles."] },
+      { heading: 'Données lors des interventions', paragraphs: ["Dans le cadre d'une prestation, l'accès aux données présentes sur votre équipement est strictement limité à ce qui est nécessaire à la réalisation de la prestation. Aucune copie ni conservation de vos données n'est effectuée sans votre accord préalable. Les données sont traitées dans le respect du secret professionnel et du RGPD."] },
+      { heading: 'Durée de conservation', paragraphs: ["Les e-mails et coordonnées liés à une demande sont conservés le temps nécessaire à la relation commerciale. Les pièces à caractère comptable sont conservées 10 ans conformément aux obligations légales. Au-delà, les données sont supprimées ou anonymisées."] },
+      { heading: 'Vos droits', paragraphs: ["Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi « informatique et libertés », vous disposez des droits suivants :", "Accès à vos données\nRectification\nEffacement\nLimitation du traitement\nOpposition\nPortabilité (quand applicable)", "Pour les exercer, contactez-nous à contact@arkenyx.fr. Vous pouvez également introduire une réclamation auprès de la CNIL (cnil.fr)."] },
+      { heading: 'Cookies et stockage local', paragraphs: ["Ce site n'utilise pas de cookies analytics ou publicitaires. Un stockage local (navigateur) peut être utilisé pour mémoriser votre préférence d'affichage (thème clair ou sombre). Aucune donnée n'est cédée à des tiers à des fins marketing."] },
+    ],
+  },
+};
+
+export default legal;

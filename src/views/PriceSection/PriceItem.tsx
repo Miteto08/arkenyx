@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import type { PriceItem as PriceItemType } from '@/models/prices';
+import { get } from '@/lib/i18n';
 import styles from './PriceSection.module.scss';
 
 function getDetailsKey(groupId: string, itemIndex: number) {
@@ -36,7 +37,7 @@ export default function PriceItem({
       >
         {item.recommended && (
           <span className={styles.recommendedBadge} aria-hidden>
-            Recommandé
+            {get<string>('home.priceCard.recommandé')}
           </span>
         )}
         <div className={styles.itemHeader}>
@@ -59,7 +60,7 @@ export default function PriceItem({
               >
                 ▼
               </span>
-              <span className={styles.detailsTriggerText}>Plus de détails</span>
+              <span className={styles.detailsTriggerText}>{get<string>('home.priceCard.plusDeDetails')}</span>
             </button>
             <div
               id={`details-${groupId}-${itemIndex}`}

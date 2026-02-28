@@ -1,3 +1,4 @@
+import { get } from '@/lib/i18n';
 import styles from './FAQSection.module.scss';
 import {
   FAQ_CATEGORIES,
@@ -31,10 +32,8 @@ export default function FAQSection() {
   return (
     <section className={styles.section} id="faq" aria-labelledby="faq-title">
       <div className={styles.faqWrap}>
-        <h2 id="faq-title" className={styles.heading}>Questions fréquentes</h2>
-        <p className={styles.intro}>
-          Quelques réponses pour vous aider. Une autre question ? N&#39;hésitez pas à nous contacter.
-        </p>
+        <h2 id="faq-title" className={styles.heading}>{get<string>('home.faq.title')}</h2>
+        <p className={styles.intro}>{get<string>('home.faq.intro')}</p>
         <div className={styles.categoryList}>
           {FAQ_CATEGORIES.map((cat) => {
             const items = itemsByCategory.get(cat.id) ?? [];

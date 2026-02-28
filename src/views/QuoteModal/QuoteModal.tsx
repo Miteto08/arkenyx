@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { getQuotePrestationGroups } from '@/models/prices';
+import { get } from '@/lib/i18n';
 import styles from './QuoteModal.module.scss';
 
 const EMAIL = 'contact@arkenyx.fr';
@@ -41,14 +42,8 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
   const handleSubmit = () => {
     const labels = getSelectedLabels();
     if (labels.length === 0) return;
-    const subject = `Demande de devis pour : ${labels.join(', ')}`;
-    const body = `Bonjour,
-
-Je souhaite un devis pour les prestations suivantes :
-
-${labels.map((l) => `- ${l}`).join('\n')}
-
-Cordialement`;
+    const subject = get<string>('quoteModal.emailSubject').replace('{labels}', labels.join(', '));
+    const body = get<string>('quoteModal.emailBody').replace('{items}', labels.map((l) => `- ${l}`).join('\n'));
     const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
     onClose();
@@ -62,14 +57,12 @@ Cordialement`;
     <div className={styles.overlay} onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="quote-modal-title">
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
-          <h2 id="quote-modal-title" className={styles.title}>Demander un devis</h2>
-          <button type="button" className={styles.closeBtn} onClick={onClose} aria-label="Fermer">
+          <h2 id="quote-modal-title" className={styles.title}>{get<string>('quoteModal.title')}</h2>
+          <button type="button" className={styles.closeBtn} onClick={onClose} aria-label={get<string>('quoteModal.closeAria')}>
             ×
           </button>
         </div>
-        <p className={styles.intro}>
-          Cochez une ou plusieurs prestations pour lesquelles vous souhaitez recevoir un devis. Un e-mail sera pré-rempli avec votre sélection.
-        </p>
+        <p className={styles.intro}>{get<string>('quoteModal.intro')}</p>
         <div className={styles.list}>
           {groups.map((group) => (
             <fieldset key={group.groupId} className={styles.group}>
@@ -93,7 +86,7 @@ Cordialement`;
         </div>
         <div className={styles.footer}>
           <button type="button" className={styles.cancelBtn} onClick={onClose}>
-            Annuler
+            {get<string>('quoteModal.cancel')}
           </button>
           <button
             type="button"
@@ -101,7 +94,7 @@ Cordialement`;
             onClick={handleSubmit}
             disabled={selectedCount === 0}
           >
-            Envoyer ma demande {selectedCount > 0 ? `(${selectedCount})` : ''}
+            {selectedCount > 0 ? get<string>('quoteModal.submitWithCount').replace('{count}', String(selectedCount)) : get<string>('quoteModal.submit')}
           </button>
         </div>
       </div>
