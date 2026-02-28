@@ -13,7 +13,8 @@ export default function PolitiqueConfidentialitePage() {
       <LegalLayout title="Politique de confidentialité">
         <p>
           Cette page décrit comment sont traitées les données personnelles
-          collectées via le site arkenyx.fr, dans le respect du RGPD.
+          collectées via le site arkenyx.fr, dans le respect du Règlement (UE)
+          2016/679 (RGPD) et de la loi « informatique et libertés ».
         </p>
 
         <h2>Responsable du traitement</h2>
@@ -52,12 +53,16 @@ export default function PolitiqueConfidentialitePage() {
         <h2>Durée de conservation</h2>
         <p>
           Les e-mails et coordonnées liés à une demande sont conservés le temps
-          nécessaire à la relation commerciale, puis supprimés ou archivés selon
-          les obligations légales (comptabilité, etc.).
+          nécessaire à la relation commerciale. Les pièces à caractère
+          comptable sont conservées 10 ans conformément aux obligations légales.
+          Au-delà, les données sont supprimées ou anonymisées.
         </p>
 
         <h2>Vos droits</h2>
-        <p>Vous disposez des droits suivants :</p>
+        <p>
+          Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi «
+          informatique et libertés », vous disposez des droits suivants :
+        </p>
         <ul>
           <li>Accès à vos données</li>
           <li>Rectification</li>

@@ -60,7 +60,7 @@ export default function CGVPage() {
           le devis. Le règlement s&#39;effectue par virement, carte bancaire ou
           espèces. Les chèques ne sont pas acceptés. En cas de retard de
           paiement, des pénalités de retard pourront être appliquées
-          conformément à la loi.
+          conformément aux articles L.441-6 et L.441-10 du Code de commerce.
         </p>
 
         <h2>Facturation</h2>
@@ -94,9 +94,9 @@ export default function CGVPage() {
           Pour les prestations de services à la personne (B2C), le client
           dispose d&#39;un droit de rétractation de 14 jours à compter de
           l&#39;acceptation du devis, sauf si l&#39;exécution a commencé avec
-          son accord avant la fin de ce délai. Pour les professionnels (B2B),
-          le droit de rétractation ne s&#39;applique pas selon les dispositions
-          en vigueur.
+          son accord avant la fin de ce délai (articles L.221-18 et suivants du
+          Code de la consommation). Pour les professionnels (B2B), le droit de
+          rétractation ne s&#39;applique pas selon les dispositions en vigueur.
         </p>
 
         <h2>Litiges</h2>
@@ -104,6 +104,23 @@ export default function CGVPage() {
           En cas de litige, les parties s&#39;efforcent de trouver une solution
           à l&#39;amiable. À défaut, les tribunaux français sont compétents.
           Le droit français est applicable.
+        </p>
+
+        <h2>Médiation de la consommation</h2>
+        <p>
+          L&#39;entreprise est actuellement en cours d&#39;immatriculation.
+          À ce titre, aucun contrat de prestation n&#39;est conclu à ce jour
+          avec des consommateurs.
+        </p>
+        <p>
+          Conformément aux articles L.612-1 et suivants du Code de la
+          consommation, un dispositif de médiation de la consommation sera mis
+          en place dès le début effectif de l&#39;activité commerciale auprès
+          des particuliers.
+        </p>
+        <p>
+          Les coordonnées du médiateur compétent seront alors communiquées dans
+          les présentes Conditions Générales de Vente.
         </p>
       </LegalLayout>
     </Layout>

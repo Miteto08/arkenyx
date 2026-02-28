@@ -12,10 +12,13 @@ export default function MentionsLegalesPage() {
     <Layout>
       <LegalLayout title="Mentions légales">
         <p>
-          Le site arkenyx.fr est édité par un micro-entrepreneur, dans le cadre
-          d&#39;une activité de prestations de services informatiques (dépannage
-          et réparation, montage PC, récupération de données, conseil, forfaits,
-          mise en place de réseau, création de site web, etc.).
+          Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance
+          dans l&#39;économie numérique (LCEN), les informations suivantes sont
+          portées à la connaissance des utilisateurs du site arkenyx.fr. Le site
+          est édité par un micro-entrepreneur, dans le cadre d&#39;une activité
+          de prestations de services informatiques (dépannage et réparation,
+          montage PC, récupération de données, conseil, forfaits, mise en place
+          de réseau, création de site web, etc.).
         </p>
 
         <h2>Éditeur du site</h2>
@@ -40,8 +43,17 @@ export default function MentionsLegalesPage() {
 
         <h2>Hébergeur</h2>
         <p>
+          Conformément à l&#39;article 6 de la LCEN, l&#39;hébergeur du site
+          est :
+        </p>
+        <p>
           [Nom de l&#39;hébergeur]<br />
           [Adresse de l&#39;hébergeur]
+        </p>
+        <p>
+          Les données transmises par e-mail via le site ne sont pas hébergées
+          sur un serveur tiers dédié au site ; seules les pages web sont
+          hébergées par l&#39;hébergeur indiqué ci-dessus.
         </p>
 
         <h2>Directeur de la publication</h2>

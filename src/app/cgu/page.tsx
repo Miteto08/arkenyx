@@ -58,7 +58,9 @@ export default function CGUPage() {
         <h2>Droit applicable</h2>
         <p>
           Les présentes CGU sont régies par le droit français. En cas de litige,
-          les tribunaux français seront compétents.
+          les tribunaux français seront compétents. Le site est édité dans le
+          cadre des dispositions de la loi n° 2004-575 du 21 juin 2004 pour la
+          confiance dans l&#39;économie numérique (LCEN).
         </p>
       </LegalLayout>
     </Layout>
