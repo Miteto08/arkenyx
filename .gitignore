@@ -26,6 +26,9 @@ next-env.d.ts
 *.swp
 *.swo
 
-# route /flyer (page mince) : absente du dépôt pour ne pas déployer le tract en production
-# le contenu du tract est dans le dossier flyer/ à la racine (comme docs/)
+# /flyer route (thin page) – not in repo so tract is not deployed to production
 src/app/flyer/
+
+# docs and flyer – local / OVH deployment use, not versioned on GitHub
+docs/
+flyer/

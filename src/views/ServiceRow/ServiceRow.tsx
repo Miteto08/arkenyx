@@ -19,6 +19,7 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
   const prevScrollY = useRef(0);
   const scrollUpRef = useRef(false);
   const [inView, setInView] = useState(false);
+  const [inViewText, setInViewText] = useState(false);
   const [appearImageFirst, setAppearImageFirst] = useState(false);
   const fromLeft = index % 2 === 1;
   const slideFromRight = index % 2 === 0;
@@ -43,18 +44,24 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         const ratio = entry.intersectionRatio;
-        if (ratio >= 0.45) {
+        // Image at 25% visibility, text at 40%
+        if (ratio >= 0.4) {
           const isMobile = typeof window !== 'undefined' && window.innerWidth < MOBILE_MAX_WIDTH;
           const currentY = typeof window !== 'undefined' ? window.scrollY : 0;
           const justScrolledUp = currentY < prevScrollY.current;
           if (typeof window !== 'undefined') prevScrollY.current = currentY;
           setAppearImageFirst(Boolean(isMobile && (scrollUpRef.current || justScrolledUp)));
           setInView(true);
-        } else if (ratio <= 0.15) {
+          setInViewText(true);
+        } else if (ratio >= 0.25) {
+          setInView(true);
+          setInViewText(false);
+        } else if (ratio <= 0.1) {
           setInView(false);
+          setInViewText(false);
         }
       },
-      { threshold: [0.15, 0.45], rootMargin: '-8% 0px -22% 0px' }
+      { threshold: [0.1, 0.25, 0.4], rootMargin: '-5% 0px -10% 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -64,7 +71,7 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
     <li ref={ref} id={id} className={styles.row}>
       <div className="container">
         <div
-          className={`${styles.block} ${inView ? styles.inView : ''} ${slideFromRight ? styles.slideFromRight : styles.slideFromLeft} ${appearImageFirst ? styles.appearImageFirst : ''}`}
+          className={`${styles.block} ${inView ? styles.inView : ''} ${inViewText ? styles.inViewText : ''} ${slideFromRight ? styles.slideFromRight : styles.slideFromLeft} ${appearImageFirst ? styles.appearImageFirst : ''}`}
         >
           {fromLeft ? (
             <>

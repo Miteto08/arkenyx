@@ -71,11 +71,18 @@
   .block.slideFromLeft & {
     transform: translateX(-80px);
   }
+}
 
-  .block.inView & {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.block.inView .imageWrap {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
+}
+
+.block.inViewText .content {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0s;
 }
 
 .block .content {
@@ -86,16 +93,8 @@
   transition-delay: 0s;
 }
 
-.block.inView .content {
-  transition-delay: 0s;
-}
-
-.block.inView .imageWrap {
-  transition-delay: 0.35s;
-}
-
 @media (max-width: 1099px) {
-  .block.inView.appearImageFirst .content {
+  .block.inView.appearImageFirst.inViewText .content {
     transition-delay: 0.35s;
   }
 
