@@ -91,6 +91,7 @@ export default function RootLayout({
     <html lang="fr" className={`${dmSans.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="preload" href="/hero-banner.avif" as="image" />
         <Script src="/theme-init.js" strategy="beforeInteractive" />
       </head>
       <body>

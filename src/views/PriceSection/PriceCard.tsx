@@ -40,13 +40,15 @@ export default function PriceCard({
       </ul>
       {group.note &&
         (Array.isArray(group.note) ? (
-          <ul className={styles.noteList} role="note">
-            {group.note.map((point, k) => (
-              <li key={k} className={styles.notePoint}>
-                {point}
-              </li>
-            ))}
-          </ul>
+          <div role="note">
+            <ul className={styles.noteList}>
+              {group.note.map((point, k) => (
+                <li key={k} className={styles.notePoint}>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : (
           <p className={styles.note} role="note">
             {group.note}
