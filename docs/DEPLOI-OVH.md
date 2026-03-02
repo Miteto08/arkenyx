@@ -27,8 +27,8 @@ npm run build
 
 - **Serveur (droite)** : ouvrir le dossier **`www`**.
 - **PC (gauche)** : ouvrir le dossier **`out/`** du projet.
-- Sélectionner **tout le contenu** de `out/` (Ctrl+A) → glisser-déposer (ou Envoyer) dans **`www`**. Accepter d’**écraser** si un fichier existe déjà (ex. index.html).
-- Vérifier : dans `www` doivent se trouver à la racine `index.html`, `_next/`, etc.
+- Sélectionner **tout le contenu** de `out/` (Ctrl+A) → utiliser **Envoyer** (ou glisser-déposer). **Ne pas utiliser « Déplacer »** : il faut **copier** les fichiers en écrasant ceux déjà présents. Dans la boîte de dialogue d’envoi, cocher **Écraser** pour remplacer les fichiers existants.
+- Vérifier dans `www` : à la racine doivent se trouver `index.html`, `_next/`, `mentions-legales/`, `politique-confidentialite/`, `cgv/`, `cgu/`, etc. Le dossier **`_next/`** doit être complet (sous-dossiers `static/`, `chunks/`, etc.) : si des scripts manquent, les pages peuvent afficher une erreur « Application error » ou un contenu « brut ».
 
 ### 4. Zone DNS (si OVH envoie un email)
 
@@ -41,4 +41,11 @@ Si le navigateur affiche **« Non sécurisé »** : Hébergements web → ton h�
 ### 6. Mise à jour du site (après modifications)
 
 1. `npm run build`
-2. WinSCP : connexion comme avant → dossier **`www`** à droite, **contenu de `out/`** à gauche → tout envoyer en acceptant d’**écraser**.
+2. WinSCP : connexion comme avant → dossier **`www`** à droite, **contenu de `out/`** à gauche → **Envoyer** (pas Déplacer), en acceptant d’**écraser** tous les fichiers.
+
+### 7. Vérification après envoi
+
+- Si les changements ne s’affichent pas (ancien SIRET, ancien hébergeur, page Confidentialité en erreur) :
+  1. **Cache navigateur** : faire un rafraîchissement forcé (Ctrl+F5) ou tester en **navigation privée**.
+  2. **Contenu réellement en ligne** : ouvrir https://www.arkenyx.fr/mentions-legales/ → clic droit → « Afficher le code source de la page » → rechercher « 101 583 540 » et « OVH SAS ». Si ces textes n’apparaissent pas, les nouveaux fichiers ne sont pas servis (envoi incomplet ou mauvais dossier).
+  3. **Pages légales / erreur « Application error »** : s’assurer que tout le dossier **`_next/`** a bien été envoyé (scripts des pages). Si `_next/` est partiel ou d’un ancien build, les pages comme Confidentialité peuvent planter au chargement.

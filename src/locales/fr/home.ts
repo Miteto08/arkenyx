@@ -41,7 +41,7 @@ const home = {
     title: 'Tarifs',
     subheading: 'Tarifs clairs, sans surprise',
     deplacementLabel: 'Déplacement :',
-    deplacementText: "gratuit dans un rayon de 10 km autour d'Ahuillé ; au-delà, 0,50 €/km. À préciser sur le devis.",
+    deplacementText: "gratuit dans un rayon de 15 km autour d'Ahuillé ; au-delà, 0,50 €/km. À préciser sur le devis.",
     paiementLabel: 'Paiement :',
     paiementText: 'carte bancaire, virement et espèces. Chèques non acceptés.',
   },
@@ -60,7 +60,7 @@ const home = {
   },
   interventionArea: {
     title: 'Zone d\'intervention',
-    intro: 'J\'interviens en Mayenne et dans l\'est de l\'Ile-et-Vilaine. Voici quelques secteurs couverts.',
+    intro: 'J\'interviens en Mayenne et dans l\'est de l\'Ille-et-Vilaine. Voici quelques secteurs couverts.',
     mapLink: 'Voir la zone sur Google Maps',
     mapLinkAria: 'Ouvrir la zone d\'intervention sur Google Maps',
     communesIntro: 'Exemples de communes et secteurs :',
