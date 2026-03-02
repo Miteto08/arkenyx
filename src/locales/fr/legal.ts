@@ -40,7 +40,7 @@ const legal = {
     sections: [
       { heading: 'Éditeur du site', paragraphs: ["Lechevalier Julien\nMicro-entreprise – SIRET : 101 583 540 000 14"] },
       { heading: 'Contact', paragraphs: ["La politique de confidentialité, les conditions générales de vente (CGV) et les conditions générales d'utilisation (CGU) sont accessibles via les liens en pied de page du site.", "Pour toute demande, vous pouvez nous contacter uniquement par :", "E-mail : contact@arkenyx.fr\nTéléphone : 06.45.65.84.48", "L'adresse du siège n'est pas publiée sur le site pour des raisons de confidentialité. Les échanges se font par e-mail et téléphone."] },
-      { heading: 'Hébergeur', paragraphs: ["Conformément à l'article 6 de la LCEN, l'hébergeur du site est :", "[Nom de l'hébergeur]\n[Adresse de l'hébergeur]", "Les données transmises par e-mail via le site ne sont pas hébergées sur un serveur tiers dédié au site ; seules les pages web sont hébergées par l'hébergeur indiqué ci-dessus."] },
+      { heading: 'Hébergeur', paragraphs: ["Conformément à l'article 6 de la LCEN, l'hébergeur du site est :", "OVH SAS\n2 rue Kellermann\n59100 Roubaix\nFrance", "Les données transmises par e-mail via le site ne sont pas hébergées sur un serveur tiers dédié au site ; seules les pages web sont hébergées par l'hébergeur indiqué ci-dessus."] },
       { heading: 'Directeur de la publication', paragraphs: ['Lechevalier Julien'] },
       { heading: 'Propriété intellectuelle', paragraphs: ["L'ensemble du contenu de ce site (textes, visuels, logo) est protégé par le droit d'auteur. Toute reproduction non autorisée est interdite."] },
     ],
