@@ -24,6 +24,7 @@ export default function Header() {
             height={120}
             priority
             unoptimized
+            sizes="(max-width: 768px) 200px, 306px"
             className={styles.logoImg}
           />
         </a>

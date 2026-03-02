@@ -7,14 +7,16 @@ import PriceCard from './PriceCard';
 import QuoteRequestButton from '@/views/QuoteRequestButton/QuoteRequestButton';
 import styles from './PriceSection.module.scss';
 
+// Order for column-count layout: col1 = 1–2, col2 = 3–4, col3 = 5–6–7.
+// Chosen so each column has similar total height (no empty gaps between cards).
 const COLUMN_ORDER: string[] = [
-  'depannage',
-  'conseil',
-  'forfaits',
-  'montage',
-  'recuperation',
-  'reseau',
-  'site-vitrine',
+  'depannage',    // col1
+  'site-vitrine', // col1
+  'forfaits',     // col2
+  'conseil',      // col2
+  'reseau',       // col3 (short)
+  'recuperation', // col3
+  'montage',      // col3
 ];
 
 export default function PriceSection() {
