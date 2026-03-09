@@ -118,6 +118,7 @@
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
   border: 1px solid var(--color-border);
+  border-top: 3px solid rgba(34, 211, 238, 0.35);
   height: 18.5rem;
   width: 100%;
   min-width: 0;
@@ -125,6 +126,13 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-color: var(--color-primary-light);
+  }
 
   &.cardInnerExpanded {
     height: auto;
@@ -258,6 +266,35 @@
   line-height: 1.55;
   color: var(--color-text);
   margin: 0 0 0.5rem 0;
+}
+
+.ctaSeeAllWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.ctaSeeAll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-logo-bg);
+  background: var(--color-primary);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: var(--color-primary-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }
 
 .navWrap {

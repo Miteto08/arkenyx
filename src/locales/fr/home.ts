@@ -63,6 +63,16 @@ const home = {
     voirPlus: 'Voir plus',
     voirMoins: 'Voir moins',
     voirTout: 'Voir tout',
+    ctaSeeAll: 'Voir tous les avis',
+    ctaSeeAllAria: 'Voir la liste de tous les avis clients',
+  },
+  avisPage: {
+    title: 'Tous les avis clients',
+    intro: 'Retrouvez l\'ensemble des retours de nos clients.',
+    metaTitle: 'Tous les avis clients – Arkenyx',
+    metaDescription: 'Consultez tous les avis et retours de nos clients sur les prestations Arkenyx.',
+    loading: 'Chargement des avis...',
+    empty: 'Aucun avis pour le moment.',
   },
   interventionArea: {
     title: 'Zone d\'intervention',

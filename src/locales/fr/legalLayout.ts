@@ -1,5 +1,5 @@
 const legalLayout = {
-  backLink: "← Retour à l'accueil",
+  backLink: "Retour à l'accueil",
 };
 
 export default legalLayout;

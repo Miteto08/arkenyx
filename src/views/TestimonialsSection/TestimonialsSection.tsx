@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { get } from '@/lib/i18n';
 import { useTestimonials } from './useTestimonials';
 import TestimonialsSectionHeader from './TestimonialsSectionHeader';
@@ -27,7 +28,18 @@ export default function TestimonialsSection() {
             <p>{get<string>('home.testimonials.placeholder')}</p>
           </div>
         ) : (
-          <TestimonialsCarousel testimonials={testimonials} />
+          <>
+            <TestimonialsCarousel testimonials={testimonials} />
+            <div className={styles.ctaSeeAllWrap}>
+              <Link
+                href="/avis/"
+                className={styles.ctaSeeAll}
+                aria-label={get<string>('home.testimonials.ctaSeeAllAria')}
+              >
+                {get<string>('home.testimonials.ctaSeeAll')}
+              </Link>
+            </div>
+          </>
         )}
       </div>
     </section>
