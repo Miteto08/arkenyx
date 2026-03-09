@@ -58,6 +58,7 @@ const home = {
     intro: 'Les retours de nos clients. N\'hésitez pas à laisser le vôtre.',
     ctaLeaveReview: 'Laisser un avis',
     ctaLeaveReviewAria: 'Ouvrir le formulaire pour laisser un avis',
+    loading: 'Chargement des avis...',
     placeholder: 'Aucun avis pour le moment. Soyez le premier à partager votre expérience.',
     voirPlus: 'Voir plus',
     voirMoins: 'Voir moins',

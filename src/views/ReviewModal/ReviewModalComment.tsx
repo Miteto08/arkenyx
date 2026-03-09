@@ -18,7 +18,10 @@ export default function ReviewModalComment({ value, onChange }: ReviewModalComme
   return (
     <div className={styles.commentField}>
       <span className={styles.commentLabel}>
-        {get<string>('reviewModal.commentLabel')}
+        <span>
+          {get<string>('reviewModal.commentLabel')}
+          <span className={styles.mandatory} aria-hidden> *</span>
+        </span>
         <span className={styles.charCount}>{charCount}</span>
       </span>
       <textarea

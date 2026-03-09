@@ -6,7 +6,7 @@ import type { Testimonial } from '@/types/testimonial';
 import styles from './TestimonialsSection.module.scss';
 
 interface TestimonialsSectionHeaderProps {
-  onReviewSubmitted: (review: Testimonial) => void;
+  onReviewSubmitted: (review: Testimonial) => void | Promise<void>;
 }
 
 export default function TestimonialsSectionHeader({

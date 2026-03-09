@@ -20,6 +20,7 @@ export default function ReviewModalStars({
     <div className={styles.starsField}>
       <span className={styles.starsLabel} id="review-stars-label">
         {get<string>('reviewModal.starsLabel')}
+        <span className={styles.mandatory} aria-hidden> *</span>
       </span>
       <div
         className={styles.starsRow}

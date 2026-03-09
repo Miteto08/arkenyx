@@ -15,14 +15,19 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const [expandText, setExpandText] = useState(false);
-  const { stars, services, text } = testimonial;
+  const { stars, services, text, author } = testimonial;
   const hasLongText = text.length > HAS_LONG_TEXT_THRESHOLD;
 
   return (
     <div className={styles.card}>
-      <div className={styles.cardInner}>
+      <div
+        className={`${styles.cardInner} ${expandText ? styles.cardInnerExpanded : ''}`.trim()}
+      >
         <TestimonialCardStars stars={stars} />
         <TestimonialCardServices services={services} />
+        {author && author.trim() && (
+          <p className={styles.cardAuthor}>{author.trim()}</p>
+        )}
         <div className={expandText ? styles.cardTextWrap : styles.cardTextWrapClamped}>
           <p className={styles.cardText}>{text}</p>
         </div>

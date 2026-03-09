@@ -7,7 +7,7 @@ import TestimonialsCarousel from './TestimonialsCarousel';
 import styles from './TestimonialsSection.module.scss';
 
 export default function TestimonialsSection() {
-  const [testimonials, handleReviewSubmitted] = useTestimonials();
+  const [testimonials, handleReviewSubmitted, loading] = useTestimonials();
   const n = testimonials.length;
 
   return (
@@ -18,7 +18,11 @@ export default function TestimonialsSection() {
     >
       <div className="container">
         <TestimonialsSectionHeader onReviewSubmitted={handleReviewSubmitted} />
-        {n === 0 ? (
+        {loading && n === 0 ? (
+          <div className={styles.placeholder} role="status" aria-busy="true">
+            <p>{get<string>('home.testimonials.loading')}</p>
+          </div>
+        ) : n === 0 ? (
           <div className={styles.placeholder} role="status">
             <p>{get<string>('home.testimonials.placeholder')}</p>
           </div>

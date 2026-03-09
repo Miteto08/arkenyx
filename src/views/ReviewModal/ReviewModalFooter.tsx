@@ -7,25 +7,34 @@ interface ReviewModalFooterProps {
   onClose: () => void;
   onSubmit: () => void;
   canSubmit: boolean;
+  isSubmitting?: boolean;
 }
 
 export default function ReviewModalFooter({
   onClose,
   onSubmit,
   canSubmit,
+  isSubmitting = false,
 }: ReviewModalFooterProps) {
   return (
     <div className={styles.footer}>
-      <button type="button" className={styles.cancelBtn} onClick={onClose}>
+      <button
+        type="button"
+        className={styles.cancelBtn}
+        onClick={onClose}
+        disabled={isSubmitting}
+      >
         {get<string>('reviewModal.cancel')}
       </button>
       <button
         type="button"
         className={styles.submitBtn}
         onClick={onSubmit}
-        disabled={!canSubmit}
+        disabled={!canSubmit || isSubmitting}
       >
-        {get<string>('reviewModal.submit')}
+        {isSubmitting
+          ? get<string>('reviewModal.submitPending')
+          : get<string>('reviewModal.submit')}
       </button>
     </div>
   );

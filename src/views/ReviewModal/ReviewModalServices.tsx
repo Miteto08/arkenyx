@@ -21,6 +21,7 @@ export default function ReviewModalServices({
     <div className={styles.servicesField}>
       <span className={styles.servicesLabel}>
         {get<string>('reviewModal.servicesLabel')}
+        <span className={styles.mandatory} aria-hidden> *</span>
       </span>
       <p className={styles.servicesHint}>
         {get<string>('reviewModal.servicesMaxHint')}

@@ -8,7 +8,7 @@ import styles from './LeaveReviewButton.module.scss';
 
 interface LeaveReviewButtonProps {
   className?: string;
-  onReviewSubmitted?: (review: Testimonial) => void;
+  onReviewSubmitted?: (review: Testimonial) => void | Promise<void>;
 }
 
 export default function LeaveReviewButton({ className, onReviewSubmitted }: LeaveReviewButtonProps) {
