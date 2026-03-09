@@ -45,23 +45,36 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
       ([entry]) => {
         const ratio = entry.intersectionRatio;
         const isMobile = typeof window !== 'undefined' && window.innerWidth < MOBILE_MAX_WIDTH;
-        const textThreshold = isMobile ? 0.25 : 0.4;
-        if (ratio >= 0.4) {
-          const currentY = typeof window !== 'undefined' ? window.scrollY : 0;
-          const justScrolledUp = currentY < prevScrollY.current;
-          if (typeof window !== 'undefined') prevScrollY.current = currentY;
-          setAppearImageFirst(Boolean(isMobile && (scrollUpRef.current || justScrolledUp)));
-          setInView(true);
-          setInViewText(true);
-        } else if (ratio >= 0.25) {
-          setInView(true);
-          setInViewText(ratio >= textThreshold);
-        } else if (ratio <= 0.1) {
-          setInView(false);
-          setInViewText(false);
+        if (isMobile) {
+          if (ratio >= 0.1) {
+            const currentY = typeof window !== 'undefined' ? window.scrollY : 0;
+            const justScrolledUp = currentY < prevScrollY.current;
+            if (typeof window !== 'undefined') prevScrollY.current = currentY;
+            setAppearImageFirst(Boolean(scrollUpRef.current || justScrolledUp));
+            setInView(true);
+            setInViewText(true);
+          } else if (ratio <= 0.05) {
+            setInView(false);
+            setInViewText(false);
+          }
+        } else {
+          if (ratio >= 0.4) {
+            const currentY = typeof window !== 'undefined' ? window.scrollY : 0;
+            const justScrolledUp = currentY < prevScrollY.current;
+            if (typeof window !== 'undefined') prevScrollY.current = currentY;
+            setAppearImageFirst(false);
+            setInView(true);
+            setInViewText(true);
+          } else if (ratio >= 0.25) {
+            setInView(true);
+            setInViewText(false);
+          } else if (ratio <= 0.1) {
+            setInView(false);
+            setInViewText(false);
+          }
         }
       },
-      { threshold: [0.1, 0.25, 0.4], rootMargin: '-5% 0px -10% 0px' }
+      { threshold: [0.05, 0.1, 0.25, 0.4], rootMargin: '0px 0px 0px 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
