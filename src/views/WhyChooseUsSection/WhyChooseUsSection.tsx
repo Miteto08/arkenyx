@@ -16,7 +16,7 @@ export default function WhyChooseUsSection() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.65 }
+      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();

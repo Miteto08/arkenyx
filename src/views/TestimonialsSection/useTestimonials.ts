@@ -1,12 +1,14 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { testimonialsList, type Testimonial } from '@/models/testimonials';
+import type { Testimonial } from '@/types/testimonial';
 
 const STORAGE_KEY = 'arkenyx-testimonials';
 
+const initialList: Testimonial[] = [];
+
 function loadTestimonials(): Testimonial[] {
-  if (typeof window === 'undefined') return testimonialsList;
+  if (typeof window === 'undefined') return initialList;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
@@ -16,7 +18,7 @@ function loadTestimonials(): Testimonial[] {
   } catch {
     // ignore
   }
-  return [...testimonialsList];
+  return [...initialList];
 }
 
 function saveTestimonials(list: Testimonial[]) {
@@ -28,7 +30,7 @@ function saveTestimonials(list: Testimonial[]) {
 }
 
 export function useTestimonials() {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>(testimonialsList);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(initialList);
 
   useEffect(() => {
     setTestimonials(loadTestimonials());

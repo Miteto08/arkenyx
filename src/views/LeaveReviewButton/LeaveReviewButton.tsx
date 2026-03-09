@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import ReviewModal from '@/views/ReviewModal/ReviewModal';
 import { get } from '@/lib/i18n';
-import type { Testimonial } from '@/models/testimonials';
+import type { Testimonial } from '@/types/testimonial';
 import styles from './LeaveReviewButton.module.scss';
 
 interface LeaveReviewButtonProps {

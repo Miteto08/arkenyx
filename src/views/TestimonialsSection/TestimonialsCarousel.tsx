@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import TestimonialCard from '@/views/TestimonialsSection/TestimonialCard';
-import type { Testimonial } from '@/models/testimonials';
+import type { Testimonial } from '@/types/testimonial';
 import styles from './TestimonialsSection.module.scss';
 
 const AUTO_ADVANCE_MS = 5500;
@@ -31,7 +31,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
   const useCarousel = n >= 5;
   const cardsVisible = isLaptop && useCarousel ? 4 : 1;
   const maxIndex = n - cardsVisible;
-  const infinite = useCarousel && isLaptop && n > cardsVisible;
+  const infinite = useCarousel && n > cardsVisible;
   const trackList = infinite
     ? [...testimonials, ...testimonials, ...testimonials]
     : testimonials;

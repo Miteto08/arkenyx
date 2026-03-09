@@ -2,7 +2,7 @@
 
 import { get } from '@/lib/i18n';
 import LeaveReviewButton from '@/views/LeaveReviewButton/LeaveReviewButton';
-import type { Testimonial } from '@/models/testimonials';
+import type { Testimonial } from '@/types/testimonial';
 import styles from './TestimonialsSection.module.scss';
 
 interface TestimonialsSectionHeaderProps {

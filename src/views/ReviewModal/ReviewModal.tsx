@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getQuotePrestationGroups } from '@/models/prices';
 import { get } from '@/lib/i18n';
-import type { Testimonial } from '@/models/testimonials';
+import type { Testimonial } from '@/types/testimonial';
 import ReviewModalHeader from './ReviewModalHeader';
 import ReviewModalStars from './ReviewModalStars';
 import ReviewModalServices from './ReviewModalServices';

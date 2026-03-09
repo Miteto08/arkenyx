@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { Testimonial } from '@/models/testimonials';
+import type { Testimonial } from '@/types/testimonial';
 import TestimonialCardStars from './TestimonialCardStars';
 import TestimonialCardServices from './TestimonialCardServices';
 import TestimonialCardActions from './TestimonialCardActions';

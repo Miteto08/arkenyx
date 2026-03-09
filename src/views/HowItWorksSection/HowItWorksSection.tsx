@@ -21,12 +21,12 @@ export default function HowItWorksSection() {
       ([entry]) => {
         const ratio = entry.intersectionRatio;
         setIsVisible((prev) => {
-          if (ratio >= 0.45) return true;
-          if (ratio <= 0.2) return false;
+          if (ratio >= 0.2) return true;
+          if (ratio <= 0.05) return false;
           return prev;
         });
       },
-      { threshold: [0.2, 0.45], rootMargin: '-8% 0px -15% 0px' }
+      { threshold: [0.05, 0.2, 0.5], rootMargin: '-5% 0px -10% 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
