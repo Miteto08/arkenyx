@@ -7,6 +7,7 @@ import { get } from '@/lib/i18n';
 export const metadata: Metadata = {
   title: get<string>('legal.confidentialite.metaTitle'),
   description: get<string>('legal.confidentialite.metaDescription'),
+  alternates: { canonical: '/politique-confidentialite/' },
   openGraph: {
     title: get<string>('legal.confidentialite.metaTitle'),
     description: get<string>('legal.confidentialite.metaDescription'),

@@ -44,9 +44,9 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         const ratio = entry.intersectionRatio;
-        // Image at 25% visibility, text at 40%
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < MOBILE_MAX_WIDTH;
+        const textThreshold = isMobile ? 0.25 : 0.4;
         if (ratio >= 0.4) {
-          const isMobile = typeof window !== 'undefined' && window.innerWidth < MOBILE_MAX_WIDTH;
           const currentY = typeof window !== 'undefined' ? window.scrollY : 0;
           const justScrolledUp = currentY < prevScrollY.current;
           if (typeof window !== 'undefined') prevScrollY.current = currentY;
@@ -55,7 +55,7 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
           setInViewText(true);
         } else if (ratio >= 0.25) {
           setInView(true);
-          setInViewText(false);
+          setInViewText(ratio >= textThreshold);
         } else if (ratio <= 0.1) {
           setInView(false);
           setInViewText(false);

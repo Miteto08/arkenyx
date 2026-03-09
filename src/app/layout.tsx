@@ -62,9 +62,6 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
-  alternates: {
-    canonical: siteUrl,
-  },
 };
 
 function getJsonLd() {

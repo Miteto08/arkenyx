@@ -7,6 +7,7 @@ import { get } from '@/lib/i18n';
 export const metadata: Metadata = {
   title: get<string>('legal.cgv.metaTitle'),
   description: get<string>('legal.cgv.metaDescription'),
+  alternates: { canonical: '/cgv/' },
   openGraph: {
     title: get<string>('legal.cgv.metaTitle'),
     description: get<string>('legal.cgv.metaDescription'),

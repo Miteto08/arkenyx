@@ -1,5 +1,10 @@
+import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Layout from '@/views/Layout/Layout';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 import Banner from '@/views/Banner/Banner';
 import Hero from '@/views/Hero/Hero';
 import IntroSection from '@/views/IntroSection/IntroSection';
