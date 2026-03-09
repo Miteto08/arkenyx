@@ -55,8 +55,13 @@ const home = {
   },
   testimonials: {
     title: 'Avis clients',
-    intro: 'Les retours de nos clients seront bientôt visibles ici.',
-    placeholder: 'Vos avis arrivent très bientôt. En attendant, n\'hésitez pas à nous contacter pour toute question.',
+    intro: 'Les retours de nos clients. N\'hésitez pas à laisser le vôtre.',
+    ctaLeaveReview: 'Laisser un avis',
+    ctaLeaveReviewAria: 'Ouvrir le formulaire pour laisser un avis',
+    placeholder: 'Aucun avis pour le moment. Soyez le premier à partager votre expérience.',
+    voirPlus: 'Voir plus',
+    voirMoins: 'Voir moins',
+    voirTout: 'Voir tout',
   },
   interventionArea: {
     title: 'Zone d\'intervention',

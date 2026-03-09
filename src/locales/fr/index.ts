@@ -4,6 +4,7 @@ import home from './home';
 import legalLayout from './legalLayout';
 import notFound from './notFound';
 import quoteModal from './quoteModal';
+import reviewModal from './reviewModal';
 import legal from './legal';
 import faq from './faq';
 import { services } from '@/models/services';
@@ -16,6 +17,7 @@ const fr = {
   legalLayout,
   notFound,
   quoteModal,
+  reviewModal,
   legal,
   faq,
   services,

@@ -1,17 +1,30 @@
+'use client';
+
 import { get } from '@/lib/i18n';
+import { useTestimonials } from './useTestimonials';
+import TestimonialsSectionHeader from './TestimonialsSectionHeader';
+import TestimonialsCarousel from './TestimonialsCarousel';
 import styles from './TestimonialsSection.module.scss';
 
 export default function TestimonialsSection() {
+  const [testimonials, handleReviewSubmitted] = useTestimonials();
+  const n = testimonials.length;
+
   return (
-    <section className={styles.section} id="avis" aria-labelledby="testimonials-title">
+    <section
+      className={styles.section}
+      id="avis"
+      aria-labelledby="testimonials-title"
+    >
       <div className="container">
-        <h2 id="testimonials-title" className={styles.heading}>
-          {get<string>('home.testimonials.title')}
-        </h2>
-        <p className={styles.intro}>{get<string>('home.testimonials.intro')}</p>
-        <div className={styles.placeholder} role="status">
-          <p>{get<string>('home.testimonials.placeholder')}</p>
-        </div>
+        <TestimonialsSectionHeader onReviewSubmitted={handleReviewSubmitted} />
+        {n === 0 ? (
+          <div className={styles.placeholder} role="status">
+            <p>{get<string>('home.testimonials.placeholder')}</p>
+          </div>
+        ) : (
+          <TestimonialsCarousel testimonials={testimonials} />
+        )}
       </div>
     </section>
   );
