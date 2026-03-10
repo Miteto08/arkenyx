@@ -81,6 +81,11 @@
   &:hover {
     background: var(--color-border-subtle);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }
 
 .categoryContent {
@@ -173,6 +178,11 @@
 
   .item[open] &::after {
     content: '−';
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 

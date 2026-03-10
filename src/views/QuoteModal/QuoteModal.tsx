@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { getQuotePrestationGroups } from '@/models/prices';
 import { get } from '@/lib/i18n';
 import { useModalScrollLock } from '@/hooks/useModalScrollLock';
@@ -23,16 +23,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     if (!isOpen) setSelectedIds(new Set());
   }, [isOpen]);
 
-  const toggle = (id: string) => {
-    setSelectedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  };
-
-  const getSelectedLabels = (): string[] => {
+  const getSelectedLabels = useCallback((): string[] => {
     const labels: string[] = [];
     groups.forEach((g) => {
       g.items.forEach((item) => {
@@ -40,12 +31,12 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
       });
     });
     return labels;
-  };
+  }, [groups, selectedIds]);
 
   const emailSubjectTemplate = get<string>('quoteModal.emailSubject');
   const emailBodyTemplate = get<string>('quoteModal.emailBody');
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     const labels = getSelectedLabels();
     if (labels.length === 0) return;
     const subject = emailSubjectTemplate.replace('{labels}', labels.join(', '));
@@ -53,6 +44,33 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
     onClose();
+  }, [getSelectedLabels, emailSubjectTemplate, emailBodyTemplate, onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+      }
+      if (e.key === 'Enter' && selectedIds.size > 0) {
+        const active = document.activeElement as HTMLElement | null;
+        if (active?.tagName === 'TEXTAREA' || active?.tagName === 'INPUT') return;
+        e.preventDefault();
+        handleSubmit();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, onClose, selectedIds.size, handleSubmit]);
+
+  const toggle = (id: string) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
   };
 
   if (!isOpen) return null;

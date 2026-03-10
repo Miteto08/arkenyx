@@ -67,6 +67,18 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const successCloseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) setSubmitSuccess(false);
+    return () => {
+      if (successCloseTimeoutRef.current) {
+        clearTimeout(successCloseTimeoutRef.current);
+        successCloseTimeoutRef.current = null;
+      }
+    };
+  }, [isOpen]);
 
   const handleSubmit = useCallback(async () => {
     const trimmed = comment.trim();
@@ -87,7 +99,11 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
     setIsSubmitting(true);
     try {
       await onSubmit?.(review);
-      onClose();
+      setSubmitSuccess(true);
+      successCloseTimeoutRef.current = setTimeout(() => {
+        successCloseTimeoutRef.current = null;
+        onClose();
+      }, 2500);
     } catch (err) {
       setSubmitError(
           err instanceof Error ? err.message : get<string>('reviewModal.submitErrorDefault')
@@ -102,10 +118,6 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
     [selectedIds]
   );
 
-  if (!isOpen) return null;
-
-  const intro = get<string>('reviewModal.intro');
-  const displayStars = hoverStars || stars;
   const trimmedComment = comment.trim();
   const authorTrimmed = author.trim();
   const authorValid =
@@ -116,6 +128,31 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
     selectedIds.size >= 1 &&
     trimmedComment.length >= MIN_COMMENT_LENGTH &&
     authorValid;
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+      }
+      if (e.key === 'Enter') {
+        const active = document.activeElement as HTMLElement | null;
+        if (active?.tagName === 'TEXTAREA' || active?.tagName === 'INPUT') return;
+        if (!canSubmit) return;
+        e.preventDefault();
+        handleSubmit();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, onClose, canSubmit, handleSubmit]);
+
+  if (!isOpen) return null;
+
+  const intro = get<string>('reviewModal.intro');
+  const displayStars = hoverStars || stars;
+  const successMessage = get<string>('reviewModal.submitSuccess');
 
   return (
     <div
@@ -129,33 +166,41 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
     >
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <ReviewModalHeader onClose={onClose} />
-        <p className={styles.intro}>{intro}</p>
-        <div className={styles.form}>
-          <ReviewModalStars
-            stars={stars}
-            displayStars={displayStars}
-            onStarsChange={setStars}
-            onHover={setHoverStars}
-          />
-          <ReviewModalServices
-            selectedIds={selectedIds}
-            onToggle={toggle}
-            isDisabled={isServiceDisabled}
-          />
-          <ReviewModalAuthor value={author} onChange={setAuthor} />
-          <ReviewModalComment value={comment} onChange={setComment} />
-        </div>
-        {submitError && (
-          <p className={styles.submitError} role="alert">
-            {submitError}
-          </p>
+        {submitSuccess ? (
+          <div className={styles.successBlock} role="status" aria-live="polite">
+            <p className={styles.successMessage}>{successMessage}</p>
+          </div>
+        ) : (
+          <>
+            <p className={styles.intro}>{intro}</p>
+            <div className={styles.form}>
+              <ReviewModalStars
+                stars={stars}
+                displayStars={displayStars}
+                onStarsChange={setStars}
+                onHover={setHoverStars}
+              />
+              <ReviewModalServices
+                selectedIds={selectedIds}
+                onToggle={toggle}
+                isDisabled={isServiceDisabled}
+              />
+              <ReviewModalAuthor value={author} onChange={setAuthor} />
+              <ReviewModalComment value={comment} onChange={setComment} />
+            </div>
+            {submitError && (
+              <p className={styles.submitError} role="alert">
+                {submitError}
+              </p>
+            )}
+            <ReviewModalFooter
+              onClose={onClose}
+              onSubmit={handleSubmit}
+              canSubmit={canSubmit}
+              isSubmitting={isSubmitting}
+            />
+          </>
         )}
-        <ReviewModalFooter
-          onClose={onClose}
-          onSubmit={handleSubmit}
-          canSubmit={canSubmit}
-          isSubmitting={isSubmitting}
-        />
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ const reviewModal = {
   submit: 'Envoyer mon avis',
   submitPending: 'Envoi...',
   submitErrorDefault: 'Une erreur est survenue',
+  submitSuccess: 'Votre avis a bien été envoyé. Merci !',
   starAriaOne: '1 étoile',
   starAriaMany: '{count} étoiles',
 };
