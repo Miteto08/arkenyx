@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { get } from '@/lib/i18n';
+import { IconChevronLeft, IconChevronRight } from '@/components/Icons';
 import TestimonialCard from '@/views/TestimonialsSection/TestimonialCard';
 import type { Testimonial } from '@/types/testimonial';
 import styles from './TestimonialsSection.module.scss';
@@ -103,6 +105,9 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
     setTouchStart(null);
   };
 
+  const navPrevAria = get<string>('home.testimonials.navPrevAria');
+  const navNextAria = get<string>('home.testimonials.navNextAria');
+
   return (
     <div className={styles.carouselOuter}>
       <div
@@ -134,20 +139,9 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
               goPrev();
               resetInterval();
             }}
-            aria-label="Avis précédent"
+            aria-label={navPrevAria}
           >
-            <svg
-              className={styles.navBtnIcon}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
+            <IconChevronLeft className={styles.navBtnIcon} />
           </button>
           <button
             type="button"
@@ -156,20 +150,9 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
               goNext();
               resetInterval();
             }}
-            aria-label="Avis suivant"
+            aria-label={navNextAria}
           >
-            <svg
-              className={styles.navBtnIcon}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
+            <IconChevronRight className={styles.navBtnIcon} />
           </button>
         </div>
       )}

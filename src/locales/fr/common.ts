@@ -26,6 +26,10 @@ const common = {
     ariaMenuClose: 'Ouvrir le menu',
     ariaNav: 'Navigation principale',
   },
+  themeToggle: {
+    ariaToDark: 'Passer en mode sombre',
+    ariaToLight: 'Passer en mode clair',
+  },
   ctaQuote: 'Demander un devis gratuit',
   imageIllustrationLabel: 'Illustration : ',
   servicesSectionAria: 'Nos services',

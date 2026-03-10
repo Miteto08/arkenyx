@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { get } from '@/lib/i18n';
 import type { Testimonial } from '@/types/testimonial';
 
 const initialList: Testimonial[] = [];
@@ -49,7 +50,7 @@ export function useTestimonials() {
     });
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      throw new Error((err as { error?: string }).error ?? 'Envoi impossible');
+      throw new Error((err as { error?: string }).error ?? get<string>('home.testimonials.submitError'));
     }
     const list = await fetchReviews();
     setTestimonials(list);

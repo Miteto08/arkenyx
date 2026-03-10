@@ -2,6 +2,7 @@
 
 import { forwardRef } from 'react';
 import { get } from '@/lib/i18n';
+import { IconChevronDoubleLeft, IconChevronDoubleRight } from '@/components/Icons';
 import styles from './AllReviewsPage.module.scss';
 
 interface AllReviewsPaginationProps {
@@ -40,18 +41,7 @@ const AllReviewsPagination = forwardRef<
               aria-label={firstPageLabel}
             >
               <span className={styles.paginationBtnIcon} aria-hidden>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" />
-                </svg>
+                <IconChevronDoubleLeft />
               </span>
             </button>
           </li>
@@ -96,18 +86,7 @@ const AllReviewsPagination = forwardRef<
               aria-label={lastPageLabel}
             >
               <span className={styles.paginationBtnIcon} aria-hidden>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-                </svg>
+                <IconChevronDoubleRight />
               </span>
             </button>
           </li>

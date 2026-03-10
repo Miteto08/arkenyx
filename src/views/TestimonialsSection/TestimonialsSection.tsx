@@ -13,6 +13,10 @@ export default function TestimonialsSection() {
   const [testimonials, handleReviewSubmitted, loading] = useTestimonials();
   const n = testimonials.length;
   const carouselReviews = testimonials.slice(0, CAROUSEL_MAX_REVIEWS);
+  const loadingLabel = get<string>('home.testimonials.loading');
+  const placeholderLabel = get<string>('home.testimonials.placeholder');
+  const ctaSeeAllAria = get<string>('home.testimonials.ctaSeeAllAriaWithCount').replace('{count}', String(n));
+  const ctaSeeAllText = get<string>('home.testimonials.ctaSeeAllWithCount').replace('{count}', String(n));
 
   return (
     <section
@@ -24,11 +28,11 @@ export default function TestimonialsSection() {
         <TestimonialsSectionHeader onReviewSubmitted={handleReviewSubmitted} />
         {loading && n === 0 ? (
           <div className={styles.placeholder} role="status" aria-busy="true">
-            <p>{get<string>('home.testimonials.loading')}</p>
+            <p>{loadingLabel}</p>
           </div>
         ) : n === 0 ? (
           <div className={styles.placeholder} role="status">
-            <p>{get<string>('home.testimonials.placeholder')}</p>
+            <p>{placeholderLabel}</p>
           </div>
         ) : (
           <>
@@ -37,9 +41,9 @@ export default function TestimonialsSection() {
               <Link
                 href="/avis/"
                 className={styles.ctaSeeAll}
-                aria-label={get<string>('home.testimonials.ctaSeeAllAriaWithCount').replace('{count}', String(n))}
+                aria-label={ctaSeeAllAria}
               >
-                {get<string>('home.testimonials.ctaSeeAllWithCount').replace('{count}', String(n))}
+                {ctaSeeAllText}
               </Link>
             </div>
           </>

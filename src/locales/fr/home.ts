@@ -76,6 +76,9 @@ const home = {
     ctaSeeAllWithCount: 'Voir tous les avis ({count})',
     ctaSeeAllAria: 'Voir la liste de tous les avis clients',
     ctaSeeAllAriaWithCount: 'Voir la liste des {count} avis clients',
+    navPrevAria: 'Avis précédent',
+    navNextAria: 'Avis suivant',
+    submitError: 'Envoi impossible',
   },
   faq: {
     title: 'Questions fréquentes',

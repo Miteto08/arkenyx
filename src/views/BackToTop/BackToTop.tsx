@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { get } from '@/lib/i18n';
+import { IconArrowUp } from '@/components/Icons';
 import styles from './BackToTop.module.scss';
 
 const SCROLL_THRESHOLD = 400;
@@ -30,9 +31,7 @@ export default function BackToTop() {
       aria-label={get<string>('common.backToTop')}
     >
       <span className={styles.arrow} aria-hidden>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 19V5M5 12l7-7 7 7" />
-        </svg>
+        <IconArrowUp />
       </span>
     </button>
   );

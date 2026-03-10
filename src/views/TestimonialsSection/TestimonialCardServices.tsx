@@ -14,8 +14,8 @@ export default function TestimonialCardServices({ services }: TestimonialCardSer
   const [expandServices, setExpandServices] = useState(false);
   const hasMoreServices = services.length > MAX_SERVICES_VISIBLE_COLLAPSED;
   const visibleServicesCollapsed = services.slice(0, MAX_SERVICES_VISIBLE_COLLAPSED);
-  const voirTout = get<string>('home.testimonials.voirTout');
-  const voirMoins = get<string>('home.testimonials.voirMoins');
+  const seeAllLabel = get<string>('home.testimonials.voirTout');
+  const seeLessLabel = get<string>('home.testimonials.voirMoins');
 
   if (services.length === 0) return null;
 
@@ -37,7 +37,7 @@ export default function TestimonialCardServices({ services }: TestimonialCardSer
                 onClick={() => setExpandServices(true)}
                 aria-expanded={false}
               >
-                {voirTout}
+                {seeAllLabel}
               </button>
             </>
           )}
@@ -58,7 +58,7 @@ export default function TestimonialCardServices({ services }: TestimonialCardSer
               onClick={() => setExpandServices(false)}
               aria-expanded={true}
             >
-              {voirMoins}
+              {seeLessLabel}
             </button>
           </div>
         </>

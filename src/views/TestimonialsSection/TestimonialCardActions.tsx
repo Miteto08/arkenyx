@@ -9,8 +9,8 @@ interface TestimonialCardActionsProps {
 }
 
 export default function TestimonialCardActions({ expanded, onToggle }: TestimonialCardActionsProps) {
-  const voirPlus = get<string>('home.testimonials.voirPlus');
-  const voirMoins = get<string>('home.testimonials.voirMoins');
+  const seeMoreLabel = get<string>('home.testimonials.voirPlus');
+  const seeLessLabel = get<string>('home.testimonials.voirMoins');
 
   return (
     <div className={styles.cardActionsRow}>
@@ -20,7 +20,7 @@ export default function TestimonialCardActions({ expanded, onToggle }: Testimoni
         onClick={onToggle}
         aria-expanded={expanded}
       >
-        {expanded ? voirMoins : voirPlus}
+        {expanded ? seeLessLabel : seeMoreLabel}
       </button>
     </div>
   );
