@@ -7,6 +7,9 @@ import Link from 'next/link';
 import { getQuotePrestationGroups } from '@/models/prices';
 import type { Testimonial } from '@/types/testimonial';
 import AllReviewsListItem from './AllReviewsListItem';
+import AllReviewsGlobalGrade from './AllReviewsGlobalGrade';
+import AllReviewsStats from './AllReviewsStats';
+import AllReviewsPagination from './AllReviewsPagination';
 import styles from './AllReviewsPage.module.scss';
 
 const SERVICE_OPTIONS = (() => {
@@ -128,23 +131,10 @@ export default function AllReviewsList() {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [perPage]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [sortBy]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedService]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [authorParam]);
+  }, [perPage, sortBy, selectedService, authorParam]);
 
   const title = get<string>('home.avisPage.title');
   const intro = get<string>('home.avisPage.intro');
-  const headerTitle = title;
 
   const totalPages = Math.max(1, Math.ceil(filteredByAuthorReviews.length / perPage));
   const start = (currentPage - 1) * perPage;
@@ -170,7 +160,7 @@ export default function AllReviewsList() {
     <>
       <header className={styles.header}>
         <h1 id="avis-page-title" className={styles.title}>
-          {headerTitle}
+          {title}
         </h1>
         <p className={styles.intro}>{intro}</p>
       </header>
@@ -184,61 +174,11 @@ export default function AllReviewsList() {
         </p>
       ) : (
         <>
-          <section className={styles.globalGrade} aria-label={get<string>('home.avisPage.averageLabel')}>
-            <div className={styles.globalGradeMain}>
-              <span className={styles.globalGradeValue}>
-                {get<string>('home.avisPage.averageOutOf').replace('{avg}', averageStars.toFixed(1))}
-              </span>
-              <span className={styles.globalGradeCount}>
-                {get<string>('home.avisPage.reviewsCount').replace('{n}', String(filteredByAuthorReviews.length))}
-              </span>
-            </div>
-            <div className={styles.globalGradeStars} aria-hidden>
-              {Array.from({ length: 5 }, (_, k) => {
-                const fill = Math.min(1, Math.max(0, averageStars - k));
-                return (
-                  <span key={k} className={styles.globalGradeStar}>
-                    <span className={styles.globalGradeStarBg}>☆</span>
-                    <span
-                      className={styles.globalGradeStarFillWrap}
-                      style={{ width: `${fill * 100}%` }}
-                    >
-                      <span className={styles.globalGradeStarFill}>★</span>
-                    </span>
-                  </span>
-                );
-              })}
-            </div>
-          </section>
-          <section className={styles.stats} aria-labelledby="avis-stats-title">
-            <h2 id="avis-stats-title" className={styles.statsTitle}>
-              {get<string>('home.avisPage.statsTitle')}
-            </h2>
-            <div className={styles.statsRow}>
-              {starStats.map(({ stars, count, percent }) => (
-                <div key={stars} className={styles.statsItem}>
-                  <span className={styles.statsLabel} aria-hidden>
-                    <span className={styles.statsLabelDigit}>{stars}</span>
-                    <span>★</span>
-                  </span>
-                  <span className={styles.statsBarWrap}>
-                    <span
-                      className={styles.statsBar}
-                      style={{ width: `${percent}%` }}
-                      role="presentation"
-                    />
-                  </span>
-                  <span className={styles.statsCount}>{count}</span>
-                  <span className={styles.srOnly}>
-                    {get<string>('home.avisPage.starPercent')
-                      .replace('{n}', String(stars))
-                      .replace('{p}', String(percent))}
-                    {count > 0 && ` (${count} avis)`}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
+          <AllReviewsGlobalGrade
+            averageStars={averageStars}
+            totalCount={filteredByAuthorReviews.length}
+          />
+          <AllReviewsStats starStats={starStats} />
           <div className={styles.filterRow}>
             <label className={styles.filterLabel} htmlFor="avis-service-filter">
               {get<string>('home.avisPage.filterByServiceLabel')}
@@ -326,73 +266,13 @@ export default function AllReviewsList() {
                 ))}
               </ul>
               {totalPages > 1 && (
-            <nav
-              ref={paginationRef}
-              className={styles.pagination}
-              aria-label="Pagination des avis"
-            >
-              <ul className={styles.paginationList}>
-                {currentPage > 1 && (
-                  <li>
-                    <button
-                      type="button"
-                      className={`${styles.paginationBtn} ${styles.paginationBtnNav}`}
-                      onClick={() => goToPage(1)}
-                      aria-label={get<string>('home.avisPage.firstPage')}
-                    >
-                      <span className={styles.paginationBtnIcon} aria-hidden>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" />
-                        </svg>
-                      </span>
-                    </button>
-                  </li>
-                )}
-                {pageItems.map((item, i) =>
-                  item === 'ellipsis' ? (
-                    <li key={`ellipsis-${i}`} className={styles.paginationEllipsis} aria-hidden>
-                      …
-                    </li>
-                  ) : (
-                    <li key={item}>
-                      <button
-                        type="button"
-                        className={
-                          item === currentPage
-                            ? `${styles.paginationBtn} ${styles.paginationBtnCurrent}`
-                            : styles.paginationBtn
-                        }
-                        onClick={() => goToPage(item)}
-                        aria-label={
-                          item === currentPage
-                            ? get<string>('home.avisPage.currentPage').replace('{n}', String(item))
-                            : get<string>('home.avisPage.pageN').replace('{n}', String(item))
-                        }
-                        aria-current={item === currentPage ? 'page' : undefined}
-                      >
-                        {item}
-                      </button>
-                    </li>
-                  )
-                )}
-                {currentPage < totalPages && (
-                  <li>
-                    <button
-                      type="button"
-                      className={`${styles.paginationBtn} ${styles.paginationBtnNav}`}
-                      onClick={() => goToPage(totalPages)}
-                      aria-label={get<string>('home.avisPage.lastPage')}
-                    >
-                      <span className={styles.paginationBtnIcon} aria-hidden>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-                        </svg>
-                      </span>
-                    </button>
-                  </li>
-                )}
-              </ul>
-            </nav>
+                <AllReviewsPagination
+                  ref={paginationRef}
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  pageItems={pageItems}
+                  onGoToPage={goToPage}
+                />
               )}
             </>
           )}

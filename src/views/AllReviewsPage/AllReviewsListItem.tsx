@@ -29,8 +29,10 @@ function formatReviewDate(isoDate: string | undefined): string | null {
 export default function AllReviewsListItem({ testimonial }: AllReviewsListItemProps) {
   const [expandText, setExpandText] = useState(false);
   const { stars, services, text, author, created_at } = testimonial;
+  const authorTrimmed = author?.trim() ?? '';
   const hasLongText = text.length > HAS_LONG_TEXT_THRESHOLD;
   const dateStr = formatReviewDate(created_at);
+  const showAuthorDate = authorTrimmed || dateStr;
 
   return (
     <li className={styles.listItem}>
@@ -46,21 +48,22 @@ export default function AllReviewsListItem({ testimonial }: AllReviewsListItemPr
           </span>
         </div>
         <TestimonialCardServices services={services} />
-        {(author?.trim() || dateStr) && (
+        {showAuthorDate && (
           <p className={cardStyles.cardAuthor}>
-            {author?.trim() && (
+            {authorTrimmed ? (
               <>
                 <Link
-                  href={`/avis?author=${encodeURIComponent(author.trim())}`}
+                  href={`/avis?author=${encodeURIComponent(authorTrimmed)}`}
                   className={styles.authorLink}
-                  aria-label={get<string>('home.avisPage.authorFilterAria').replace('{author}', author.trim())}
+                  aria-label={get<string>('home.avisPage.authorFilterAria').replace('{author}', authorTrimmed)}
                 >
-                  {author.trim()}
+                  {authorTrimmed}
                 </Link>
                 {dateStr && <span className={styles.authorDate}> · {dateStr}</span>}
               </>
+            ) : (
+              <span className={styles.authorDate}>{dateStr}</span>
             )}
-            {!author?.trim() && dateStr && <span className={styles.authorDate}>{dateStr}</span>}
           </p>
         )}
         <div

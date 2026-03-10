@@ -101,6 +101,7 @@ const home = {
     lastPage: 'Dernière page',
     pageN: 'Page {n}',
     currentPage: 'Page {n} (actuelle)',
+    paginationAria: 'Pagination des avis',
     statsTitle: 'Répartition des notes',
     starPercent: '{n} ★ : {p}%',
     averageLabel: 'Note moyenne',
