@@ -233,21 +233,6 @@
   }
 }
 
-.priceExplanationPopup {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 0.35rem;
-  min-width: 14rem;
-  max-width: 20rem;
-  padding: 0.75rem 1rem;
-  background: var(--color-bg-main);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  z-index: 2;
-}
-
 /* Popup rendered in portal (body): max-width and left set in JS to stay within viewport on mobile */
 .priceExplanationPopupPortal {
   position: fixed;

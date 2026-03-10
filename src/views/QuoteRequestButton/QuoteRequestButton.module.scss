@@ -14,4 +14,9 @@
   &:hover {
     background: var(--color-primary-hover);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }

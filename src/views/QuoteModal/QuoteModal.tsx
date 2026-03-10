@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getQuotePrestationGroups } from '@/models/prices';
 import { get } from '@/lib/i18n';
 import { useModalScrollLock } from '@/hooks/useModalScrollLock';
@@ -42,11 +42,14 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     return labels;
   };
 
+  const emailSubjectTemplate = get<string>('quoteModal.emailSubject');
+  const emailBodyTemplate = get<string>('quoteModal.emailBody');
+
   const handleSubmit = () => {
     const labels = getSelectedLabels();
     if (labels.length === 0) return;
-    const subject = get<string>('quoteModal.emailSubject').replace('{labels}', labels.join(', '));
-    const body = get<string>('quoteModal.emailBody').replace('{items}', labels.map((l) => `- ${l}`).join('\n'));
+    const subject = emailSubjectTemplate.replace('{labels}', labels.join(', '));
+    const body = emailBodyTemplate.replace('{items}', labels.map((l) => `- ${l}`).join('\n'));
     const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
     onClose();
@@ -54,7 +57,14 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
 
   if (!isOpen) return null;
 
+  const title = get<string>('quoteModal.title');
+  const closeAria = get<string>('quoteModal.closeAria');
+  const intro = get<string>('quoteModal.intro');
+  const cancel = get<string>('quoteModal.cancel');
+  const submit = get<string>('quoteModal.submit');
+  const submitWithCountTemplate = get<string>('quoteModal.submitWithCount');
   const selectedCount = selectedIds.size;
+  const submitLabel = selectedCount > 0 ? submitWithCountTemplate.replace('{count}', String(selectedCount)) : submit;
 
   return (
     <div
@@ -68,12 +78,12 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     >
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
-          <h2 id="quote-modal-title" className={styles.title}>{get<string>('quoteModal.title')}</h2>
-          <button type="button" className={styles.closeBtn} onClick={onClose} aria-label={get<string>('quoteModal.closeAria')}>
+          <h2 id="quote-modal-title" className={styles.title}>{title}</h2>
+          <button type="button" className={styles.closeBtn} onClick={onClose} aria-label={closeAria}>
             ×
           </button>
         </div>
-        <p className={styles.intro}>{get<string>('quoteModal.intro')}</p>
+        <p className={styles.intro}>{intro}</p>
         <div className={styles.list}>
           {groups.map((group) => (
             <fieldset key={group.groupId} className={styles.group}>
@@ -97,7 +107,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
         </div>
         <div className={styles.footer}>
           <button type="button" className={styles.cancelBtn} onClick={onClose}>
-            {get<string>('quoteModal.cancel')}
+            {cancel}
           </button>
           <button
             type="button"
@@ -105,7 +115,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
             onClick={handleSubmit}
             disabled={selectedCount === 0}
           >
-            {selectedCount > 0 ? get<string>('quoteModal.submitWithCount').replace('{count}', String(selectedCount)) : get<string>('quoteModal.submit')}
+            {submitLabel}
           </button>
         </div>
       </div>

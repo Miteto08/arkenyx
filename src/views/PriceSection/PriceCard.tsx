@@ -18,7 +18,7 @@ export default function PriceCard({
   onToggleDetails,
 }: PriceCardProps) {
   return (
-    <article key={group.id} className={styles.card}>
+    <article className={styles.card}>
       <h3 className={styles.cardTitle}>{group.title}</h3>
       {group.intro &&
         group.intro.split('\n\n').filter(Boolean).map((paragraph, k) => (

@@ -23,6 +23,9 @@ export default function PriceItem({
   isDetailsExpanded,
   onToggleDetails,
 }: PriceItemProps) {
+  const recommendedLabel = get<string>('home.priceCard.recommandé');
+  const priceExplanationAria = get<string>('home.priceCard.priceExplanationAria');
+  const plusDeDetails = get<string>('home.priceCard.plusDeDetails');
   const detailsKey = getDetailsKey(groupId, itemIndex);
   const hasDetails = item.details && item.details.length > 0;
   const [priceExplanationOpen, setPriceExplanationOpen] = useState(false);
@@ -91,7 +94,7 @@ export default function PriceItem({
       >
         {item.recommended && (
           <span className={styles.recommendedBadge} aria-hidden>
-            {get<string>('home.priceCard.recommandé')}
+            {recommendedLabel}
           </span>
         )}
         <div className={styles.itemHeader}>
@@ -108,8 +111,8 @@ export default function PriceItem({
                   aria-expanded={priceExplanationOpen}
                   aria-controls={`price-explanation-${groupId}-${itemIndex}`}
                   id={`price-explanation-trigger-${groupId}-${itemIndex}`}
-                  aria-label={get<string>('home.priceCard.priceExplanationAria')}
-                  title={get<string>('home.priceCard.priceExplanationAria')}
+                  aria-label={priceExplanationAria}
+                  title={priceExplanationAria}
                 >
                   <span aria-hidden>i</span>
                 </button>
@@ -152,7 +155,7 @@ export default function PriceItem({
               >
                 ▼
               </span>
-              <span className={styles.detailsTriggerText}>{get<string>('home.priceCard.plusDeDetails')}</span>
+              <span className={styles.detailsTriggerText}>{plusDeDetails}</span>
             </button>
             <div
               id={`details-${groupId}-${itemIndex}`}

@@ -11,6 +11,7 @@ interface QuoteRequestButtonProps {
 
 export default function QuoteRequestButton({ className }: QuoteRequestButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const ctaLabel = get<string>('common.ctaQuote');
 
   return (
     <>
@@ -18,9 +19,9 @@ export default function QuoteRequestButton({ className }: QuoteRequestButtonProp
         type="button"
         className={className ?? styles.cta}
         onClick={() => setIsOpen(true)}
-        aria-label={get<string>('common.ctaQuote')}
+        aria-label={ctaLabel}
       >
-        {get<string>('common.ctaQuote')}
+        {ctaLabel}
       </button>
       <QuoteModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
