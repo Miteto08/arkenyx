@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: get<string>('home.avisPage.metaTitle'),
     description: get<string>('home.avisPage.metaDescription'),
+    url: '/avis/',
   },
 };
 

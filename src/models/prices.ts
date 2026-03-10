@@ -417,7 +417,7 @@ export const priceGroups: PriceGroup[] = [
       },
     ],
     note:
-      "Tarifs indicatifs pour la Mayenne et environs. Le coût final dépend de la complexité, du design et des fonctionnalités. L'hébergement et le nom de domaine peuvent être inclus ou à votre charge selon le devis. Chaque projet est livré avec charte respectée, responsive, RGPD et tests. Les sites dynamiques et l'option espace membre impliquent des données personnelles : les modalités sont précisées au devis et dans les documents contractuels.",
+      "Tarifs indicatifs. Le coût final dépend de la complexité, du design et des fonctionnalités. L'hébergement et le nom de domaine peuvent être inclus ou à votre charge selon le devis. Chaque projet est livré avec charte respectée, responsive, RGPD et tests. Les sites dynamiques et l'option espace membre impliquent des données personnelles : les modalités sont précisées au devis et dans les documents contractuels.",
   },
 ];
 
