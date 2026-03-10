@@ -5,22 +5,31 @@ import { get } from '@/lib/i18n';
 import type { Testimonial } from '@/types/testimonial';
 
 const initialList: Testimonial[] = [];
+const FETCH_TIMEOUT_MS = 10_000;
 
 async function fetchReviews(): Promise<Testimonial[]> {
-  const res = await fetch('/api/reviews');
-  if (!res.ok) return [];
-  const data = (await res.json()) as Array<{
-    stars: number;
-    services: string[];
-    text: string;
-    author?: string;
-  }>;
-  return data.map((r) => ({
-    stars: r.stars,
-    services: r.services,
-    text: r.text,
-    author: r.author,
-  }));
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch('/api/reviews', { signal: controller.signal });
+    clearTimeout(timeoutId);
+    if (!res.ok) return [];
+    const data = (await res.json()) as Array<{
+      stars: number;
+      services: string[];
+      text: string;
+      author?: string;
+    }>;
+    return data.map((r) => ({
+      stars: r.stars,
+      services: r.services,
+      text: r.text,
+      author: r.author,
+    }));
+  } catch {
+    clearTimeout(timeoutId);
+    return [];
+  }
 }
 
 export function useTestimonials() {
