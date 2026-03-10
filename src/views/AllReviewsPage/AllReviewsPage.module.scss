@@ -34,6 +34,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   flex-wrap: nowrap;
 
+  @media (min-width: 768px) {
+    max-width: 32rem;
+  }
+
   @media (max-width: 380px) {
     flex-wrap: wrap;
   }
@@ -62,11 +66,42 @@
 
 .globalGradeStars {
   font-size: 1.25rem;
-  color: var(--color-primary);
   letter-spacing: 0.05em;
   line-height: 1;
   display: flex;
   align-items: center;
+  gap: 0.05em;
+}
+
+.globalGradeStar {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+.globalGradeStarBg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-border);
+  font-size: 1em;
+  line-height: 1;
+}
+
+.globalGradeStarFillWrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.globalGradeStarFill {
+  color: var(--color-primary);
+  white-space: nowrap;
+  font-size: 1em;
+  line-height: 1;
 }
 
 .stats {
@@ -76,6 +111,10 @@
   border: 1px solid var(--color-border);
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  @media (min-width: 768px) {
+    max-width: 32rem;
+  }
 }
 
 .statsTitle {
@@ -153,6 +192,47 @@
   border: 0;
 }
 
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.filterSelect {
+  font-size: 0.875rem;
+  padding: 0.35rem 2rem 0.35rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-bg-alt);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 0.5rem center;
+  background-size: 0.75rem;
+  background-repeat: no-repeat;
+  color: var(--color-text);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-width: 12rem;
+  max-width: 100%;
+
+  &:hover {
+    border-color: var(--color-primary-light);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
 .sortRow {
   display: flex;
   align-items: center;
@@ -189,6 +269,67 @@
   &:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
+  }
+}
+
+.authorLink {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary-hover);
+    border-bottom-color: var(--color-primary-light);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+.authorDate {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.authorFilterBanner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+}
+
+.authorFilterText {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.authorFilterClear {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary-hover);
+    border-bottom-color: var(--color-primary-light);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 
@@ -359,12 +500,11 @@
 .listItemInner {
   display: flex;
   flex-direction: column;
-  height: 18.5rem;
-  overflow: hidden;
+  min-height: 0;
+  overflow: visible;
 
   &.listItemInnerExpanded {
-    height: auto;
-    min-height: 18.5rem;
+    overflow: visible;
   }
 }
 

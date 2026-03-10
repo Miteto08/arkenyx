@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { get } from '@/lib/i18n';
 import type { Testimonial } from '@/types/testimonial';
 import TestimonialCardStars from '@/views/TestimonialsSection/TestimonialCardStars';
@@ -14,10 +15,22 @@ interface AllReviewsListItemProps {
   testimonial: Testimonial;
 }
 
+function formatReviewDate(isoDate: string | undefined): string | null {
+  if (!isoDate) return null;
+  try {
+    const d = new Date(isoDate);
+    if (Number.isNaN(d.getTime())) return null;
+    return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+  } catch {
+    return null;
+  }
+}
+
 export default function AllReviewsListItem({ testimonial }: AllReviewsListItemProps) {
   const [expandText, setExpandText] = useState(false);
-  const { stars, services, text, author } = testimonial;
+  const { stars, services, text, author, created_at } = testimonial;
   const hasLongText = text.length > HAS_LONG_TEXT_THRESHOLD;
+  const dateStr = formatReviewDate(created_at);
 
   return (
     <li className={styles.listItem}>
@@ -33,8 +46,22 @@ export default function AllReviewsListItem({ testimonial }: AllReviewsListItemPr
           </span>
         </div>
         <TestimonialCardServices services={services} />
-        {author && author.trim() && (
-          <p className={cardStyles.cardAuthor}>{author.trim()}</p>
+        {(author?.trim() || dateStr) && (
+          <p className={cardStyles.cardAuthor}>
+            {author?.trim() && (
+              <>
+                <Link
+                  href={`/avis?author=${encodeURIComponent(author.trim())}`}
+                  className={styles.authorLink}
+                  aria-label={get<string>('home.avisPage.authorFilterAria').replace('{author}', author.trim())}
+                >
+                  {author.trim()}
+                </Link>
+                {dateStr && <span className={styles.authorDate}> · {dateStr}</span>}
+              </>
+            )}
+            {!author?.trim() && dateStr && <span className={styles.authorDate}>{dateStr}</span>}
+          </p>
         )}
         <div
           className={

@@ -1,10 +1,18 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { get } from '@/lib/i18n';
+import Link from 'next/link';
+import { getQuotePrestationGroups } from '@/models/prices';
 import type { Testimonial } from '@/types/testimonial';
 import AllReviewsListItem from './AllReviewsListItem';
 import styles from './AllReviewsPage.module.scss';
+
+const SERVICE_OPTIONS = (() => {
+  const groups = getQuotePrestationGroups();
+  return groups.flatMap((g) => g.items.map((item) => item.label));
+})();
 
 const PER_PAGE_OPTIONS = [20, 50, 100] as const;
 const DEFAULT_PER_PAGE = 20;
@@ -37,6 +45,7 @@ async function fetchAllReviews(): Promise<ReviewRow[]> {
     services: string[];
     text: string;
     author?: string;
+    created_at?: string;
   }>;
   return data.map((r) => ({
     id: r.id,
@@ -44,6 +53,7 @@ async function fetchAllReviews(): Promise<ReviewRow[]> {
     services: r.services,
     text: r.text,
     author: r.author,
+    created_at: r.created_at,
   }));
 }
 
@@ -78,14 +88,29 @@ function getPageItems(currentPage: number, totalPages: number): (number | 'ellip
 }
 
 export default function AllReviewsList() {
+  const searchParams = useSearchParams();
+  const authorParam = searchParams.get('author');
   const [reviews, setReviews] = useState<ReviewRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [perPage, setPerPage] = useState(DEFAULT_PER_PAGE);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<SortOption>('recent');
+  const [selectedService, setSelectedService] = useState<string>('');
   const paginationRef = useRef<HTMLElement | null>(null);
 
   const displayReviews = useMemo(() => sortReviews(reviews, sortBy), [reviews, sortBy]);
+  const filteredReviews = useMemo(
+    () =>
+      !selectedService
+        ? displayReviews
+        : displayReviews.filter((r) => r.services && r.services.includes(selectedService)),
+    [displayReviews, selectedService]
+  );
+  const filteredByAuthorReviews = useMemo(() => {
+    if (!authorParam || authorParam.trim() === '') return filteredReviews;
+    const decoded = decodeURIComponent(authorParam.trim());
+    return filteredReviews.filter((r) => r.author?.trim() === decoded);
+  }, [filteredReviews, authorParam]);
 
   useEffect(() => {
     let cancelled = false;
@@ -109,17 +134,25 @@ export default function AllReviewsList() {
     setCurrentPage(1);
   }, [sortBy]);
 
-  const title = get<string>('home.avisPage.title');
-  const titleWithCount = get<string>('home.avisPage.titleWithCount');
-  const intro = get<string>('home.avisPage.intro');
-  const headerTitle = !loading ? titleWithCount.replace('{count}', String(reviews.length)) : title;
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedService]);
 
-  const totalPages = Math.max(1, Math.ceil(displayReviews.length / perPage));
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [authorParam]);
+
+  const title = get<string>('home.avisPage.title');
+  const intro = get<string>('home.avisPage.intro');
+  const headerTitle = title;
+
+  const totalPages = Math.max(1, Math.ceil(filteredByAuthorReviews.length / perPage));
   const start = (currentPage - 1) * perPage;
-  const pageReviews = displayReviews.slice(start, start + perPage);
+  const pageReviews = filteredByAuthorReviews.slice(start, start + perPage);
   const pageItems = getPageItems(currentPage, totalPages);
-  const starStats = getStarPercentages(displayReviews);
-  const averageStars = getAverageStars(displayReviews);
+  const starStats = getStarPercentages(filteredByAuthorReviews);
+  const averageStars = getAverageStars(filteredByAuthorReviews);
+  const authorFilterName = authorParam ? decodeURIComponent(authorParam.trim()) : null;
 
   const goToPage = (page: number) => {
     const clamped = Math.min(Math.max(page, 1), totalPages);
@@ -158,13 +191,24 @@ export default function AllReviewsList() {
                 {get<string>('home.avisPage.averageOutOf').replace('{avg}', averageStars.toFixed(1))}
               </span>
               <span className={styles.globalGradeCount}>
-                {get<string>('home.avisPage.reviewsCount').replace('{n}', String(displayReviews.length))}
+                {get<string>('home.avisPage.reviewsCount').replace('{n}', String(filteredByAuthorReviews.length))}
               </span>
             </div>
             <div className={styles.globalGradeStars} aria-hidden>
-              {Array.from({ length: 5 }, (_, k) => (
-                <span key={k}>{k < Math.round(averageStars) ? '★' : '☆'}</span>
-              ))}
+              {Array.from({ length: 5 }, (_, k) => {
+                const fill = Math.min(1, Math.max(0, averageStars - k));
+                return (
+                  <span key={k} className={styles.globalGradeStar}>
+                    <span className={styles.globalGradeStarBg}>☆</span>
+                    <span
+                      className={styles.globalGradeStarFillWrap}
+                      style={{ width: `${fill * 100}%` }}
+                    >
+                      <span className={styles.globalGradeStarFill}>★</span>
+                    </span>
+                  </span>
+                );
+              })}
             </div>
           </section>
           <section className={styles.stats} aria-labelledby="avis-stats-title">
@@ -196,6 +240,25 @@ export default function AllReviewsList() {
               ))}
             </div>
           </section>
+          <div className={styles.filterRow}>
+            <label className={styles.filterLabel} htmlFor="avis-service-filter">
+              {get<string>('home.avisPage.filterByServiceLabel')}
+            </label>
+            <select
+              id="avis-service-filter"
+              className={styles.filterSelect}
+              value={selectedService}
+              onChange={(e) => setSelectedService(e.target.value)}
+              aria-label={get<string>('home.avisPage.filterByServiceLabel')}
+            >
+              <option value="">{get<string>('home.avisPage.allServicesOption')}</option>
+              {SERVICE_OPTIONS.map((label) => (
+                <option key={label} value={label}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className={styles.sortRow}>
             <label className={styles.sortLabel} htmlFor="avis-sort">
               {get<string>('home.avisPage.sortLabel')}
@@ -231,15 +294,39 @@ export default function AllReviewsList() {
               ))}
             </select>
           </div>
-          <ul className={styles.list}>
-            {pageReviews.map((review, index) => (
-              <AllReviewsListItem
-                key={review.id ?? `review-${start + index}`}
-                testimonial={review}
-              />
-            ))}
-          </ul>
-          {totalPages > 1 && (
+          {authorFilterName && (
+            <div className={styles.authorFilterBanner} role="status">
+              <span className={styles.authorFilterText}>
+                {get<string>('home.avisPage.authorFilterTitle')
+                  .replace('{author}', authorFilterName)
+                  .replace('{n}', String(filteredByAuthorReviews.length))}
+              </span>
+              <Link
+                href="/avis"
+                className={styles.authorFilterClear}
+                aria-label={get<string>('home.avisPage.clearAuthorFilterAria')}
+              >
+                {get<string>('home.avisPage.clearAuthorFilter')}
+              </Link>
+            </div>
+          )}
+          {filteredByAuthorReviews.length === 0 ? (
+            <p className={styles.empty} role="status">
+              {authorFilterName
+                ? get<string>('home.avisPage.emptyAuthorFilter')
+                : get<string>('home.avisPage.emptyFiltered')}
+            </p>
+          ) : (
+            <>
+              <ul className={styles.list}>
+                {pageReviews.map((review, index) => (
+                  <AllReviewsListItem
+                    key={review.id ?? `review-${start + index}`}
+                    testimonial={review}
+                  />
+                ))}
+              </ul>
+              {totalPages > 1 && (
             <nav
               ref={paginationRef}
               className={styles.pagination}
@@ -307,6 +394,8 @@ export default function AllReviewsList() {
                 )}
               </ul>
             </nav>
+              )}
+            </>
           )}
         </>
       )}

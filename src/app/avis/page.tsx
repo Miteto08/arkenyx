@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { get } from '@/lib/i18n';
 import Layout from '@/views/Layout/Layout';
 import BackToHomeLink from '@/views/BackToHomeLink/BackToHomeLink';
@@ -21,7 +22,9 @@ export default function AvisPage() {
       <section className={styles.section} aria-labelledby="avis-page-title">
         <div className="container">
           <BackToHomeLink />
-          <AllReviewsList />
+          <Suspense fallback={<p className={styles.loading}>{get<string>('home.avisPage.loading')}</p>}>
+            <AllReviewsList />
+          </Suspense>
         </div>
       </section>
     </Layout>
