@@ -117,7 +117,11 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
           onTransitionEnd={handleTrackTransitionEnd}
         >
           {trackList.map((t, i) => (
-            <TestimonialCard key={`${i}-${trackN}`} testimonial={t} />
+            <TestimonialCard
+              key={`${i}-${trackN}`}
+              testimonial={t}
+              isVisible={i >= index && i < index + cardsVisible}
+            />
           ))}
         </div>
       </div>

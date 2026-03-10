@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { getQuotePrestationGroups } from '@/models/prices';
 import { get } from '@/lib/i18n';
 import type { Testimonial } from '@/types/testimonial';
+import { useModalScrollLock } from '@/hooks/useModalScrollLock';
 import ReviewModalHeader from './ReviewModalHeader';
 import ReviewModalStars from './ReviewModalStars';
 import ReviewModalServices from './ReviewModalServices';
@@ -40,6 +41,9 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
       setComment('');
     }
   }, [isOpen]);
+
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const preventScrollOnOverlay = useModalScrollLock(isOpen, overlayRef);
 
   const toggle = useCallback((id: string) => {
     setSelectedIds((prev) => {
@@ -112,8 +116,10 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
 
   return (
     <div
+      ref={overlayRef}
       className={styles.overlay}
       onClick={onClose}
+      onWheel={preventScrollOnOverlay}
       role="dialog"
       aria-modal="true"
       aria-labelledby="review-modal-title"

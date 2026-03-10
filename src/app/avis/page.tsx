@@ -16,20 +16,11 @@ export const metadata: Metadata = {
 };
 
 export default function AvisPage() {
-  const title = get<string>('home.avisPage.title');
-  const intro = get<string>('home.avisPage.intro');
-
   return (
     <Layout>
       <section className={styles.section} aria-labelledby="avis-page-title">
         <div className="container">
           <BackToHomeLink />
-          <header className={styles.header}>
-            <h1 id="avis-page-title" className={styles.title}>
-              {title}
-            </h1>
-            <p className={styles.intro}>{intro}</p>
-          </header>
           <AllReviewsList />
         </div>
       </section>

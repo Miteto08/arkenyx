@@ -7,6 +7,8 @@
   justify-content: center;
   z-index: 1000;
   padding: 1rem;
+  overflow: hidden;
+  overscroll-behavior: contain;
 }
 
 .modal {
@@ -14,6 +16,7 @@
   border-radius: 12px;
   max-width: 32rem;
   max-height: 90vh;
+  min-height: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -66,6 +69,8 @@
   padding: 1rem 1.25rem;
   overflow-y: auto;
   flex: 1;
+  min-height: 0;
+  overscroll-behavior: contain;
 }
 
 .starsField {

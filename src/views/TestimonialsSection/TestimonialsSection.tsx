@@ -7,9 +7,12 @@ import TestimonialsSectionHeader from './TestimonialsSectionHeader';
 import TestimonialsCarousel from './TestimonialsCarousel';
 import styles from './TestimonialsSection.module.scss';
 
+const CAROUSEL_MAX_REVIEWS = 15;
+
 export default function TestimonialsSection() {
   const [testimonials, handleReviewSubmitted, loading] = useTestimonials();
   const n = testimonials.length;
+  const carouselReviews = testimonials.slice(0, CAROUSEL_MAX_REVIEWS);
 
   return (
     <section
@@ -29,14 +32,14 @@ export default function TestimonialsSection() {
           </div>
         ) : (
           <>
-            <TestimonialsCarousel testimonials={testimonials} />
+            <TestimonialsCarousel testimonials={carouselReviews} />
             <div className={styles.ctaSeeAllWrap}>
               <Link
                 href="/avis/"
                 className={styles.ctaSeeAll}
-                aria-label={get<string>('home.testimonials.ctaSeeAllAria')}
+                aria-label={get<string>('home.testimonials.ctaSeeAllAriaWithCount').replace('{count}', String(n))}
               >
-                {get<string>('home.testimonials.ctaSeeAll')}
+                {get<string>('home.testimonials.ctaSeeAllWithCount').replace('{count}', String(n))}
               </Link>
             </div>
           </>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Testimonial } from '@/types/testimonial';
 import TestimonialCardStars from './TestimonialCardStars';
 import TestimonialCardServices from './TestimonialCardServices';
@@ -11,10 +11,15 @@ const HAS_LONG_TEXT_THRESHOLD = 120;
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
+  isVisible?: boolean;
 }
 
-export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
+export default function TestimonialCard({ testimonial, isVisible = true }: TestimonialCardProps) {
   const [expandText, setExpandText] = useState(false);
+
+  useEffect(() => {
+    if (!isVisible) setExpandText(false);
+  }, [isVisible]);
   const { stars, services, text, author } = testimonial;
   const hasLongText = text.length > HAS_LONG_TEXT_THRESHOLD;
 

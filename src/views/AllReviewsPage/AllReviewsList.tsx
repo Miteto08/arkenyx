@@ -45,30 +45,37 @@ export default function AllReviewsList() {
     };
   }, []);
 
-  if (loading) {
-    return (
-      <p className={styles.loading} role="status" aria-busy="true">
-        {get<string>('home.avisPage.loading')}
-      </p>
-    );
-  }
-
-  if (reviews.length === 0) {
-    return (
-      <p className={styles.empty} role="status">
-        {get<string>('home.avisPage.empty')}
-      </p>
-    );
-  }
+  const title = get<string>('home.avisPage.title');
+  const titleWithCount = get<string>('home.avisPage.titleWithCount');
+  const intro = get<string>('home.avisPage.intro');
+  const headerTitle = !loading ? titleWithCount.replace('{count}', String(reviews.length)) : title;
 
   return (
-    <ul className={styles.list}>
-      {reviews.map((review, index) => (
-        <AllReviewsListItem
-          key={review.id ?? `review-${index}`}
-          testimonial={review}
-        />
-      ))}
-    </ul>
+    <>
+      <header className={styles.header}>
+        <h1 id="avis-page-title" className={styles.title}>
+          {headerTitle}
+        </h1>
+        <p className={styles.intro}>{intro}</p>
+      </header>
+      {loading ? (
+        <p className={styles.loading} role="status" aria-busy="true">
+          {get<string>('home.avisPage.loading')}
+        </p>
+      ) : reviews.length === 0 ? (
+        <p className={styles.empty} role="status">
+          {get<string>('home.avisPage.empty')}
+        </p>
+      ) : (
+        <ul className={styles.list}>
+          {reviews.map((review, index) => (
+            <AllReviewsListItem
+              key={review.id ?? `review-${index}`}
+              testimonial={review}
+            />
+          ))}
+        </ul>
+      )}
+    </>
   );
 }

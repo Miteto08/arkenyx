@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { getQuotePrestationGroups } from '@/models/prices';
 import { get } from '@/lib/i18n';
+import { useModalScrollLock } from '@/hooks/useModalScrollLock';
 import styles from './QuoteModal.module.scss';
 
 const EMAIL = 'contact@arkenyx.fr';
@@ -15,6 +16,8 @@ interface QuoteModalProps {
 export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const groups = getQuotePrestationGroups();
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const preventScrollOnOverlay = useModalScrollLock(isOpen, overlayRef);
 
   useEffect(() => {
     if (!isOpen) setSelectedIds(new Set());
@@ -54,7 +57,15 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
   const selectedCount = selectedIds.size;
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="quote-modal-title">
+    <div
+      ref={overlayRef}
+      className={styles.overlay}
+      onClick={onClose}
+      onWheel={preventScrollOnOverlay}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="quote-modal-title"
+    >
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
           <h2 id="quote-modal-title" className={styles.title}>{get<string>('quoteModal.title')}</h2>

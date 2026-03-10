@@ -64,10 +64,13 @@ const home = {
     voirMoins: 'Voir moins',
     voirTout: 'Voir tout',
     ctaSeeAll: 'Voir tous les avis',
+    ctaSeeAllWithCount: 'Voir tous les avis ({count})',
     ctaSeeAllAria: 'Voir la liste de tous les avis clients',
+    ctaSeeAllAriaWithCount: 'Voir la liste des {count} avis clients',
   },
   avisPage: {
     title: 'Tous les avis clients',
+    titleWithCount: 'Tous les avis clients ({count})',
     intro: 'Retrouvez l\'ensemble des retours de nos clients.',
     metaTitle: 'Tous les avis clients – Arkenyx',
     metaDescription: 'Consultez tous les avis et retours de nos clients sur les prestations Arkenyx.',
