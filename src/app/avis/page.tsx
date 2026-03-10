@@ -6,15 +6,14 @@ import BackToHomeLink from '@/views/BackToHomeLink/BackToHomeLink';
 import AllReviewsList from '@/views/AllReviewsPage/AllReviewsList';
 import styles from '@/views/AllReviewsPage/AllReviewsPage.module.scss';
 
+const metaTitle = get<string>('home.avisPage.metaTitle');
+const metaDescription = get<string>('home.avisPage.metaDescription');
+
 export const metadata: Metadata = {
-  title: get<string>('home.avisPage.metaTitle'),
-  description: get<string>('home.avisPage.metaDescription'),
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: '/avis/' },
-  openGraph: {
-    title: get<string>('home.avisPage.metaTitle'),
-    description: get<string>('home.avisPage.metaDescription'),
-    url: '/avis/',
-  },
+  openGraph: { title: metaTitle, description: metaDescription, url: '/avis/' },
 };
 
 export default function AvisPage() {

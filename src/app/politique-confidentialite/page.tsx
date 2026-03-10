@@ -4,14 +4,14 @@ import LegalLayout from '@/views/LegalLayout/LegalLayout';
 import LegalContent from '@/views/LegalLayout/LegalContent';
 import { get } from '@/lib/i18n';
 
+const metaTitle = get<string>('legal.confidentialite.metaTitle');
+const metaDescription = get<string>('legal.confidentialite.metaDescription');
+
 export const metadata: Metadata = {
-  title: get<string>('legal.confidentialite.metaTitle'),
-  description: get<string>('legal.confidentialite.metaDescription'),
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: '/politique-confidentialite/' },
-  openGraph: {
-    title: get<string>('legal.confidentialite.metaTitle'),
-    description: get<string>('legal.confidentialite.metaDescription'),
-  },
+  openGraph: { title: metaTitle, description: metaDescription },
 };
 
 export default function PolitiqueConfidentialitePage() {

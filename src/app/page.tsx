@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Layout from '@/views/Layout/Layout';
-
-export const metadata: Metadata = {
-  alternates: { canonical: '/' },
-};
 import Banner from '@/views/Banner/Banner';
 import Hero from '@/views/Hero/Hero';
 import IntroSection from '@/views/IntroSection/IntroSection';
@@ -16,6 +12,10 @@ import HowItWorksSection from '@/views/HowItWorksSection/HowItWorksSection';
 import TestimonialsSection from '@/views/TestimonialsSection/TestimonialsSection';
 import InterventionAreaSection from '@/views/InterventionAreaSection/InterventionAreaSection';
 import FAQSchema from '@/views/FAQSection/FAQSchema';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 const PriceSection = dynamic(
   () => import('@/views/PriceSection/PriceSection').then((m) => m.default),

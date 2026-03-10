@@ -12,10 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/cgv/',
   ];
 
-  return routes.map((path) => ({
-    url: `${baseUrl}${path}`,
-    lastModified: new Date(),
-    changeFrequency: path === '' || path === '/avis/' ? 'weekly' : ('monthly' as const),
-    priority: path === '' ? 1 : path === '/avis/' ? 0.9 : 0.7,
-  }));
+  return routes.map((path) => {
+    const isHome = path === '';
+    const isAvis = path === '/avis/';
+    return {
+      url: `${baseUrl}${path}`,
+      lastModified: new Date(),
+      changeFrequency: isHome || isAvis ? 'weekly' : ('monthly' as const),
+      priority: isHome ? 1 : isAvis ? 0.9 : 0.7,
+    };
+  });
 }

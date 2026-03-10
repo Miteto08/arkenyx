@@ -1,29 +1,19 @@
 import Link from 'next/link';
 import { get } from '@/lib/i18n';
+import styles from './not-found.module.scss';
+
+const notFoundTitle = get<string>('notFound.title');
 
 export const metadata = {
-  title: get<string>('notFound.title'),
+  title: notFoundTitle,
 };
 
 export default function NotFound() {
   return (
-    <div className="container" style={{ paddingTop: '4rem', paddingBottom: '4rem', minHeight: '60vh' }}>
-      <h1 style={{ marginBottom: '0.5rem' }}>{get<string>('notFound.title')}</h1>
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-        {get<string>('notFound.description')}
-      </p>
-      <Link
-        href="/"
-        style={{
-          display: 'inline-block',
-          padding: '0.75rem 1.25rem',
-          background: 'var(--color-primary)',
-          color: '#0f172a',
-          fontWeight: 600,
-          borderRadius: '0.25rem',
-          textDecoration: 'none',
-        }}
-      >
+    <div className={`container ${styles.wrap}`}>
+      <h1 className={styles.title}>{notFoundTitle}</h1>
+      <p className={styles.description}>{get<string>('notFound.description')}</p>
+      <Link href="/" className={styles.backLink}>
         {get<string>('notFound.backLink')}
       </Link>
     </div>

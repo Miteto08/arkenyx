@@ -248,7 +248,7 @@
   z-index: 2;
 }
 
-/* Popup rendu en portail (body) : max-width et left sont fixés en JS pour rester dans le viewport (mobile) */
+/* Popup rendered in portal (body): max-width and left set in JS to stay within viewport on mobile */
 .priceExplanationPopupPortal {
   position: fixed;
   min-width: 12rem;

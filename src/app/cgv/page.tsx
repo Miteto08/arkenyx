@@ -4,14 +4,14 @@ import LegalLayout from '@/views/LegalLayout/LegalLayout';
 import LegalContent from '@/views/LegalLayout/LegalContent';
 import { get } from '@/lib/i18n';
 
+const metaTitle = get<string>('legal.cgv.metaTitle');
+const metaDescription = get<string>('legal.cgv.metaDescription');
+
 export const metadata: Metadata = {
-  title: get<string>('legal.cgv.metaTitle'),
-  description: get<string>('legal.cgv.metaDescription'),
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: '/cgv/' },
-  openGraph: {
-    title: get<string>('legal.cgv.metaTitle'),
-    description: get<string>('legal.cgv.metaDescription'),
-  },
+  openGraph: { title: metaTitle, description: metaDescription },
 };
 
 export default function CGVPage() {

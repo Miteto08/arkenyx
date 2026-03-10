@@ -162,7 +162,6 @@ export default function AllReviewsList() {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const absoluteTop = window.scrollY + rect.top;
-      // Laisse un léger espace au-dessus de la pagination
       window.scrollTo({ top: Math.max(absoluteTop - 24, 0) });
     });
   };

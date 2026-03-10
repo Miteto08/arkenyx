@@ -19,6 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.arkenyx.fr';
+const siteName = get<string>('site.name');
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -28,15 +29,15 @@ export const metadata: Metadata = {
   },
   description: get<string>('site.description'),
   keywords: get<string[]>('site.keywords'),
-  authors: [{ name: get<string>('site.name'), url: siteUrl }],
-  creator: get<string>('site.name'),
-  publisher: get<string>('site.name'),
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
     url: siteUrl,
-    siteName: get<string>('site.name'),
+    siteName,
     title: get<string>('site.openGraph.title'),
     description: get<string>('site.openGraph.description'),
     images: [
@@ -64,20 +65,18 @@ export const metadata: Metadata = {
   },
 };
 
-function getJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: get<string>('site.name'),
-    description: get<string>('site.jsonLd.description'),
-    url: siteUrl,
-    email: 'contact@arkenyx.fr',
-    areaServed: 'FR',
-    slogan: get<string>('site.jsonLd.slogan'),
-    priceRange: '€€',
-    serviceType: get<string[]>('site.jsonLd.serviceType'),
-  };
-}
+const jsonLdData = (() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: siteName,
+  description: get<string>('site.jsonLd.description'),
+  url: siteUrl,
+  email: 'contact@arkenyx.fr',
+  areaServed: 'FR',
+  slogan: get<string>('site.jsonLd.slogan'),
+  priceRange: '€€',
+  serviceType: get<string[]>('site.jsonLd.serviceType'),
+}))();
 
 export default function RootLayout({
   children,
@@ -94,7 +93,7 @@ export default function RootLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(getJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
         {children}
       </body>
