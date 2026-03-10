@@ -31,11 +31,15 @@ const home = {
       { label: 'Transparence totale sur les pièces et services' },
     ],
   },
-  contact: {
-    title: 'Nous contacter',
-    text: "Une question, un devis ou un projet ? N'hésitez pas à nous joindre.",
-    cta: 'Envoyer un message',
-    ariaCta: 'Envoyer un message par e-mail à contact@arkenyx.fr',
+  howItWorks: {
+    title: 'Comment ça marche ?',
+    intro: 'Une intervention simple et transparente, en quelques étapes.',
+    steps: [
+      { title: 'Nous contacter', description: 'Par e-mail ou téléphone : décrivez votre besoin ou demandez un devis gratuit.' },
+      { title: 'Devis gratuit', description: 'Nous établissons un devis détaillé sans engagement. Vous validez avant toute intervention.' },
+      { title: 'Intervention', description: 'Rendez-vous à domicile ou sur site. Explication claire de ce qui est fait.' },
+      { title: 'Règlement', description: 'Paiement à l\'issue de la prestation (carte, virement, espèces). Facture fournie.' },
+    ],
   },
   price: {
     title: 'Tarifs',
@@ -50,9 +54,13 @@ const home = {
     plusDeDetails: 'Plus de détails',
     priceExplanationAria: 'Comprendre ce tarif',
   },
-  faq: {
-    title: 'Questions fréquentes',
-    intro: "Quelques réponses pour vous aider. Une autre question ? N'hésitez pas à nous contacter.",
+  interventionArea: {
+    title: 'Zone d\'intervention',
+    intro: 'J\'interviens en Mayenne et dans l\'est de l\'Ille-et-Vilaine. Voici quelques secteurs couverts.',
+    mapLink: 'Voir la zone sur Google Maps',
+    mapLinkAria: 'Ouvrir la zone d\'intervention sur Google Maps',
+    communesIntro: 'Exemples de communes et secteurs :',
+    communes: ['Ahuillé', 'Laval', 'Cossé-le-Vivien', 'Andouillé', 'Vitré', 'Château-Gontier', 'Ernée', 'Fougères'],
   },
   testimonials: {
     title: 'Avis clients',
@@ -68,6 +76,16 @@ const home = {
     ctaSeeAllWithCount: 'Voir tous les avis ({count})',
     ctaSeeAllAria: 'Voir la liste de tous les avis clients',
     ctaSeeAllAriaWithCount: 'Voir la liste des {count} avis clients',
+  },
+  faq: {
+    title: 'Questions fréquentes',
+    intro: "Quelques réponses pour vous aider. Une autre question ? N'hésitez pas à nous contacter.",
+  },
+  contact: {
+    title: 'Nous contacter',
+    text: "Une question, un devis ou un projet ? N'hésitez pas à nous joindre.",
+    cta: 'Envoyer un message',
+    ariaCta: 'Envoyer un message par e-mail à contact@arkenyx.fr',
   },
   avisPage: {
     title: 'Tous les avis clients',
@@ -102,24 +120,6 @@ const home = {
     authorFilterAria: 'Afficher uniquement les avis de {author}',
     clearAuthorFilterAria: 'Afficher tous les avis',
     emptyAuthorFilter: 'Aucun avis pour cet auteur.',
-  },
-  interventionArea: {
-    title: 'Zone d\'intervention',
-    intro: 'J\'interviens en Mayenne et dans l\'est de l\'Ille-et-Vilaine. Voici quelques secteurs couverts.',
-    mapLink: 'Voir la zone sur Google Maps',
-    mapLinkAria: 'Ouvrir la zone d\'intervention sur Google Maps',
-    communesIntro: 'Exemples de communes et secteurs :',
-    communes: ['Ahuillé', 'Laval', 'Cossé-le-Vivien', 'Andouillé', 'Vitré', 'Château-Gontier', 'Ernée', 'Fougères'],
-  },
-  howItWorks: {
-    title: 'Comment ça marche ?',
-    intro: 'Une intervention simple et transparente, en quelques étapes.',
-    steps: [
-      { title: 'Nous contacter', description: 'Par e-mail ou téléphone : décrivez votre besoin ou demandez un devis gratuit.' },
-      { title: 'Devis gratuit', description: 'Nous établissons un devis détaillé sans engagement. Vous validez avant toute intervention.' },
-      { title: 'Intervention', description: 'Rendez-vous à domicile ou sur site. Explication claire de ce qui est fait.' },
-      { title: 'Règlement', description: 'Paiement à l\'issue de la prestation (carte, virement, espèces). Facture fournie.' },
-    ],
   },
 };
 

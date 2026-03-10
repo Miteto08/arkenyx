@@ -15,8 +15,6 @@ const reviewModal = {
   cancel: 'Annuler',
   submit: 'Envoyer mon avis',
   submitPending: 'Envoi...',
-  emailSubject: 'Avis client Arkenyx',
-  emailBodyTemplate: 'Note : {stars}/5\nPrestations : {services}\n\nAvis :\n{comment}',
 };
 
 export default reviewModal;

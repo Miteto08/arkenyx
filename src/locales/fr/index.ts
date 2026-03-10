@@ -13,13 +13,13 @@ import { priceGroups } from '@/models/prices';
 const fr = {
   common,
   site,
-  home,
   legalLayout,
   notFound,
-  quoteModal,
-  reviewModal,
+  home,
   legal,
   faq,
+  quoteModal,
+  reviewModal,
   services,
   priceGroups,
 };
