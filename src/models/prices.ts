@@ -5,6 +5,8 @@ export interface PriceItem {
   itemNote?: string;
   recommended?: boolean;
   separatorBefore?: boolean;
+  /** Shown in a popup (i) next to the price to justify the tariff for clients */
+  priceExplanation?: string;
 }
 
 export interface PriceGroup {
@@ -337,53 +339,85 @@ export const priceGroups: PriceGroup[] = [
   },
   {
     id: 'site-vitrine',
-    title: 'Création de site vitrine',
+    title: 'Création de sites web',
     intro:
-      "Livrable complet : respect de votre charte graphique et de vos demandes, animations professionnelles et légères, conformité RGPD, site responsive avec tests sur plusieurs appareils, intégration soignée et tests pratiques (vérification des parcours et formulaires).",
+      "Sites vitrines (présentation sans base de données) ou sites dynamiques (avec base de données, gestion de contenu, formulaires enregistrés). Livrable complet : charte graphique respectée, conformité RGPD, responsive avec tests pratiques des parcours et formulaires. Pas de vente en ligne ni de gestion de paiement.",
     items: [
       {
         label: 'Site vitrine One-page (simple)',
         price: 'À partir de 749€',
+        priceExplanation:
+          "Une one-page, c'est un seul écran à concevoir : une maquette, un défilement fluide, un seul formulaire de contact. Le travail est ciblé et le temps de réalisation maîtrisé, ce qui permet ce tarif d'entrée.",
         details: [
-          'Site entièrement conçu en 1 page',
-          'Respect de votre charte graphique et de vos demandes',
-          'Animations professionnelles, légères et maîtrisées',
-          'Sections services, contact, présentation ; formulaire de contact fonctionnel',
-          'Responsive (mobile / tablette / desktop) avec tests',
-          'Conformité RGPD et intégration soignée ; tests pratiques des parcours',
+          'Une seule page : toutes les sections (présentation, services, contact) sur la même page',
+          'Charte graphique et textes selon vos demandes',
+          'Formulaire de contact fonctionnel',
+          'Affichage adapté mobile, tablette et ordinateur (responsive)',
+          'Conformité RGPD (mentions légales, politique de confidentialité)',
+          'Intégration hébergement et nom de domaine ; tests pratiques des liens et parcours',
         ],
         itemNote:
-          'Idéal pour les artisans, indépendants et petites entreprises qui veulent une présence professionnelle complète et soignée sur Internet.',
+          'Idéal pour les artisans, indépendants et petites structures qui veulent une présence en ligne claire et professionnelle.',
       },
       {
         label: 'Site vitrine Multi-pages (standard)',
-        price: 'À partir de 1 500€',
-        recommended: true,
+        price: 'À partir de 1 990€',
+        priceExplanation:
+          "Un site multi-pages, ce sont plusieurs écrans à concevoir, une navigation à construire et à garder cohérente, plus de contenu à intégrer et à vérifier. Chaque page est travaillée (structure, mise en forme, référencement de base). Le temps passé est plus important que pour une one-page, d'où un tarif plus élevé.",
         details: [
-          'Structure sur plusieurs pages (Home, Services, À propos, Contact…)',
-          'Design personnalisé, charte graphique respectée, responsive avec tests',
-          'Formulaire(s) et contenu ; SEO on-page de base',
-          'Conformité RGPD ; intégration et tests pratiques des parcours',
+          'Plusieurs pages (accueil, services, à propos, contact, etc.) avec navigation cohérente',
+          'Design sur mesure, charte graphique respectée, responsive avec tests',
+          'Formulaires de contact et contenu intégrés ; SEO de base (titres, meta)',
+          'Conformité RGPD ; intégration hébergement et tests pratiques des parcours',
         ],
         itemNote:
-          'Recommandé pour les TPE/PME souhaitant un site structuré et complet, livré clé en main.',
+          'Idéal pour les TPE/PME qui ont besoin d’un site structuré et complet, livré clé en main.',
       },
       {
-        label: 'Options complémentaires (ajoutables)',
-        price: 'Sur devis',
+        label: 'Site dynamique One-page (base de données)',
+        price: 'À partir de 2 090€',
+        priceExplanation:
+          "En plus du design et du responsive, il faut mettre en place un serveur, une base de données et les fonctionnalités pour enregistrer les données (formulaires, avis, contenu modifiable). Ce travail technique supplémentaire — développement back-end, sécurisation, hébergement adapté — explique le tarif par rapport à une one-page vitrine.",
         details: [
-          'Rédaction de contenu (texte, titres, arguments)',
-          'Intégration d\'images ou visuels fournis',
-          'Hébergement & nom de domaine (configuration)',
-          'Maintenance annuelle (mises à jour, sauvegardes)',
-          'Intégration Google Analytics ou Search Console',
+          'Une page avec back-end et base de données (ex. : formulaire dont les données sont enregistrées, avis clients, contenu géré)',
+          'Pas de vente en ligne ni de paiement en ligne',
+          'Charte graphique, responsive, RGPD et tests des parcours',
+          'Hébergement adapté (configuration) et tests pratiques',
         ],
         itemNote:
-          'Ces options sont sur devis car elles dépendent des besoins spécifiques du projet.',
+          'Pour une présence en ligne avec enregistrement de données (avis, demandes, contenu modifiable) sans e-commerce.',
+      },
+      {
+        label: 'Site dynamique Multi-pages (base de données)',
+        price: 'À partir de 2 990€',
+        priceExplanation:
+          "On combine la logique multi-pages (plusieurs écrans, navigation cohérente) et la base de données (stockage des données, gestion du contenu). Le projet est plus conséquent en conception, développement et tests. Le tarif reflète ce volume de travail.",
+        details: [
+          'Plusieurs pages avec base de données et gestion de contenu',
+          'Formulaires enregistrés, contenu modifiable, pas de vente en ligne',
+          'Design sur mesure, responsive, conformité RGPD, tests des parcours',
+          'Hébergement adapté et livraison clé en main',
+        ],
+        itemNote:
+          'Pour un site complet avec stockage de données (avis, contacts, contenu) et plusieurs pages, sans plateforme de vente.',
+      },
+      {
+        label: 'Option : Espace membre (authentification, profil)',
+        price: 'À partir de +1 290€',
+        separatorBefore: true,
+        priceExplanation:
+          "L'espace membre implique la création des comptes utilisateur, la sécurisation des accès (mot de passe, session) et la gestion des données personnelles (email, téléphone, nom) dans le respect du RGPD. C'est une couche supplémentaire au site dynamique, d'où ce complément de tarif.",
+        details: [
+          'Inscription et connexion utilisateur (compte personnel)',
+          'Profil : email, téléphone, nom (données personnelles protégées, RGPD)',
+          'À ajouter à un site dynamique One-page ou Multi-pages',
+        ],
+        itemNote:
+          'Option uniquement. Ne comprend pas la gestion de paiement en ligne ni de données bancaires.',
       },
     ],
     note:
-      "Les tarifs ci-dessus sont des tarifs indicatifs de départ, basés sur des pratiques du marché freelance en 2025/2026. Le coût final varie selon la complexité, le design, la rédaction et les fonctionnalités demandées. L'hébergement, le nom de domaine et toute maintenance post-mise en ligne ne sont pas inclus dans ces tarifs de base. Chaque projet est livré complet (charte, responsive, RGPD, tests) selon vos besoins.",
+      "Tarifs indicatifs pour la Mayenne et environs. Le coût final dépend de la complexité, du design et des fonctionnalités. L'hébergement et le nom de domaine peuvent être inclus ou à votre charge selon le devis. Chaque projet est livré avec charte respectée, responsive, RGPD et tests. Les sites dynamiques et l'option espace membre impliquent des données personnelles : les modalités sont précisées au devis et dans les documents contractuels.",
   },
 ];
 

@@ -48,6 +48,7 @@ const home = {
   priceCard: {
     recommandé: 'Recommandé',
     plusDeDetails: 'Plus de détails',
+    priceExplanationAria: 'Comprendre ce tarif',
   },
   faq: {
     title: 'Questions fréquentes',

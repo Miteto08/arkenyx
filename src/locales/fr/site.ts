@@ -3,7 +3,7 @@ const site = {
   titleDefault: 'Arkenyx – Dépannage PC, montage et récupération de données',
   titleTemplate: '%s | Arkenyx',
   description:
-    'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, sauvegarde, conseil, installation réseau et création de sites vitrine. Réparer, expliquer, faire durer.',
+    'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, sauvegarde, conseil, installation réseau et création de sites web (vitrine et dynamiques). Réparer, expliquer, faire durer.',
   keywords: [
     'dépannage PC',
     'réparation informatique',
@@ -14,21 +14,23 @@ const site = {
     'conseil informatique',
     'installation réseau',
     'site vitrine',
+    'site dynamique',
+    'création site web',
     'Arkenyx',
   ],
   openGraph: {
     title: 'Arkenyx – Dépannage PC, montage et récupération de données',
     description:
-      'Micro-entreprise informatique de proximité : dépannage PC, montage, récupération de données, conseil, réseau et sites vitrine.',
+      'Micro-entreprise informatique de proximité : dépannage PC, montage, récupération de données, conseil, réseau et création de sites web (vitrine et dynamiques).',
     imageAlt: 'Arkenyx – Dépannage PC, montage et récupération de données',
   },
   twitter: {
     title: 'Arkenyx – Dépannage PC, montage et récupération de données',
-    description: 'Micro-entreprise informatique : dépannage, montage, récupération données, conseil, sites vitrine.',
+    description: 'Micro-entreprise informatique : dépannage, montage, récupération données, conseil, création de sites web.',
   },
   jsonLd: {
     description:
-      'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, conseil, installation réseau et création de sites vitrine.',
+      'Micro-entreprise informatique de proximité : dépannage et réparation PC, montage sur mesure, récupération de données, conseil, installation réseau et création de sites web (vitrine et dynamiques).',
     slogan: 'Réparer, expliquer, faire durer.',
     serviceType: [
       'Dépannage et réparation informatique',
@@ -36,7 +38,7 @@ const site = {
       'Récupération et sauvegarde de données',
       'Conseil et accompagnement',
       'Installation réseau',
-      'Création de sites vitrine',
+      'Création de sites web (vitrine et dynamiques)',
     ],
   },
 };
