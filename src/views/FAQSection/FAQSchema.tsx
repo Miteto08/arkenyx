@@ -1,3 +1,6 @@
+'use client';
+
+import { useMemo } from 'react';
 import { FAQ_ITEMS } from '@/models/faq';
 
 function buildFAQSchema() {
@@ -16,11 +19,11 @@ function buildFAQSchema() {
 }
 
 export default function FAQSchema() {
-  const schema = buildFAQSchema();
+  const schemaJson = useMemo(() => JSON.stringify(buildFAQSchema()), []);
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: schemaJson }}
     />
   );
 }

@@ -12,6 +12,7 @@ const common = {
     { href: '/#contact', label: 'Contact' },
   ],
   footer: {
+    navAria: 'Mentions et conditions',
     mentionsLegales: 'Mentions légales',
     confidentialite: 'Confidentialité',
     cgu: 'CGU',

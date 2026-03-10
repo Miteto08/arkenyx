@@ -11,14 +11,12 @@ interface LegalContentProps {
 export default function LegalContent({ intro, sections }: LegalContentProps) {
   return (
     <>
-      <p style={{ whiteSpace: 'pre-line' }}>{intro}</p>
+      <p>{intro}</p>
       {sections.map((section, i) => (
         <section key={i}>
           <h2>{section.heading}</h2>
           {section.paragraphs.map((para, j) => (
-            <p key={j} style={{ whiteSpace: 'pre-line' }}>
-              {para}
-            </p>
+            <p key={j}>{para}</p>
           ))}
         </section>
       ))}

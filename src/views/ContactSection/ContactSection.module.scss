@@ -31,6 +31,11 @@
     background: var(--color-primary-hover);
     transform: translateY(-2px);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }
 
 .section .container {

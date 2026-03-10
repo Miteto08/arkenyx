@@ -10,6 +10,8 @@ interface Step {
 }
 
 export default function HowItWorksSection() {
+  const title = get<string>('home.howItWorks.title');
+  const intro = get<string>('home.howItWorks.intro');
   const steps = get<Step[]>('home.howItWorks.steps');
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -41,9 +43,9 @@ export default function HowItWorksSection() {
     >
       <div className="container">
         <h2 id="how-title" className={styles.heading}>
-          {get<string>('home.howItWorks.title')}
+          {title}
         </h2>
-        <p className={styles.intro}>{get<string>('home.howItWorks.intro')}</p>
+        <p className={styles.intro}>{intro}</p>
         <ol className={styles.steps} role="list">
           {steps.map((step, i) => (
             <li key={i} className={styles.step}>

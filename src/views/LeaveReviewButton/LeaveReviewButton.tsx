@@ -13,6 +13,8 @@ interface LeaveReviewButtonProps {
 
 export default function LeaveReviewButton({ className, onReviewSubmitted }: LeaveReviewButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const ctaLabel = get<string>('home.testimonials.ctaLeaveReview');
+  const ctaAria = get<string>('home.testimonials.ctaLeaveReviewAria');
 
   return (
     <>
@@ -20,9 +22,9 @@ export default function LeaveReviewButton({ className, onReviewSubmitted }: Leav
         type="button"
         className={className ?? styles.cta}
         onClick={() => setIsOpen(true)}
-        aria-label={get<string>('home.testimonials.ctaLeaveReviewAria')}
+        aria-label={ctaAria}
       >
-        {get<string>('home.testimonials.ctaLeaveReview')}
+        {ctaLabel}
       </button>
       <ReviewModal
         isOpen={isOpen}

@@ -10,10 +10,11 @@ const BackToTop = dynamic(
 );
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const skipToContent = get<string>('common.skipToContent');
   return (
     <div className={styles.layout}>
       <a href="#main-content" className={styles.skipLink}>
-        {get<string>('common.skipToContent')}
+        {skipToContent}
       </a>
       <Header />
       <main id="main-content" className={styles.main} role="main">{children}</main>

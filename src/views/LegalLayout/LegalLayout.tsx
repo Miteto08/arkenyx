@@ -1,4 +1,3 @@
-import { get } from '@/lib/i18n';
 import BackToHomeLink from '@/views/BackToHomeLink/BackToHomeLink';
 import styles from './LegalLayout.module.scss';
 
