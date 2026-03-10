@@ -5,12 +5,14 @@ import Image from 'next/image';
 import ThemeToggle from '@/views/ThemeToggle/ThemeToggle';
 import QuoteRequestButton from '@/views/QuoteRequestButton/QuoteRequestButton';
 import { get } from '@/lib/i18n';
+import { useSiteContent } from '@/controllers/useSiteContent';
 import styles from './Header.module.scss';
 
 const NAV_LINKS = get<Array<{ href: string; label: string }>>('common.navLinks');
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { siteName } = useSiteContent();
   const ariaMenu = get<string>(menuOpen ? 'common.header.ariaMenuOpen' : 'common.header.ariaMenuClose');
 
   return (
@@ -19,7 +21,7 @@ export default function Header() {
         <a href="/" className={styles.logo} aria-label={get<string>('common.header.ariaLogo')}>
           <Image
             src="/arkenyx-logo.png"
-            alt="Arkenyx"
+            alt={siteName}
             width={420}
             height={120}
             priority

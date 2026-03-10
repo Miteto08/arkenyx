@@ -1,5 +1,6 @@
 const site = {
   name: 'Arkenyx',
+  tagline: 'Stockage informatique & montage PC',
   titleDefault: 'Arkenyx – Dépannage PC, montage et récupération de données',
   titleTemplate: '%s | Arkenyx',
   description:

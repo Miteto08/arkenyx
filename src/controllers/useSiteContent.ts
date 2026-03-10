@@ -1,6 +1,8 @@
+import { get } from '@/lib/i18n';
+
 export function useSiteContent() {
   return {
-    siteName: 'Arkenyx',
-    tagline: 'Stockage informatique & montage PC',
+    siteName: get<string>('site.name'),
+    tagline: get<string>('site.tagline'),
   };
 }
