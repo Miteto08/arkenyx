@@ -24,7 +24,14 @@ export default function AllReviewsListItem({ testimonial }: AllReviewsListItemPr
       <div
         className={`${styles.listItemInner} ${expandText ? styles.listItemInnerExpanded : ''}`.trim()}
       >
-        <TestimonialCardStars stars={stars} />
+        <div className={styles.listItemRating}>
+          <span className={styles.listItemRatingText} aria-hidden>
+            {get<string>('home.avisPage.ratingOutOf').replace('{n}', String(stars))}
+          </span>
+          <span className={styles.listItemStarsWrap}>
+            <TestimonialCardStars stars={stars} />
+          </span>
+        </div>
         <TestimonialCardServices services={services} />
         {author && author.trim() && (
           <p className={cardStyles.cardAuthor}>{author.trim()}</p>
