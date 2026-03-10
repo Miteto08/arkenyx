@@ -8,16 +8,19 @@ interface ReviewModalHeaderProps {
 }
 
 export default function ReviewModalHeader({ onClose }: ReviewModalHeaderProps) {
+  const title = get<string>('reviewModal.title');
+  const closeAria = get<string>('reviewModal.closeAria');
+
   return (
     <div className={styles.header}>
       <h2 id="review-modal-title" className={styles.title}>
-        {get<string>('reviewModal.title')}
+        {title}
       </h2>
       <button
         type="button"
         className={styles.closeBtn}
         onClick={onClose}
-        aria-label={get<string>('reviewModal.closeAria')}
+        aria-label={closeAria}
       >
         ×
       </button>

@@ -55,6 +55,11 @@
     color: var(--color-text);
     background: var(--color-border-subtle);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }
 
 .intro {
@@ -115,6 +120,11 @@
 
   &.filled {
     color: var(--color-primary-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 
@@ -178,6 +188,11 @@
 
     input {
       flex-shrink: 0;
+
+      &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
     }
   }
 }
@@ -217,6 +232,11 @@
   &:focus {
     outline: none;
     border-color: var(--color-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 
@@ -262,6 +282,11 @@
     border-color: var(--color-primary);
     box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }
 
 .submitError {
@@ -294,6 +319,11 @@
   &:hover {
     background: var(--color-border-subtle);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }
 
 .submitBtn {
@@ -312,5 +342,10 @@
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+
+  &:focus-visible:not(:disabled) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }

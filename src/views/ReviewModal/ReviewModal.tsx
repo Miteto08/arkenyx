@@ -89,7 +89,9 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
       await onSubmit?.(review);
       onClose();
     } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : 'Une erreur est survenue');
+      setSubmitError(
+          err instanceof Error ? err.message : get<string>('reviewModal.submitErrorDefault')
+        );
     } finally {
       setIsSubmitting(false);
     }
@@ -102,6 +104,7 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
 
   if (!isOpen) return null;
 
+  const intro = get<string>('reviewModal.intro');
   const displayStars = hoverStars || stars;
   const trimmedComment = comment.trim();
   const authorTrimmed = author.trim();
@@ -126,7 +129,7 @@ export default function ReviewModal({ isOpen, onClose, onSubmit }: ReviewModalPr
     >
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <ReviewModalHeader onClose={onClose} />
-        <p className={styles.intro}>{get<string>('reviewModal.intro')}</p>
+        <p className={styles.intro}>{intro}</p>
         <div className={styles.form}>
           <ReviewModalStars
             stars={stars}

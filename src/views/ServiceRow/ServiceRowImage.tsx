@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { get } from '@/lib/i18n';
 import styles from './ServiceRow.module.scss';
 
 interface ServiceRowImageProps {
@@ -7,12 +8,14 @@ interface ServiceRowImageProps {
 }
 
 export default function ServiceRowImage({ imageSrc, alt }: ServiceRowImageProps) {
+  const imageAlt = `${get<string>('common.imageIllustrationLabel')}${alt}`;
+
   return (
     <div className={styles.imageWrap}>
       {imageSrc ? (
         <Image
           src={imageSrc}
-          alt={`Illustration : ${alt}`}
+          alt={imageAlt}
           fill
           className={styles.image}
           sizes="(max-width: 767px) 100vw, 50vw"

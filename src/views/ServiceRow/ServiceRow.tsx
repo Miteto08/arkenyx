@@ -44,12 +44,12 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         const ratio = entry.intersectionRatio;
-        const isMobile = typeof window !== 'undefined' && window.innerWidth < MOBILE_MAX_WIDTH;
+        const isMobile = window.innerWidth < MOBILE_MAX_WIDTH;
         if (isMobile) {
           if (ratio >= 0.1) {
-            const currentY = typeof window !== 'undefined' ? window.scrollY : 0;
+            const currentY = window.scrollY;
             const justScrolledUp = currentY < prevScrollY.current;
-            if (typeof window !== 'undefined') prevScrollY.current = currentY;
+            prevScrollY.current = currentY;
             setAppearImageFirst(Boolean(scrollUpRef.current || justScrolledUp));
             setInView(true);
             setInViewText(true);
@@ -59,9 +59,9 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
           }
         } else {
           if (ratio >= 0.4) {
-            const currentY = typeof window !== 'undefined' ? window.scrollY : 0;
+            const currentY = window.scrollY;
             const justScrolledUp = currentY < prevScrollY.current;
-            if (typeof window !== 'undefined') prevScrollY.current = currentY;
+            prevScrollY.current = currentY;
             setAppearImageFirst(false);
             setInView(true);
             setInViewText(true);
@@ -74,7 +74,7 @@ export default function ServiceRow({ service, index, id }: ServiceRowProps) {
           }
         }
       },
-      { threshold: [0.05, 0.1, 0.25, 0.4], rootMargin: '0px 0px 0px 0px' }
+      { threshold: [0.05, 0.1, 0.25, 0.4] }
     );
     observer.observe(el);
     return () => observer.disconnect();

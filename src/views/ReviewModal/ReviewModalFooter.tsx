@@ -16,6 +16,10 @@ export default function ReviewModalFooter({
   canSubmit,
   isSubmitting = false,
 }: ReviewModalFooterProps) {
+  const cancel = get<string>('reviewModal.cancel');
+  const submit = get<string>('reviewModal.submit');
+  const submitPending = get<string>('reviewModal.submitPending');
+
   return (
     <div className={styles.footer}>
       <button
@@ -24,7 +28,7 @@ export default function ReviewModalFooter({
         onClick={onClose}
         disabled={isSubmitting}
       >
-        {get<string>('reviewModal.cancel')}
+        {cancel}
       </button>
       <button
         type="button"
@@ -32,9 +36,7 @@ export default function ReviewModalFooter({
         onClick={onSubmit}
         disabled={!canSubmit || isSubmitting}
       >
-        {isSubmitting
-          ? get<string>('reviewModal.submitPending')
-          : get<string>('reviewModal.submit')}
+        {isSubmitting ? submitPending : submit}
       </button>
     </div>
   );

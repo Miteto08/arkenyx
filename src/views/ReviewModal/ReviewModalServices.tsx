@@ -16,15 +16,17 @@ export default function ReviewModalServices({
   isDisabled,
 }: ReviewModalServicesProps) {
   const groups = getQuotePrestationGroups();
+  const servicesLabel = get<string>('reviewModal.servicesLabel');
+  const servicesMaxHint = get<string>('reviewModal.servicesMaxHint');
 
   return (
     <div className={styles.servicesField}>
       <span className={styles.servicesLabel}>
-        {get<string>('reviewModal.servicesLabel')}
+        {servicesLabel}
         <span className={styles.mandatory} aria-hidden> *</span>
       </span>
       <p className={styles.servicesHint}>
-        {get<string>('reviewModal.servicesMaxHint')}
+        {servicesMaxHint}
       </p>
       {groups.map((group) => (
         <fieldset key={group.groupId} className={styles.group}>

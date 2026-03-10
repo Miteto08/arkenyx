@@ -12,19 +12,23 @@ interface ReviewModalAuthorProps {
 }
 
 export default function ReviewModalAuthor({ value, onChange }: ReviewModalAuthorProps) {
+  const authorLabel = get<string>('reviewModal.authorLabel');
+  const authorHint = get<string>('reviewModal.authorHint');
+  const authorPlaceholder = get<string>('reviewModal.authorPlaceholder');
+
   return (
     <div className={styles.authorField}>
       <label htmlFor="review-author" className={styles.authorLabel}>
-        {get<string>('reviewModal.authorLabel')}
+        {authorLabel}
       </label>
-      <p className={styles.authorHint}>{get<string>('reviewModal.authorHint')}</p>
+      <p className={styles.authorHint}>{authorHint}</p>
       <input
         id="review-author"
         type="text"
         className={styles.authorInput}
         value={value}
         onChange={(e) => onChange(e.target.value.slice(0, MAX_AUTHOR_LENGTH))}
-        placeholder={get<string>('reviewModal.authorPlaceholder')}
+        placeholder={authorPlaceholder}
         maxLength={MAX_AUTHOR_LENGTH}
         autoComplete="name"
       />

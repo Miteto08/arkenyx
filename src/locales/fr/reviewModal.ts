@@ -15,6 +15,9 @@ const reviewModal = {
   cancel: 'Annuler',
   submit: 'Envoyer mon avis',
   submitPending: 'Envoi...',
+  submitErrorDefault: 'Une erreur est survenue',
+  starAriaOne: '1 étoile',
+  starAriaMany: '{count} étoiles',
 };
 
 export default reviewModal;

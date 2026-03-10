@@ -16,10 +16,14 @@ export default function ReviewModalStars({
   onStarsChange,
   onHover,
 }: ReviewModalStarsProps) {
+  const starsLabel = get<string>('reviewModal.starsLabel');
+  const starAriaOne = get<string>('reviewModal.starAriaOne');
+  const starAriaMany = get<string>('reviewModal.starAriaMany');
+
   return (
     <div className={styles.starsField}>
       <span className={styles.starsLabel} id="review-stars-label">
-        {get<string>('reviewModal.starsLabel')}
+        {starsLabel}
         <span className={styles.mandatory} aria-hidden> *</span>
       </span>
       <div
@@ -35,7 +39,7 @@ export default function ReviewModalStars({
             onClick={() => onStarsChange(n)}
             onMouseEnter={() => onHover(n)}
             onMouseLeave={() => onHover(0)}
-            aria-label={`${n} étoile${n > 1 ? 's' : ''}`}
+            aria-label={n === 1 ? starAriaOne : starAriaMany.replace('{count}', String(n))}
             aria-pressed={stars === n}
           >
             ★

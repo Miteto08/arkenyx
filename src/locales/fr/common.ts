@@ -27,6 +27,8 @@ const common = {
     ariaNav: 'Navigation principale',
   },
   ctaQuote: 'Demander un devis gratuit',
+  imageIllustrationLabel: 'Illustration : ',
+  servicesSectionAria: 'Nos services',
   backToTop: 'Retour en haut de la page',
   skipToContent: 'Aller au contenu principal',
 };

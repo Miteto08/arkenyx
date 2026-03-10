@@ -11,7 +11,10 @@ interface ReviewModalCommentProps {
 }
 
 export default function ReviewModalComment({ value, onChange }: ReviewModalCommentProps) {
-  const charCount = get<string>('reviewModal.charCount')
+  const charCountTemplate = get<string>('reviewModal.charCount');
+  const commentLabel = get<string>('reviewModal.commentLabel');
+  const commentPlaceholder = get<string>('reviewModal.commentPlaceholder');
+  const charCount = charCountTemplate
     .replace('{current}', String(value.length))
     .replace('{max}', String(MAX_COMMENT_LENGTH));
 
@@ -19,7 +22,7 @@ export default function ReviewModalComment({ value, onChange }: ReviewModalComme
     <div className={styles.commentField}>
       <span className={styles.commentLabel}>
         <span>
-          {get<string>('reviewModal.commentLabel')}
+          {commentLabel}
           <span className={styles.mandatory} aria-hidden> *</span>
         </span>
         <span className={styles.charCount}>{charCount}</span>
@@ -28,7 +31,7 @@ export default function ReviewModalComment({ value, onChange }: ReviewModalComme
         className={styles.textarea}
         value={value}
         onChange={(e) => onChange(e.target.value.slice(0, MAX_COMMENT_LENGTH))}
-        placeholder={get<string>('reviewModal.commentPlaceholder')}
+        placeholder={commentPlaceholder}
         maxLength={MAX_COMMENT_LENGTH}
         rows={4}
       />
