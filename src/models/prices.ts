@@ -427,13 +427,15 @@ export type QuotePrestationGroup = {
   items: { id: string; label: string }[];
 };
 
+const quotePrestationGroups: QuotePrestationGroup[] = priceGroups.map((g) => ({
+  groupId: g.id,
+  groupTitle: g.title,
+  items: g.items.map((item, i) => ({
+    id: `${g.id}-${i}`,
+    label: item.label,
+  })),
+}));
+
 export function getQuotePrestationGroups(): QuotePrestationGroup[] {
-  return priceGroups.map((g) => ({
-    groupId: g.id,
-    groupTitle: g.title,
-    items: g.items.map((item, i) => ({
-      id: `${g.id}-${i}`,
-      label: item.label,
-    })),
-  }));
+  return quotePrestationGroups;
 }

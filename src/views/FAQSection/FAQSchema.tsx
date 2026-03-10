@@ -1,17 +1,10 @@
-import { get } from '@/lib/i18n';
-
-interface FAQItem {
-  categoryId: string;
-  question: string;
-  answer: string;
-}
+import { FAQ_ITEMS } from '@/models/faq';
 
 function buildFAQSchema() {
-  const items = get<FAQItem[]>('faq.items');
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: items.map((item) => ({
+    mainEntity: FAQ_ITEMS.map((item) => ({
       '@type': 'Question',
       name: item.question,
       acceptedAnswer: {

@@ -7,9 +7,3 @@ export interface Service {
   icon?: string;
   image?: string;
 }
-
-export interface ContactInfo {
-  email?: string;
-  phone?: string;
-  address?: string;
-}
