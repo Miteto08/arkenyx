@@ -415,9 +415,24 @@ export const priceGroups: PriceGroup[] = [
         itemNote:
           'Option uniquement. Ne comprend pas la gestion de paiement en ligne ni de données bancaires.',
       },
+      {
+        label: 'Option : Suivi et mises à jour (forfait mensuel)',
+        price: 'À partir de 35€ / mois',
+        separatorBefore: true,
+        priceExplanation:
+          "Le forfait mensuel couvre la tranquillité (suivi hébergement et déploiement, réactivité en cas de problème) et un quota de petites modifications de contenu. Ce double volet — sérénité technique et mises à jour légères incluses — justifie le tarif. Au-delà du quota, chaque demande (nouvelle page, évolution) fait l'objet d'un devis dédié.",
+        details: [
+          'Forfait mensuel avec quota de petites modifications inclus (ex. : correction de texte, changement d’image, mise à jour d’un lien ou d’un horaire). Le volume du quota est défini avec vous au devis ou au contrat.',
+          'Petite modification = pas de nouvelle page ni nouvelle fonctionnalité ; au-delà du quota, chaque demande est chiffrée par devis (ex. ajout d’une page simple : à partir d’environ 120€ selon le contenu ; évolution ou nouvelle fonctionnalité : sur devis).',
+          'Tranquillité : suivi hébergement et déploiement ; vous restez propriétaire du site et des comptes.',
+          'Réservé aux sites créés par ARKENYX ; engagement et conditions détaillés au devis.',
+        ],
+        itemNote:
+          'Option facultative. Sans cette option, le site vous est livré clé en main et vous en assurez la gestion vous-même.',
+      },
     ],
     note:
-      "Tarifs indicatifs. Le coût final dépend de la complexité, du design et des fonctionnalités. L'hébergement et le nom de domaine peuvent être inclus ou à votre charge selon le devis. Chaque projet est livré avec charte respectée, responsive, RGPD et tests. Les sites dynamiques et l'option espace membre impliquent des données personnelles : les modalités sont précisées au devis et dans les documents contractuels.",
+      "Tarifs indicatifs. Le coût final dépend de la complexité, du design et des fonctionnalités. L'hébergement et le nom de domaine peuvent être inclus ou à votre charge selon le devis. Chaque projet est livré avec charte respectée, responsive, RGPD et tests. Les sites dynamiques et l'option espace membre impliquent des données personnelles : les modalités sont précisées au devis et dans les documents contractuels. Une option de suivi et mises à jour (forfait mensuel) est proposée après livraison.",
   },
 ];
 
