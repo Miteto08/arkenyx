@@ -7,21 +7,15 @@ import PriceCard from './PriceCard';
 import QuoteRequestButton from '@/views/QuoteRequestButton/QuoteRequestButton';
 import styles from './PriceSection.module.scss';
 
-// Column order for layout: similar total height per column to avoid gaps between cards.
-const COLUMN_ORDER: string[] = [
-  'depannage',
-  'site-vitrine',
-  'forfaits',
-  'conseil',
-  'reseau',
-  'recuperation',
-  'montage',
-];
+const COLUMN_1_IDS: string[] = ['site-vitrine', 'conseil'];
+const COLUMN_2_IDS: string[] = ['recuperation', 'reseau', 'montage'];
+const COLUMN_3_IDS: string[] = ['depannage', 'forfaits'];
+
+const COLUMNS = [COLUMN_1_IDS, COLUMN_2_IDS, COLUMN_3_IDS];
 
 export default function PriceSection() {
   const [expandedDetails, setExpandedDetails] = useState<Set<string>>(new Set());
   const groupsById = Object.fromEntries(priceGroups.map((g) => [g.id, g]));
-  const orderedGroups = COLUMN_ORDER.map((id) => groupsById[id]).filter(Boolean);
 
   const toggleDetails = (key: string) => {
     setExpandedDetails((prev) => {
@@ -37,13 +31,21 @@ export default function PriceSection() {
       <div className="container">
         <PriceSectionIntro />
         <div className={styles.grid}>
-          {orderedGroups.map((group) => (
-            <PriceCard
-              key={group.id}
-              group={group}
-              expandedDetails={expandedDetails}
-              onToggleDetails={toggleDetails}
-            />
+          {COLUMNS.map((columnIds, colIndex) => (
+            <div key={colIndex} className={styles.gridColumn}>
+              {columnIds.map((id) => {
+                const group = groupsById[id];
+                if (!group) return null;
+                return (
+                  <PriceCard
+                    key={group.id}
+                    group={group}
+                    expandedDetails={expandedDetails}
+                    onToggleDetails={toggleDetails}
+                  />
+                );
+              })}
+            </div>
           ))}
         </div>
         <div className={styles.ctaWrap}>

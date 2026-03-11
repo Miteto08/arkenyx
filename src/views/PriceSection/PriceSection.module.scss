@@ -58,28 +58,36 @@
 }
 
 .grid {
-  display: block;
-  column-count: 1;
-  column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 1.5rem;
+  align-items: start;
+}
+
+.gridColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  min-width: 0;
 }
 
 @media (min-width: 640px) {
   .grid {
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 1.875rem;
   }
 }
 
 @media (min-width: 1024px) {
   .grid {
-    column-count: 3;
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 1.875rem;
   }
 }
 
 .card {
-  break-inside: avoid;
-  margin-bottom: 1.875rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
   background: var(--color-bg-alt);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;

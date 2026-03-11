@@ -341,29 +341,26 @@ export const priceGroups: PriceGroup[] = [
     id: 'site-vitrine',
     title: 'Création de sites web',
     intro:
-      "Sites vitrines (présentation sans base de données) ou sites dynamiques (avec base de données, gestion de contenu, formulaires enregistrés). Livrable complet : charte graphique respectée, conformité RGPD, responsive avec tests pratiques des parcours et formulaires. Pas de vente en ligne ni de gestion de paiement.",
+      "Sites vitrines ou dynamiques (base de données, formulaires enregistrés). Livrable : charte respectée, RGPD, responsive et tests. Pas de vente en ligne ni de paiement en ligne.",
     items: [
       {
         label: 'Site vitrine One-page (simple)',
         price: 'À partir de 749€',
         priceExplanation:
-          "Une one-page, c'est un seul écran à concevoir : une maquette, un défilement fluide, un seul formulaire de contact. Le travail est ciblé et le temps de réalisation maîtrisé, ce qui permet ce tarif d'entrée.",
+          "Une one-page : un écran, un défilement, un formulaire de contact. Travail ciblé, tarif d'entrée.",
         details: [
-          'Une seule page : toutes les sections (présentation, services, contact) sur la même page',
-          'Charte graphique et textes selon vos demandes',
-          'Formulaire de contact fonctionnel',
-          'Affichage adapté mobile, tablette et ordinateur (responsive)',
-          'Conformité RGPD (mentions légales, politique de confidentialité)',
-          'Intégration hébergement et nom de domaine ; tests pratiques des liens et parcours',
+          'Une page (présentation, services, contact), charte et textes selon vos demandes',
+          'Formulaire de contact, responsive (mobile, tablette, desktop), RGPD',
+          'Hébergement et nom de domaine ; tests des parcours',
         ],
         itemNote:
-          'Idéal pour les artisans, indépendants et petites structures qui veulent une présence en ligne claire et professionnelle.',
+          'Idéal pour artisans et petites structures.',
       },
       {
         label: 'Site vitrine Multi-pages (standard)',
         price: 'À partir de 1 990€',
         priceExplanation:
-          "Un site multi-pages, ce sont plusieurs écrans à concevoir, une navigation à construire et à garder cohérente, plus de contenu à intégrer et à vérifier. Chaque page est travaillée (structure, mise en forme, référencement de base). Le temps passé est plus important que pour une one-page, d'où un tarif plus élevé.",
+          "Plusieurs écrans, navigation cohérente, plus de contenu. Temps de réalisation plus important.",
         details: [
           'Plusieurs pages (accueil, services, à propos, contact, etc.) avec navigation cohérente',
           'Design sur mesure, charte graphique respectée, responsive avec tests',
@@ -371,64 +368,56 @@ export const priceGroups: PriceGroup[] = [
           'Conformité RGPD ; intégration hébergement et tests pratiques des parcours',
         ],
         itemNote:
-          'Idéal pour les TPE/PME qui ont besoin d’un site structuré et complet, livré clé en main.',
+          'Idéal pour TPE/PME, site structuré livré clé en main.',
       },
       {
         label: 'Site dynamique One-page (base de données)',
         price: 'À partir de 2 090€',
         priceExplanation:
-          "En plus du design et du responsive, il faut mettre en place un serveur, une base de données et les fonctionnalités pour enregistrer les données (formulaires, avis, contenu modifiable). Ce travail technique supplémentaire — développement back-end, sécurisation, hébergement adapté — explique le tarif par rapport à une one-page vitrine.",
+          "Back-end et base de données pour enregistrer les données (formulaires, avis, contenu). Travail technique supplémentaire.",
         details: [
-          'Une page avec back-end et base de données (ex. : formulaire dont les données sont enregistrées, avis clients, contenu géré)',
-          'Pas de vente en ligne ni de paiement en ligne',
-          'Charte graphique, responsive, RGPD et tests des parcours',
-          'Hébergement adapté (configuration) et tests pratiques',
+          'Une page avec BDD (formulaires enregistrés, avis, contenu géré), pas d\'e-commerce',
+          'Charte, responsive, RGPD et tests ; hébergement adapté',
         ],
         itemNote:
-          'Pour une présence en ligne avec enregistrement de données (avis, demandes, contenu modifiable) sans e-commerce.',
+          'Présence en ligne avec données enregistrées, sans e-commerce.',
       },
       {
         label: 'Site dynamique Multi-pages (base de données)',
         price: 'À partir de 2 990€',
         priceExplanation:
-          "On combine la logique multi-pages (plusieurs écrans, navigation cohérente) et la base de données (stockage des données, gestion du contenu). Le projet est plus conséquent en conception, développement et tests. Le tarif reflète ce volume de travail.",
+          "Multi-pages + base de données. Projet plus conséquent en conception et développement.",
         details: [
-          'Plusieurs pages avec base de données et gestion de contenu',
-          'Formulaires enregistrés, contenu modifiable, pas de vente en ligne',
-          'Design sur mesure, responsive, conformité RGPD, tests des parcours',
-          'Hébergement adapté et livraison clé en main',
+          'Plusieurs pages avec BDD et gestion de contenu, formulaires enregistrés',
+          'Design sur mesure, responsive, RGPD, hébergement adapté, livraison clé en main',
         ],
         itemNote:
-          'Pour un site complet avec stockage de données (avis, contacts, contenu) et plusieurs pages, sans plateforme de vente.',
+          'Site complet avec données (avis, contacts, contenu), sans plateforme de vente.',
       },
       {
         label: 'Option : Espace membre (authentification, profil)',
         price: 'À partir de +1 290€',
         separatorBefore: true,
         priceExplanation:
-          "L'espace membre implique la création des comptes utilisateur, la sécurisation des accès (mot de passe, session) et la gestion des données personnelles (email, téléphone, nom) dans le respect du RGPD. C'est une couche supplémentaire au site dynamique, d'où ce complément de tarif.",
+          "Comptes utilisateur, sécurisation des accès, données de profil (email, téléphone, nom) en RGPD. Couche supplémentaire au site dynamique.",
         details: [
-          'Inscription et connexion utilisateur (compte personnel)',
-          'Profil : email, téléphone, nom (données personnelles protégées, RGPD)',
-          'À ajouter à un site dynamique One-page ou Multi-pages',
+          'Inscription et connexion ; profil (email, téléphone, nom) ; à ajouter à un site dynamique',
         ],
         itemNote:
-          'Option uniquement. Ne comprend pas la gestion de paiement en ligne ni de données bancaires.',
+          'Sans gestion de paiement en ligne.',
       },
       {
         label: 'Option : Suivi et mises à jour (forfait mensuel)',
         price: 'À partir de 35€ / mois',
         separatorBefore: true,
         priceExplanation:
-          "Le forfait mensuel couvre la tranquillité (suivi hébergement et déploiement, réactivité en cas de problème) et un quota de petites modifications de contenu. Ce double volet — sérénité technique et mises à jour légères incluses — justifie le tarif. Au-delà du quota, chaque demande (nouvelle page, évolution) fait l'objet d'un devis dédié.",
+          "Forfait mensuel : suivi hébergement et déploiement + quota de petites modifs. Au-delà du quota, devis dédié.",
         details: [
-          'Forfait mensuel avec quota de petites modifications inclus (ex. : correction de texte, changement d’image, mise à jour d’un lien ou d’un horaire). Le volume du quota est défini avec vous au devis ou au contrat.',
-          'Petite modification = pas de nouvelle page ni nouvelle fonctionnalité ; au-delà du quota, chaque demande est chiffrée par devis (ex. ajout d’une page simple : à partir d’environ 120€ selon le contenu ; évolution ou nouvelle fonctionnalité : sur devis).',
-          'Tranquillité : suivi hébergement et déploiement ; vous restez propriétaire du site et des comptes.',
-          'Réservé aux sites créés par ARKENYX ; engagement et conditions détaillés au devis.',
+          'Quota de petites modifs inclus (texte, image, lien, horaire) ; volume défini au devis. Au-delà : devis (ex. page simple à partir d\'env. 120€).',
+          'Suivi hébergement et déploiement ; vous restez propriétaire. Réservé aux sites créés par ARKENYX.',
         ],
         itemNote:
-          'Option facultative. Sans cette option, le site vous est livré clé en main et vous en assurez la gestion vous-même.',
+          'Option facultative. Sans elle, le site est livré clé en main, vous en assurez la gestion.',
       },
     ],
     note:

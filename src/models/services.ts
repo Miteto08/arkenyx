@@ -87,14 +87,13 @@ export const services: Service[] = [
     title: 'Création de sites web',
     image: '/images/services/website-creation.avif',
     description:
-      "Sites vitrines (présentation sans base de données) ou sites dynamiques (avec base de données : formulaires enregistrés, avis clients, contenu géré). Option possible : espace membre avec authentification et profil (email, téléphone). Pas de vente en ligne ni de gestion de paiement.\n\nChaque site est conçu sur mesure selon votre identité visuelle et vos besoins, avec une attention à la lisibilité, à la navigation et à l'expérience utilisateur. Livraison clé en main avec conformité RGPD et tests pratiques des parcours.",
+      "Sites vitrines ou dynamiques (avec base de données : formulaires, avis, contenu géré). Options : espace membre (authentification, profil) ; suivi et mises à jour (forfait mensuel) après livraison. Livraison clé en main, responsive et RGPD.",
     items: [
-      'Sites vitrines : une page (One-page) ou plusieurs pages (multi-pages), formulaire de contact, responsive et RGPD',
-      'Sites dynamiques : base de données pour enregistrer des données (avis, demandes, contenu modifiable), sans e-commerce',
-      'Option espace membre : inscription et connexion utilisateur, profil (email, téléphone), données protégées (RGPD)',
-      'Analyse de vos besoins, structure et design sur mesure, intégration des contenus',
-      'Conception responsive (desktop, tablette, smartphone), tests des parcours et formulaires',
-      'Conformité RGPD ; hébergement et nom de domaine selon le devis',
+      'Vitrine : one-page ou multi-pages, formulaire de contact, responsive et RGPD',
+      'Dynamique : base de données (avis, demandes, contenu modifiable), sans e-commerce',
+      'Option espace membre : inscription, connexion, profil (RGPD)',
+      'Option suivi : forfait mensuel (quota de petites modifs inclus, au-delà sur devis)',
+      'Design sur mesure, tests des parcours ; hébergement et domaine selon le devis',
     ],
     notePoints: [
       "Pas de plateforme de vente ni de gestion de paiement en ligne (données bancaires hors périmètre).",
