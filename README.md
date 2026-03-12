@@ -69,8 +69,10 @@ Create a `.env.local` file at the root if needed. Do not commit it if it contain
 | **`src/models/`** | Data and types (services, copy, constants) |
 
 - **Home:** Main landing content lives in `src/app/page.tsx` (hero, services, pricing, FAQ, contact, etc.).
+- **Avis:** Reviews page at `src/app/avis/`.
 - **Legal pages:** CGV, CGU, Mentions légales, Politique de confidentialité under `src/app/` (e.g. `cgv/`, `cgu/`, `mentions-legales/`, `politique-confidentialite/`).
 - **SASS:** Global variables and mixins in `src/app/globals.scss`; per-component styles in `src/views/**/*.module.scss`.
+- **SEO:** Sitemap and robots are generated from `src/app/sitemap.ts` and `src/app/robots.ts`.
 - **Responsive:** Breakpoints are defined in `globals.scss` (`$breakpoint-mobile`, `$breakpoint-tablet`, etc.).
 
 ---
