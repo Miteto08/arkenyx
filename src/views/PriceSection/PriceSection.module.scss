@@ -60,7 +60,8 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0 1.5rem;
+  row-gap: 1.875rem;
+  column-gap: 1.5rem;
   align-items: start;
 }
 
