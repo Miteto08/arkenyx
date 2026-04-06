@@ -18,7 +18,7 @@ const common = {
     cgu: 'CGU',
     cgv: 'CGV',
     copyright: "© {year} Arkenyx. Tous droits réservés.",
-    madeWith: 'Site réalisé avec Next.js — Développé par Arkenyx',
+    madeWith: 'Site réalisé avec Next.js, développé par Arkenyx',
   },
   header: {
     ariaLogo: 'Arkenyx, accueil',

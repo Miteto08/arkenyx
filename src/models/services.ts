@@ -18,11 +18,11 @@ export const services: Service[] = [
     title: 'Dépannage et réparation informatique',
     image: '/images/services/pc-repair.avif',
     description:
-      'On diagnostique, on répare ou on remplace ce qui peut l’être — PC fixe ou portable, selon ce que le matériel permet d’accéder. Nettoyage interne, optimisation Windows et suivi des programmes au démarrage pour garder la machine fluide.',
+      'On diagnostique, on répare ou on remplace ce qui peut l’être : PC fixe ou portable, selon ce que le matériel permet d’accéder. Nettoyage interne, optimisation Windows et suivi des programmes au démarrage pour garder la machine fluide.',
     items: [
       'Diagnostic et dépannage PC',
       'Analyse complète des performances et de l’état du PC',
-      'Réparation et remplacement de composants standards (ventilateurs, RAM, disques, alimentation, etc.) — PC fixes et portables, selon accessibilité',
+      'Réparation et remplacement de composants standards (ventilateurs, RAM, disques, alimentation, etc.), PC fixes et portables, selon accessibilité',
       'Nettoyage matériel et dépoussiérage interne (PC fixes et portables selon accessibilité)',
       'Optimisation Windows, suppression des fichiers temporaires, nettoyage logiciel et gestion des programmes au démarrage',
     ],
@@ -74,11 +74,11 @@ export const services: Service[] = [
     title: 'Installation réseau',
     image: '/images/services/network-setup.avif',
     description:
-      "On s'occupe de la mise en service de votre réseau local : tout est configuré pour que les équipements et, le cas échéant, les objets connectés fonctionnent correctement. La prestation se limite à la configuration (box, extensions éventuelles, applications) — pas de travaux d'électricité.",
+      "On s'occupe de la mise en service de votre réseau local : tout est configuré pour que les équipements et, le cas échéant, les objets connectés fonctionnent correctement. La prestation se limite à la configuration (box, extensions éventuelles, applications) ; pas de travaux d'électricité.",
     items: [
       'Mise en place et configuration de la box (opérateur), vérification du fonctionnement, connexion des équipements (PC, imprimante, etc.) en Wi-Fi ou Ethernet',
       'Installation et configuration de CPL ou d’extenseurs Wi-Fi (relais) pour étendre le réseau et connecter des appareils en Ethernet à distance',
-      "Installation et connexion d'objets connectés (Google Home, prises, ampoules, etc.) via l'application dédiée — configuration uniquement",
+      "Installation et connexion d'objets connectés (Google Home, prises, ampoules, etc.) via l'application dédiée (configuration uniquement)",
       'Aide au partage d’imprimante ou de dossiers sur le réseau local (bureau ou domicile)',
     ],
   },

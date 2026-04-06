@@ -1,11 +1,11 @@
 const home = {
   hero: {
     ariaLabel: 'Accueil',
-    slogan: 'Arkenyx — Réparer, expliquer, faire durer.',
+    slogan: 'Arkenyx : Réparer, expliquer, faire durer.',
   },
   intro: {
     title: 'Une approche humaine du dépannage informatique',
-    text: "Arkenyx est une micro-entreprise d'informatique de proximité. Notre rôle : que votre équipement reste fiable et vos données en sécurité — en réparant quand il le faut, en expliquant pour que vous compreniez, et en vous accompagnant sur la durée. Parce que votre PC — qu'il serve au travail, aux jeux, au streaming ou au quotidien — mérite de la confiance, pas seulement une intervention ponctuelle.",
+    text: "Arkenyx est une micro-entreprise d'informatique de proximité. Notre rôle : que votre équipement reste fiable et vos données en sécurité, en réparant quand il le faut, en expliquant pour que vous compreniez, et en vous accompagnant sur la durée. Parce que votre PC, qu'il serve au travail, aux jeux, au streaming ou au quotidien, mérite de la confiance, pas seulement une intervention ponctuelle.",
     cta: 'Nous contacter',
     ariaCta: 'Nous contacter par e-mail',
   },

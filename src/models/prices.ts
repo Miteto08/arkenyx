@@ -315,7 +315,7 @@ export const priceGroups: PriceGroup[] = [
     id: 'reseau',
     title: 'Installation & configuration réseau',
     intro:
-      "Un réseau simple, stable et fonctionnel. Sans prise de tête.\n\nQue ce soit pour une nouvelle box, un changement d'opérateur ou simplement un Wi-Fi capricieux, on configure votre installation pour que tout fonctionne correctement — ordinateur, imprimante, objets connectés.",
+      "Un réseau simple, stable et fonctionnel. Sans prise de tête.\n\nQue ce soit pour une nouvelle box, un changement d'opérateur ou simplement un Wi-Fi capricieux, on configure votre installation pour que tout fonctionne correctement : ordinateur, imprimante, objets connectés.",
     items: [
       {
         label: 'Installation box + PC principal (fixe ou portable)',
