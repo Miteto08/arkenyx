@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { get } from '@/lib/i18n';
 import type { Testimonial } from '@/types/testimonial';
+import ReviewSourceBadge from '@/components/ReviewSourceBadge/ReviewSourceBadge';
 import TestimonialCardStars from '@/views/TestimonialsSection/TestimonialCardStars';
 import TestimonialCardServices from '@/views/TestimonialsSection/TestimonialCardServices';
 import cardStyles from '@/views/TestimonialsSection/TestimonialsSection.module.scss';
@@ -28,7 +29,7 @@ function formatReviewDate(isoDate: string | undefined): string | null {
 
 export default function AllReviewsListItem({ testimonial }: AllReviewsListItemProps) {
   const [expandText, setExpandText] = useState(false);
-  const { stars, services, text, author, created_at } = testimonial;
+  const { stars, services, text, author, created_at, source } = testimonial;
   const authorTrimmed = author?.trim() ?? '';
   const hasLongText = text.length > HAS_LONG_TEXT_THRESHOLD;
   const dateStr = formatReviewDate(created_at);
@@ -46,6 +47,7 @@ export default function AllReviewsListItem({ testimonial }: AllReviewsListItemPr
           <span className={styles.listItemStarsWrap}>
             <TestimonialCardStars stars={stars} />
           </span>
+          <ReviewSourceBadge source={source} className={cardStyles.sourceBadge} />
         </div>
         <TestimonialCardServices services={services} />
         {showAuthorDate && (

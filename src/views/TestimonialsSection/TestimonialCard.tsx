@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import type { Testimonial } from '@/types/testimonial';
+import ReviewSourceBadge from '@/components/ReviewSourceBadge/ReviewSourceBadge';
 import TestimonialCardStars from './TestimonialCardStars';
 import TestimonialCardServices from './TestimonialCardServices';
 import TestimonialCardActions from './TestimonialCardActions';
@@ -20,7 +21,7 @@ export default function TestimonialCard({ testimonial, isVisible = true }: Testi
   useEffect(() => {
     if (!isVisible) setExpandText(false);
   }, [isVisible]);
-  const { stars, services, text, author } = testimonial;
+  const { stars, services, text, author, source } = testimonial;
   const hasLongText = text.length > HAS_LONG_TEXT_THRESHOLD;
 
   return (
@@ -28,7 +29,10 @@ export default function TestimonialCard({ testimonial, isVisible = true }: Testi
       <div
         className={`${styles.cardInner} ${expandText ? styles.cardInnerExpanded : ''}`.trim()}
       >
-        <TestimonialCardStars stars={stars} />
+        <div className={styles.cardStarsRow}>
+          <TestimonialCardStars stars={stars} />
+          <ReviewSourceBadge source={source} className={styles.sourceBadge} />
+        </div>
         <TestimonialCardServices services={services} />
         {author && author.trim() && (
           <p className={styles.cardAuthor}>{author.trim()}</p>

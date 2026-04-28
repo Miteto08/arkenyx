@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { neon } from '@neondatabase/serverless';
+import { fetchGooglePlaceReviews, mergeReviewsByDate, type PublicReview } from '@/lib/googlePlacesReviews';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,7 +11,7 @@ function getDb() {
 }
 
 interface ReviewRow {
-  id: number;
+  id: string;
   stars: number;
   services: string[] | unknown;
   comment: string;
@@ -18,9 +19,10 @@ interface ReviewRow {
   created_at: string;
 }
 
-function rowToTestimonial(r: ReviewRow) {
+function rowToSiteReview(r: ReviewRow): PublicReview {
   return {
-    id: r.id,
+    id: String(r.id),
+    source: 'site',
     stars: Number(r.stars),
     services: (Array.isArray(r.services) ? r.services : []) as string[],
     text: r.comment,
@@ -37,7 +39,10 @@ export async function GET() {
       FROM reviews
       ORDER BY created_at DESC
     `;
-    return NextResponse.json((rows as ReviewRow[]).map(rowToTestimonial));
+    const siteReviews = (rows as ReviewRow[]).map(rowToSiteReview);
+    const googleReviews = await fetchGooglePlaceReviews();
+    const merged = mergeReviewsByDate(siteReviews, googleReviews);
+    return NextResponse.json(merged);
   } catch (err) {
     console.error('GET /api/reviews', err);
     return NextResponse.json(

@@ -15,16 +15,22 @@ async function fetchReviews(): Promise<Testimonial[]> {
     clearTimeout(timeoutId);
     if (!res.ok) return [];
     const data = (await res.json()) as Array<{
+      id?: string;
+      source?: 'site' | 'google';
       stars: number;
       services: string[];
       text: string;
       author?: string;
+      created_at?: string;
     }>;
     return data.map((r) => ({
+      id: r.id,
+      source: r.source,
       stars: r.stars,
       services: r.services,
       text: r.text,
       author: r.author,
+      created_at: r.created_at,
     }));
   } catch {
     clearTimeout(timeoutId);

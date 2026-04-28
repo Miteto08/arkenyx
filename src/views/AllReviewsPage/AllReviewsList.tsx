@@ -44,6 +44,7 @@ async function fetchAllReviews(): Promise<ReviewRow[]> {
   if (!res.ok) return [];
   const data = (await res.json()) as Array<{
     id?: string;
+    source?: 'site' | 'google';
     stars: number;
     services: string[];
     text: string;
@@ -52,6 +53,7 @@ async function fetchAllReviews(): Promise<ReviewRow[]> {
   }>;
   return data.map((r) => ({
     id: r.id,
+    source: r.source,
     stars: r.stars,
     services: r.services,
     text: r.text,

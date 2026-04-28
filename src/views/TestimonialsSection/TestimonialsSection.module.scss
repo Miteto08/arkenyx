@@ -140,12 +140,39 @@
   }
 }
 
+.cardStarsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cardStarsRow .starsRow {
+  margin-bottom: 0;
+}
+
 .starsRow {
   display: flex;
   gap: 0.15rem;
   margin-bottom: 0.75rem;
   color: var(--color-primary-hover);
   font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.sourceBadge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-primary-hover);
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid var(--color-primary-light);
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  line-height: 1.2;
   flex-shrink: 0;
 }
 

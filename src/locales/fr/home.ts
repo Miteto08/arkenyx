@@ -79,6 +79,8 @@ const home = {
     navPrevAria: 'Avis précédent',
     navNextAria: 'Avis suivant',
     submitError: 'Envoi impossible',
+    sourceGoogle: 'Avis Google',
+    sourceGoogleAria: 'Avis publié sur Google',
   },
   faq: {
     title: 'Questions fréquentes',

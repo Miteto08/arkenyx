@@ -123,7 +123,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
         >
           {trackList.map((t, i) => (
             <TestimonialCard
-              key={`${i}-${trackN}`}
+              key={t.id ? `${t.id}-${i}` : `card-${i}-${t.text?.slice(0, 12) ?? ''}`}
               testimonial={t}
               isVisible={i >= index && i < index + cardsVisible}
             />
