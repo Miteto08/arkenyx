@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { get } from '@/lib/i18n';
 import type { Testimonial } from '@/types/testimonial';
@@ -29,11 +29,23 @@ function formatReviewDate(isoDate: string | undefined): string | null {
 
 export default function AllReviewsListItem({ testimonial }: AllReviewsListItemProps) {
   const [expandText, setExpandText] = useState(false);
+  const [canToggleText, setCanToggleText] = useState(false);
+  const textWrapRef = useRef<HTMLDivElement | null>(null);
   const { stars, services, text, author, created_at, source } = testimonial;
   const authorTrimmed = author?.trim() ?? '';
   const hasLongText = text.length > HAS_LONG_TEXT_THRESHOLD;
   const dateStr = formatReviewDate(created_at);
   const showAuthorDate = authorTrimmed || dateStr;
+
+  useEffect(() => {
+    if (expandText) return;
+    const el = textWrapRef.current;
+    if (!el) {
+      setCanToggleText(false);
+      return;
+    }
+    setCanToggleText(el.scrollHeight - el.clientHeight > 1);
+  }, [expandText, text]);
 
   return (
     <li className={styles.listItem}>
@@ -69,13 +81,14 @@ export default function AllReviewsListItem({ testimonial }: AllReviewsListItemPr
           </p>
         )}
         <div
+          ref={textWrapRef}
           className={
             expandText ? cardStyles.cardTextWrap : cardStyles.cardTextWrapClamped
           }
         >
           <p className={cardStyles.cardText}>{text}</p>
         </div>
-        {hasLongText && (
+        {hasLongText && (canToggleText || expandText) && (
           <div className={cardStyles.cardActionsRow}>
             <button
               type="button"
