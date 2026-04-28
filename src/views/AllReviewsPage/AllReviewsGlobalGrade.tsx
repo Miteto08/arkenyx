@@ -13,9 +13,12 @@ export default function AllReviewsGlobalGrade({
   totalCount,
 }: AllReviewsGlobalGradeProps) {
   const averageLabel = get<string>('home.avisPage.averageLabel');
+  const averageValue = Number.isInteger(averageStars)
+    ? String(averageStars)
+    : averageStars.toFixed(1);
   const averageOutOf = get<string>('home.avisPage.averageOutOf').replace(
     '{avg}',
-    averageStars.toFixed(1)
+    averageValue
   );
   const reviewsCount = get<string>('home.avisPage.reviewsCount').replace(
     '{n}',

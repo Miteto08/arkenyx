@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { Testimonial } from '@/types/testimonial';
 import ReviewSourceBadge from '@/components/ReviewSourceBadge/ReviewSourceBadge';
 import TestimonialCardStars from './TestimonialCardStars';
@@ -17,12 +17,24 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ testimonial, isVisible = true }: TestimonialCardProps) {
   const [expandText, setExpandText] = useState(false);
+  const [canToggleText, setCanToggleText] = useState(false);
+  const textWrapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!isVisible) setExpandText(false);
   }, [isVisible]);
   const { stars, services, text, author, source } = testimonial;
   const hasLongText = text.length > HAS_LONG_TEXT_THRESHOLD;
+
+  useEffect(() => {
+    if (expandText) return;
+    const el = textWrapRef.current;
+    if (!el) {
+      setCanToggleText(false);
+      return;
+    }
+    setCanToggleText(el.scrollHeight - el.clientHeight > 1);
+  }, [expandText, text, isVisible]);
 
   return (
     <div className={styles.card}>
@@ -37,10 +49,13 @@ export default function TestimonialCard({ testimonial, isVisible = true }: Testi
         {author && author.trim() && (
           <p className={styles.cardAuthor}>{author.trim()}</p>
         )}
-        <div className={expandText ? styles.cardTextWrap : styles.cardTextWrapClamped}>
+        <div
+          ref={textWrapRef}
+          className={expandText ? styles.cardTextWrap : styles.cardTextWrapClamped}
+        >
           <p className={styles.cardText}>{text}</p>
         </div>
-        {hasLongText && (
+        {hasLongText && (canToggleText || expandText) && (
           <TestimonialCardActions expanded={expandText} onToggle={() => setExpandText((v) => !v)} />
         )}
       </div>
