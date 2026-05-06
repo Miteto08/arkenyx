@@ -30,7 +30,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
     return () => m.removeEventListener('change', f);
   }, []);
 
-  const useCarousel = n >= 5;
+  const useCarousel = isLaptop ? n >= 5 : n >= 2;
   const cardsVisible = isLaptop && useCarousel ? 4 : 1;
   const maxIndex = n - cardsVisible;
   const infinite = useCarousel && n > cardsVisible;
