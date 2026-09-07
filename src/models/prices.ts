@@ -36,8 +36,9 @@ export const priceGroups: PriceGroup[] = [
       },
       {
         label: 'Récupération complexe avec tri approfondi',
-        price: 'À partir de 129€',
+        price: 'Sur devis',
         details: ['Données non organisées', 'Volume important', 'Recherche manuelle approfondie'],
+        itemNote: 'Devis après évaluation du volume et du niveau de tri.',
       },
     ],
     note:
@@ -120,7 +121,7 @@ export const priceGroups: PriceGroup[] = [
       },
       {
         label: 'Nettoyage Interne & Entretien Matériel',
-        price: '69€',
+        price: '59€',
         details: [
           'Dépoussiérage complet',
           'Nettoyage des ventilateurs',
@@ -161,7 +162,7 @@ export const priceGroups: PriceGroup[] = [
       },
       {
         label: 'Pack "Nouvelle Vie" – Recommandé',
-        price: '119€',
+        price: '114€',
         recommended: true,
         details: [
           'Diagnostic complet',
@@ -193,7 +194,7 @@ export const priceGroups: PriceGroup[] = [
       },
       {
         label: 'Installation Windows seule',
-        price: '69€',
+        price: '45€',
         details: [
           'Installation du système d\'exploitation Windows',
           'Mise à jour du système',
@@ -203,7 +204,7 @@ export const priceGroups: PriceGroup[] = [
       },
       {
         label: 'Installation des drivers & logiciels de base',
-        price: '39€',
+        price: '34€',
         details: [
           'Installation des pilotes indispensables',
           'Installation des logiciels de base (ex : navigateur, utilitaires)',
@@ -212,7 +213,7 @@ export const priceGroups: PriceGroup[] = [
       },
       {
         label: 'Pack "PC prêt à l\'emploi"',
-        price: '139€',
+        price: '149€',
         separatorBefore: true,
         recommended: true,
         details: [
@@ -261,7 +262,7 @@ export const priceGroups: PriceGroup[] = [
       },
       {
         label: 'Préparation PC gaming ou travail spécifique',
-        price: '89€',
+        price: 'Sur devis',
         details: [
           'Configuration standard optimisée',
           'Réglages système pour performance stable',
@@ -269,7 +270,7 @@ export const priceGroups: PriceGroup[] = [
           'Configuration standard adaptée au gaming ou aux applications lourdes',
         ],
         itemNote:
-          "Note : Overclocking non pris en charge. Ce service est conçu pour que votre PC dédié aux jeux ou au travail intensif soit configuré pour performance maximale sans dépasser les limites de sécurité du matériel. À noter : prestation ponctuelle, réalisée une seule fois. À renouveler uniquement si le matériel change.",
+          "Note : Overclocking non pris en charge. Devis selon le nombre et la complexité des logiciels / réglages demandés. Prestation ponctuelle, réalisée une seule fois ; à renouveler uniquement si le matériel change.",
       },
       {
         label: 'Formation & assistance utilisateur',
@@ -290,7 +291,7 @@ export const priceGroups: PriceGroup[] = [
           'Recommandations personnalisées',
           'Stratégie personnalisée pour maintenir le PC en bon état',
           'Conseils pour éviter les pertes de données et améliorer la sécurité',
-          'Mise en place de solutions de sauvegarde fiables',
+          'Orientation vers une solution de sauvegarde adaptée',
         ],
         itemNote:
           "Important : La sauvegarde complète des données nécessite un support de stockage fourni par le client (disque dur externe ou solution cloud). Le coût du support n'est pas inclus.",
@@ -305,7 +306,8 @@ export const priceGroups: PriceGroup[] = [
           'Mise en place d\'une solution de sauvegarde automatique',
           'Conseils personnalisés',
         ],
-        itemNote: 'Ce pack est conçu pour les utilisateurs qui veulent être sereins sur leurs données.',
+        itemNote:
+          'Ce pack est conçu pour les utilisateurs qui veulent être sereins sur leurs données. Hors coût du support (disque externe / cloud). Volume important ou NAS : devis.',
       },
     ],
     note:
