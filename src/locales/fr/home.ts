@@ -13,7 +13,7 @@ const home = {
     title: 'Pourquoi nous choisir ?',
     intro: "Chez Arkenyx, nous mettons l'humain et la transparence au cœur de notre activité. Voici ce qui nous différencie :",
     points: [
-      'Expertise locale et proximité : intervention rapide sur votre PC.',
+      'Expertise locale et proximité : à domicile, sur nos locaux ou à distance selon le besoin.',
       'Transparence totale sur les prix et interventions.',
       'Explication claire de chaque opération.',
       'Suivi sur la durée pour prolonger la vie de votre matériel.',
@@ -35,17 +35,64 @@ const home = {
     title: 'Comment ça marche ?',
     intro: 'Une intervention simple et transparente, en quelques étapes.',
     steps: [
-      { title: 'Nous contacter', description: 'Par e-mail ou téléphone : décrivez votre besoin ou demandez un devis gratuit.' },
-      { title: 'Devis gratuit', description: 'Nous établissons un devis détaillé sans engagement. Vous validez avant toute intervention.' },
-      { title: 'Intervention', description: 'Rendez-vous à domicile ou sur site. Explication claire de ce qui est fait.' },
-      { title: 'Règlement', description: 'Paiement à l\'issue de la prestation (carte, virement, espèces). Facture fournie.' },
+      {
+        title: 'Nous contacter',
+        description: 'Par e-mail ou téléphone : décrivez votre besoin ou demandez un devis gratuit.',
+      },
+      {
+        title: 'Devis gratuit',
+        description: 'Nous établissons un devis détaillé sans engagement. Vous validez avant toute intervention.',
+      },
+      {
+        title: 'Acceptation du devis',
+        description:
+          'Vous acceptez le devis. Ensemble, on fixe les modalités : mode d’intervention (domicile, locaux ou à distance), rendez-vous et détails pratiques.',
+      },
+      {
+        title: 'Intervention',
+        description: 'Réalisation de la prestation selon le mode convenu. Vous êtes informé de ce qui est fait.',
+      },
+      {
+        title: 'Compte rendu',
+        description:
+          'Remise d’un compte rendu d’intervention en langage clair. On le parcourt ensemble pour expliquer ce qui a été fait.',
+      },
+      {
+        title: 'Règlement',
+        description: 'Paiement à l’issue de la prestation (carte, virement ou espèces).',
+      },
+      {
+        title: 'Facture',
+        description: 'Remise de la facture par e-mail (facture électronique).',
+      },
+    ],
+    modesTitle: 'Trois façons d’intervenir',
+    modesIntro:
+      'Le mode est choisi avec vous selon la nature de la prestation (matériel ou logiciel) et ce qui est le plus simple pour vous.',
+    modes: [
+      {
+        title: 'À domicile',
+        description:
+          'Nous venons chez vous. Déplacement gratuit dans un rayon de 15 km autour d’Ahuillé ; au-delà, 0,50 €/km (détail sur le devis).',
+      },
+      {
+        title: 'Sur nos locaux',
+        description:
+          'Vous déposez ou ramenez le matériel sur le lieu de l’entreprise (sur rendez-vous). Aucun frais kilométrique.',
+      },
+      {
+        title: 'À distance',
+        description:
+          'Uniquement pour le logiciel et le conseil : prise de contrôle à distance avec votre accord, ou recommandations écrites envoyées par e-mail (liens, options neuf/occasion, etc.). Pas de dépannage hardware ni de montage PC à distance.',
+      },
     ],
   },
   price: {
     title: 'Tarifs',
     subheading: 'Tarifs clairs, sans surprise',
     deplacementLabel: 'Déplacement :',
-    deplacementText: "gratuit dans un rayon de 15 km autour d'Ahuillé ; au-delà, 0,50 €/km. À préciser sur le devis.",
+    deplacementText:
+      "à domicile : gratuit dans un rayon de 15 km autour d'Ahuillé, au-delà 0,50 €/km. Dépôt sur nos locaux : sans frais kilométriques. À distance (logiciel / conseil) : pas de déplacement. À préciser sur le devis.",
     paiementLabel: 'Paiement :',
     paiementText: 'carte bancaire, virement et espèces. Chèques non acceptés.',
   },
