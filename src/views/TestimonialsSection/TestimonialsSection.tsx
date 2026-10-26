@@ -10,7 +10,7 @@ import styles from './TestimonialsSection.module.scss';
 const CAROUSEL_MAX_REVIEWS = 15;
 
 export default function TestimonialsSection() {
-  const [testimonials, handleReviewSubmitted, loading] = useTestimonials();
+  const [testimonials, , loading] = useTestimonials();
   const n = testimonials.length;
   const carouselReviews = testimonials.slice(0, CAROUSEL_MAX_REVIEWS);
   const loadingLabel = get<string>('home.testimonials.loading');
@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
       aria-labelledby="testimonials-title"
     >
       <div className="container">
-        <TestimonialsSectionHeader onReviewSubmitted={handleReviewSubmitted} />
+        <TestimonialsSectionHeader />
         {loading && n === 0 ? (
           <div className={styles.placeholder} role="status" aria-busy="true">
             <p>{loadingLabel}</p>

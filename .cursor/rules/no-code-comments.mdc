@@ -1,0 +1,13 @@
+---
+description: No code comments unless absolutely necessary; English only when needed
+alwaysApply: true
+---
+
+# Code comments
+
+- Do **not** add comments in source code by default.
+- Comments are allowed **only** when absolutely necessary (non-obvious constraint, security caveat, or unavoidable workaround that the code cannot express).
+- If a comment is required, write it in **English**.
+- Prefer clear naming and structure over explanatory comments.
+- Do not leave JSDoc/block comments that only restate what the code already says.
+- `.env.example` keys may stay listed without extra prose; avoid redundant commentary on new env vars.

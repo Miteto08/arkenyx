@@ -1,36 +1,27 @@
 'use client';
 
-import { useState } from 'react';
-import ReviewModal from '@/views/ReviewModal/ReviewModal';
 import { get } from '@/lib/i18n';
-import type { Testimonial } from '@/types/testimonial';
+import { getGoogleWriteReviewUrl } from '@/lib/googleReviewUrl';
 import styles from './LeaveReviewButton.module.scss';
 
 interface LeaveReviewButtonProps {
   className?: string;
-  onReviewSubmitted?: (review: Testimonial) => void | Promise<void>;
 }
 
-export default function LeaveReviewButton({ className, onReviewSubmitted }: LeaveReviewButtonProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function LeaveReviewButton({ className }: LeaveReviewButtonProps) {
   const ctaLabel = get<string>('home.testimonials.ctaLeaveReview');
   const ctaAria = get<string>('home.testimonials.ctaLeaveReviewAria');
+  const href = getGoogleWriteReviewUrl();
 
   return (
-    <>
-      <button
-        type="button"
-        className={className ?? styles.cta}
-        onClick={() => setIsOpen(true)}
-        aria-label={ctaAria}
-      >
-        {ctaLabel}
-      </button>
-      <ReviewModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        onSubmit={onReviewSubmitted}
-      />
-    </>
+    <a
+      href={href}
+      className={className ?? styles.cta}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={ctaAria}
+    >
+      {ctaLabel}
+    </a>
   );
 }
