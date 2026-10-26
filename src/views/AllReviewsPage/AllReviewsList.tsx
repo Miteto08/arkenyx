@@ -4,18 +4,12 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { get } from '@/lib/i18n';
 import Link from 'next/link';
-import { getQuotePrestationGroups } from '@/models/prices';
 import type { Testimonial } from '@/types/testimonial';
 import AllReviewsListItem from './AllReviewsListItem';
 import AllReviewsGlobalGrade from './AllReviewsGlobalGrade';
 import AllReviewsStats from './AllReviewsStats';
 import AllReviewsPagination from './AllReviewsPagination';
 import styles from './AllReviewsPage.module.scss';
-
-const SERVICE_OPTIONS = (() => {
-  const groups = getQuotePrestationGroups();
-  return groups.flatMap((g) => g.items.map((item) => item.label));
-})();
 
 const PER_PAGE_OPTIONS = [20, 50, 100] as const;
 const DEFAULT_PER_PAGE = 20;
@@ -100,22 +94,14 @@ export default function AllReviewsList() {
   const [perPage, setPerPage] = useState(DEFAULT_PER_PAGE);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<SortOption>('recent');
-  const [selectedService, setSelectedService] = useState<string>('');
   const paginationRef = useRef<HTMLElement | null>(null);
 
   const displayReviews = useMemo(() => sortReviews(reviews, sortBy), [reviews, sortBy]);
-  const filteredReviews = useMemo(
-    () =>
-      !selectedService
-        ? displayReviews
-        : displayReviews.filter((r) => r.services && r.services.includes(selectedService)),
-    [displayReviews, selectedService]
-  );
   const filteredByAuthorReviews = useMemo(() => {
-    if (!authorParam || authorParam.trim() === '') return filteredReviews;
+    if (!authorParam || authorParam.trim() === '') return displayReviews;
     const decoded = decodeURIComponent(authorParam.trim());
-    return filteredReviews.filter((r) => r.author?.trim() === decoded);
-  }, [filteredReviews, authorParam]);
+    return displayReviews.filter((r) => r.author?.trim() === decoded);
+  }, [displayReviews, authorParam]);
 
   useEffect(() => {
     let cancelled = false;
@@ -133,7 +119,7 @@ export default function AllReviewsList() {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [perPage, sortBy, selectedService, authorParam]);
+  }, [perPage, sortBy, authorParam]);
 
   const title = get<string>('home.avisPage.title');
   const intro = get<string>('home.avisPage.intro');
@@ -181,25 +167,6 @@ export default function AllReviewsList() {
             totalCount={filteredByAuthorReviews.length}
           />
           <AllReviewsStats starStats={starStats} />
-          <div className={styles.filterRow}>
-            <label className={styles.filterLabel} htmlFor="avis-service-filter">
-              {get<string>('home.avisPage.filterByServiceLabel')}
-            </label>
-            <select
-              id="avis-service-filter"
-              className={styles.filterSelect}
-              value={selectedService}
-              onChange={(e) => setSelectedService(e.target.value)}
-              aria-label={get<string>('home.avisPage.filterByServiceLabel')}
-            >
-              <option value="">{get<string>('home.avisPage.allServicesOption')}</option>
-              {SERVICE_OPTIONS.map((label) => (
-                <option key={label} value={label}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </div>
           <div className={styles.sortRow}>
             <label className={styles.sortLabel} htmlFor="avis-sort">
               {get<string>('home.avisPage.sortLabel')}

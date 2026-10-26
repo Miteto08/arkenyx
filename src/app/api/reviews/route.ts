@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { neon } from '@neondatabase/serverless';
-import { fetchGooglePlaceReviews, mergeReviewsByDate, type PublicReview } from '@/lib/googlePlacesReviews';
+import { fetchGooglePlaceReviews } from '@/lib/googlePlacesReviews';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,39 +10,10 @@ function getDb() {
   return neon(url);
 }
 
-interface ReviewRow {
-  id: string;
-  stars: number;
-  services: string[] | unknown;
-  comment: string;
-  author: string | null;
-  created_at: string;
-}
-
-function rowToSiteReview(r: ReviewRow): PublicReview {
-  return {
-    id: String(r.id),
-    source: 'site',
-    stars: Number(r.stars),
-    services: (Array.isArray(r.services) ? r.services : []) as string[],
-    text: r.comment,
-    author: r.author ?? undefined,
-    created_at: r.created_at,
-  };
-}
-
 export async function GET() {
   try {
-    const sql = getDb();
-    const rows = await sql`
-      SELECT id, stars, services, comment, author, created_at
-      FROM reviews
-      ORDER BY created_at DESC
-    `;
-    const siteReviews = (rows as ReviewRow[]).map(rowToSiteReview);
     const googleReviews = await fetchGooglePlaceReviews();
-    const merged = mergeReviewsByDate(siteReviews, googleReviews);
-    return NextResponse.json(merged);
+    return NextResponse.json(googleReviews);
   } catch (err) {
     console.error('GET /api/reviews', err);
     return NextResponse.json(
