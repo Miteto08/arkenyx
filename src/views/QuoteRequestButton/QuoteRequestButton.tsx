@@ -17,7 +17,7 @@ export default function QuoteRequestButton({ className }: QuoteRequestButtonProp
     <>
       <button
         type="button"
-        className={className ?? styles.cta}
+        className={className ? `${styles.cta} ${className}` : styles.cta}
         onClick={() => setIsOpen(true)}
         aria-label={ctaLabel}
       >
